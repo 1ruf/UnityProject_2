@@ -2,24 +2,31 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
+   
     [field: SerializeField] public Rigidbody2D rigid { get; set; }
     [field: SerializeField] public SpriteRenderer spriteRenderer { get; private set; }
     [field: SerializeField] public Animator animator { get; set; }
     [field: SerializeField] public EnemyStateMachine stateMachine { get; set; }
 
+    public float Espeed = 5;
+    public bool _attack = false;
     [SerializeField] private string currentStateCheck;
 
-    private bool dirRight = true;
-    private int dir = 1;
-    public bool rightDir = true;
-    public Vector2 MoveInput { get; set; }
-    private float yvaloxity;
-
-
-
-
-
+    private Player _target;
+    [SerializeField] public int _damage = 1;
+    [SerializeField] public int _attack_Speed = 1;
+    public int Speed = 1;
+    public Player Target
+    {
+        get
+        {
+            return _target;
+        }
+        set
+        {
+            _target = value;
+        }
+    }
 
     private void Awake()
     {
@@ -44,29 +51,6 @@ public class Enemy : MonoBehaviour
     {
         currentStateCheck = stateMachine.currentState.ToString();
         stateMachine.currentState.Update();
-
-        MoveInput = new Vector2(Input.GetAxisRaw("Horizontal"), yvaloxity);
-
-
     }
-
-
-    public void EnemyFlip()
-    {
-        if (MoveInput.x > 0)
-        {
-            rightDir = false;
-
-
-        }
-        else if (MoveInput.x < 0)
-        {
-            rightDir = true;
-        }
-
-        spriteRenderer.flipX = rightDir;
-    }
-
-
 
 }
