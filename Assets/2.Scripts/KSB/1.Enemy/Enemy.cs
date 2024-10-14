@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-   
+    
     [field: SerializeField] public Rigidbody2D rigid { get; set; }
     [field: SerializeField] public SpriteRenderer spriteRenderer { get; private set; }
     [field: SerializeField] public Animator animator { get; set; }
@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public int _damage = 1;
     [SerializeField] public int _attack_Speed = 1;
     public int Speed = 1;
+
     public Player Target
     {
         get
@@ -43,7 +44,7 @@ public class Enemy : MonoBehaviour
     }
     private void Start()
     {
-
+     
         stateMachine.Initialize(EnemyStateEnum.Idle);
 
     }
