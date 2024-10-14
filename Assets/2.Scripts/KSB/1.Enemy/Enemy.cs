@@ -12,11 +12,11 @@ public class Enemy : MonoBehaviour
     public bool _attack = false;
     [SerializeField] private string currentStateCheck;
 
-    private Player _target;
+    private KSBPlayer _target;
     [SerializeField] public int _damage = 1;
     [SerializeField] public int _attack_Speed = 1;
     public int Speed = 1;
-    public Player Target
+    public KSBPlayer Target
     {
         get
         {

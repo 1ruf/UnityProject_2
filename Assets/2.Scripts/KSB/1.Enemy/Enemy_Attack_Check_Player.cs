@@ -7,7 +7,7 @@ public class Enemy_Attack_Check_Player : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            enemy.Target = collision.GetComponent<Player>();
+            enemy.Target = collision.GetComponent<KSBPlayer>();
             enemy.stateMachine.ChangeState(EnemyStateEnum.Attack);
         }
     }

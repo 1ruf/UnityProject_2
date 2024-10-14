@@ -8,7 +8,7 @@ public class Enemy_Check_Player : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !enemy._attack)
         {
-            enemy.Target = collision.GetComponent<Player>();
+            enemy.Target = collision.GetComponent<KSBPlayer>();
             enemy.stateMachine.ChangeState(EnemyStateEnum.Follow);
         }
     }
