@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Net;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using System.Net.Sockets;
 
 public class MenuStart : MonoBehaviour
 {
+    [SerializeField] private GameObject MenuUI;
     private Image background;
     private TMP_Text consoleTxt;
+
     private void Awake()
     {
         background = GetComponent<Image>();
@@ -32,13 +36,13 @@ public class MenuStart : MonoBehaviour
         Color invisible = new Color(0, 0, 0, 0);//투명도가 0인 색 정의
         background.color = invisible;//배경색을 투명한 색으로 바꿈
         consoleTxt.text = null;
+        MenuUI.SetActive(false);
     }
     private IEnumerator StartingProcess()
     {
         background.DOFade(1, 1);
         yield return new WaitForSeconds(2f);
-        StartCoroutine(DoText(consoleTxt, "starting\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)"
-            + "\n+ CategoryInfo\t: ParserError: (:) [], ParentContainsErrorRecordException + FullyQualifiedErrorId : ExpectedExpression\n+ CategoryInfo\t: ParserError: (:) [], ParentContainsErrorRecordException + FullyQualifiedErrorId : ExpectedExpression\n+ CategoryInfo\t: ParserError: (:) [], ParentContainsErrorRecordException + FullyQualifiedErrorId : ExpectedExpression\n+ CategoryInfo\t: ParserError: (:) [], ParentContainsErrorRecordException + FullyQualifiedErrorId : ExpectedExpression\n+ CategoryInfo\t: ParserError: (:) [], ParentContainsErrorRecordException + FullyQualifiedErrorId : ExpectedExpression\n+ CategoryInfo\t: ParserError: (:) [], ParentContainsErrorRecordException + FullyQualifiedErrorId : ExpectedExpression\n+ CategoryInfo\t: ParserError: (:) [], ParentContainsErrorRecordException + FullyQualifiedErrorId : ExpectedExpression\n+ CategoryInfo\t: ParserError: (:) [], ParentContainsErrorRecordException + FullyQualifiedErrorId : ExpectedExpression\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\nNullReferenceException: Object reference not set to an instance of an object\nMenuStart.FirstSet()(at Assets / 2.Scripts / KHG / MenuStart.cs:26)\nMenuStart.Start()(at Assets / 2.Scripts / KHG / MenuStart.cs:20)\n\n\npress any key to start.", 0.01f));
+        StartCoroutine(DoText(consoleTxt, "starting..\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tchecking for essential elements to start.\t\t\t\t\t\t\t\t\t\nsystemMainKey ?:a1992j3jd82D92jD29djaa92ufFJ929Fj29fh89Zls92873jd82D92jD29dja8811Ad2DPi23jd82D92jD29djM29 \nsystem open requester:" + NetworkHelper.GetMyIpAddress() + NetworkHelper.GetMyAllIPAddress() + "\n\tmainSystem.b1HDGk.connect = true\n\tmainSystem.j5AUsJ.connect = true\n\tmainSystem.oaP2Fs.connect = true\nSERVER/ConnectedDevice:Serching\nSERVER/ConnectedDevice:mainOLH.Head:CanDestroy/checking:TRUE\nSERVER/ConnectedDevice:mainOLH.Head:Waiting/checking:TRUE\nSERVER/ConnectedDevice:mainOOL.Root/checking:TRUE\n\t\t\t\t\t\t\nDeviceFinding:you need to send from \"main OOL HU.reader.straperSting\"\n\tDEVICE/ClientAssembly:System.Collections.Specialized/ProcessDialog:dismath\n\tDEVICE/ClientAssembly:System.Collections.Concurrent/ProcessDialog:dismath)_\n\tDEVICE/ClientAssembly:System.Xml.Serialization/ProcessDialog:math)_\nPress any key to continue..", 3f));
     }
     private IEnumerator DoText(TMP_Text text, string endValue, float duration)
     {
@@ -56,5 +60,35 @@ public class MenuStart : MonoBehaviour
     private void MenuOpen()
     {
         gameObject.SetActive(false);
+        MenuUI.SetActive(true);
+    }
+    public static class NetworkHelper
+    {
+        public static string GetMyIpAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+
+            throw new Exception("error");
+        }
+        public static string GetMyAllIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+
+            return host.AddressList[0].ToString();
+        }
+
+        public static bool IsLocalHost(IPEndPoint ep)
+        {
+            return ep.Address.ToString().Equals(GetMyIpAddress());
+        }
+
     }
 }
