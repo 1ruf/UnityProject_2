@@ -16,7 +16,7 @@ public class Enemy_Follow_State : EnemyState
     }
     public override  void Update()
     {
-       EnemyPos = Enemy.Target.transform.position;
+       //EnemyPos = Enemy.Target.transform.position;
     }
     private void FixedUpdate()
     {

@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
 
     public float Espeed = 5;
     public bool _attack = false;
+    public bool _follow= false;
     [SerializeField] private string currentStateCheck;
 
     private Player _target;
@@ -52,6 +53,23 @@ public class Enemy : MonoBehaviour
     {
         currentStateCheck = stateMachine.currentState.ToString();
         stateMachine.currentState.Update();
+        if (_attack)
+        {
+            stateMachine.ChangeState(EnemyStateEnum.Attack);
+        }
+        else if (!_attack && _follow)
+        {
+            stateMachine.ChangeState(EnemyStateEnum.Follow);
+        }
+        else if (_follow)
+        {
+            stateMachine.ChangeState(EnemyStateEnum.Follow);
+        }
+        else if(!_follow)
+        {
+            stateMachine.ChangeState(EnemyStateEnum.Idle);
+        }
+
     }
 
 }

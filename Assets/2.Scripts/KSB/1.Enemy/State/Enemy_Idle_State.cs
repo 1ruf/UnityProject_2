@@ -18,7 +18,8 @@ public class Enemy_Idle_State : EnemyState
 
     public override void Enter()
     {
-        Debug.Log("Follow Start");
+
+        Debug.Log("Idle ");
     }
     private void Update()
     {
@@ -59,7 +60,7 @@ public class Enemy_Idle_State : EnemyState
     }
     public override void Exit()
     {
-        Debug.Log("Follow End");
+
     }
 
 

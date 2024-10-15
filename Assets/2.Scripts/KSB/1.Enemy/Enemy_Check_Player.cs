@@ -9,17 +9,23 @@ public class Enemy_Check_Player : MonoBehaviour
     {
         if(collision.CompareTag("Player1")&& !enemy._attack)
         {
+         
+            enemy._follow = true;
             Debug.Log("follow_Start");
-            enemy.Target = collision.GetComponent<Player>();
-            enemy.stateMachine.ChangeState(EnemyStateEnum.Follow);
+            /*enemy.Target = collision.GetComponent<Player>();
+           enemy.stateMachine.ChangeState(EnemyStateEnum.Follow);*/
         }
-        
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("follow_End");
+        
         enemy.Target = null;
+        enemy._follow = false;
+        Debug.Log("follow_End");
+       /* enemy.Target = null;
         enemy.stateMachine.ChangeState(EnemyStateEnum.Idle);
+       */
     }
 }
