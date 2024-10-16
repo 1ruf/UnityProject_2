@@ -32,7 +32,5 @@ public class Enemy_Attack_State : EnemyState
         Enemy.Target.HP -= Enemy._damage;
         yield return new WaitForSeconds(Enemy._attack_Speed);
         On = false;
-       
-       
     }
 }

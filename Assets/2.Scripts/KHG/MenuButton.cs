@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,25 +8,40 @@ using TMPro;
 
 public class MenuButton : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenuUI;
-    [SerializeField] private GameObject startMenuUI;
+    [SerializeField] private GameObject mainMenuUI, startMenuUI,settingMenuUI;
+    [SerializeField] private TMP_Text startBtn, settingBtn, quitBtn;
+
+    private void OnEnable()
+    {
+        StartCoroutine(DoText(startBtn, "start",0.3f));
+        StartCoroutine(DoText(settingBtn, "setting",0.5f));
+        StartCoroutine(DoText(quitBtn, "quit",0.7f));
+    }
     public void StartBtnClicked()
     {
-        StartCoroutine(fadeOut(mainMenuUI, 0.1f, 2));
+        startMenuUI.gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
-    public void ExitBtxClicked()
+    public void SettingBtnClicked()
     {
+        settingMenuUI.gameObject.SetActive(true);
+        gameObject.SetActive(false);
+    }
+    public void ExitBtnClicked()
+    {
+        Application.Quit();
+    }
+    private IEnumerator DoText(TMP_Text text, string endValue, float duration)
+    {
+        string tempString = null;
+        WaitForSeconds charPerTime = new WaitForSeconds(duration / endValue.Length);
 
-    }
-    private IEnumerator fadeOut(GameObject obj,float time,int repeatCount)
-    {
-        for (int i = 0; i < repeatCount; i++)
+        for (int i = 0; i < endValue.Length; i++)
         {
-            obj.SetActive(false);
-            yield return new WaitForSeconds(time);
-            obj.SetActive(true);
+            tempString += endValue[i];
+            text.text = tempString;
+
+            yield return charPerTime;
         }
-        yield return new WaitForSeconds(time);
-        obj.SetActive(false);
     }
 }

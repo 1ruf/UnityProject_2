@@ -14,7 +14,8 @@ public class MenuStart : MonoBehaviour
     [SerializeField] private GameObject MenuUI;
     private Image background;
     private TMP_Text consoleTxt;
-
+    private int holdTime;
+    private bool canClick = true;
     private void Awake()
     {
         background = GetComponent<Image>();
@@ -22,7 +23,7 @@ public class MenuStart : MonoBehaviour
     }
     private void Start()
     {
-        FirstSet();
+        StartCoroutine(PleaseStandBy());
         StartCoroutine(this.StartingProcess());
     }
     private void Update()
@@ -32,19 +33,35 @@ public class MenuStart : MonoBehaviour
             MenuOpen();
         }
     }
+    private IEnumerator PleaseStandBy() 
+    {
+        MenuUI.transform.Find("StartMenu").gameObject.SetActive(false);
+        MenuUI.transform.Find("MainMenu").gameObject.SetActive(false);
+        holdTime = UnityEngine.Random.Range(1, 4);
+        for (int i = 0; i < holdTime; i++)
+        {
+            consoleTxt.text = "_";
+            yield return new WaitForSeconds(0.5f);
+            consoleTxt.text = " ";
+            yield return new WaitForSeconds(0.5f);
+
+        }
+        FirstSet();
+    }
     private void FirstSet()
     {
         Color invisible = new Color(0, 0, 0, 0);//투명도가 0인 색 정의
         background.color = invisible;//배경색을 투명한 색으로 바꿈
         consoleTxt.text = null;
-        MenuUI.SetActive(false);
     }
     private IEnumerator StartingProcess()
     {
         background.DOFade(1, 1);
-        yield return new WaitForSeconds(2f);
-        mainCam.DOOrthoSize(6.5f,5f);
-        StartCoroutine(DoText(consoleTxt, "starting..\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tchecking for essential elements to start.\t\t\t\t\t\t\t\t\t\nsystemMainKey ?:a1992j3jd82D92jD29djaa92ufFJ929Fj29fh89Zls92873jd82D92jD29dja8811Ad2DPi23jd82D92jD29djM29 \nsystem open requester:" + NetworkHelper.GetMyIpAddress() + NetworkHelper.GetMyAllIPAddress() + "\n\tmainSystem.b1HDGk.connect = true\n\tmainSystem.j5AUsJ.connect = true\n\tmainSystem.oaP2Fs.connect = true\nSERVER/ConnectedDevice:Serching\nSERVER/ConnectedDevice:mainOLH.Head:CanDestroy/checking:TRUE\nSERVER/ConnectedDevice:mainOLH.Head:Waiting/checking:TRUE\nSERVER/ConnectedDevice:mainOOL.Root/checking:TRUE\n\t\t\t\t\t\t\nDeviceFinding:you need to send from \"main OOL HU.reader.straperSting\"\n\tDEVICE/ClientAssembly:System.Collections.Specialized/ProcessDialog:dismath\n\tDEVICE/ClientAssembly:System.Collections.Concurrent/ProcessDialog:dismath)_\n\tDEVICE/ClientAssembly:System.Xml.Serialization/ProcessDialog:math)_\nPress any key to continue..", 3f));
+        yield return new WaitForSeconds(holdTime);
+        mainCam.DOOrthoSize(6.5f, 5f);
+        StartCoroutine(DoText(consoleTxt, "starting..\nchecking for essential elements to start.\t\t\t\t\t\t\t\t\t\nsystemMainKey ?:a1992j3jd82D92jD29djaa92ufFJ929Fj29fh89Zls92873jd82D92jD29dja8811Ad2DPi23jd82D92jD29djM29 \nsystem open requester:" + NetworkHelper.GetMyIpAddress() + NetworkHelper.GetMyAllIPAddress() + "\n\tmainSystem.b1HDGk.connect = true\n\tmainSystem.j5AUsJ.connect = true\n\tmainSystem.oaP2Fs.connect = true\nSERVER/ConnectedDevice:Serching\nSERVER/ConnectedDevice:mainOLH.Head:CanDestroy/checking:TRUE\nSERVER/ConnectedDevice:mainOLH.Head:Waiting/checking:TRUE\nSERVER/ConnectedDevice:mainOOL.Root/checking:TRUE\n\t\t\t\t\t\t\nDeviceFinding:you need to send from \"main OOL HU.reader.straperSting\"\n\tDEVICE/ClientAssembly:System.Collections.Specialized/ProcessDialog:dismath\n\tDEVICE/ClientAssembly:System.Collections.Concurrent/ProcessDialog:dismath)_\n\tDEVICE/ClientAssembly:System.Xml.Serialization/ProcessDialog:math)_\nWELCOME_BACK\nPress any key to continue..", 0));
+        yield return new WaitForSeconds(5.5f);
+        MenuOpen();
     }
     private IEnumerator DoText(TMP_Text text, string endValue, float duration)
     {
@@ -62,7 +79,7 @@ public class MenuStart : MonoBehaviour
     private void MenuOpen()
     {
         gameObject.SetActive(false);
-        MenuUI.SetActive(true);
+        MenuUI.transform.Find("MainMenu").gameObject.SetActive(true);
         mainCam.orthographicSize = 6.5f;
         DOTween.KillAll();
     }
