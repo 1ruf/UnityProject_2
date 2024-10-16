@@ -10,6 +10,7 @@ using System.Net.Sockets;
 
 public class MenuStart : MonoBehaviour
 {
+    [SerializeField] private Camera mainCam;
     [SerializeField] private GameObject MenuUI;
     private Image background;
     private TMP_Text consoleTxt;
@@ -42,6 +43,7 @@ public class MenuStart : MonoBehaviour
     {
         background.DOFade(1, 1);
         yield return new WaitForSeconds(2f);
+        mainCam.DOOrthoSize(6.5f,5f);
         StartCoroutine(DoText(consoleTxt, "starting..\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tchecking for essential elements to start.\t\t\t\t\t\t\t\t\t\nsystemMainKey ?:a1992j3jd82D92jD29djaa92ufFJ929Fj29fh89Zls92873jd82D92jD29dja8811Ad2DPi23jd82D92jD29djM29 \nsystem open requester:" + NetworkHelper.GetMyIpAddress() + NetworkHelper.GetMyAllIPAddress() + "\n\tmainSystem.b1HDGk.connect = true\n\tmainSystem.j5AUsJ.connect = true\n\tmainSystem.oaP2Fs.connect = true\nSERVER/ConnectedDevice:Serching\nSERVER/ConnectedDevice:mainOLH.Head:CanDestroy/checking:TRUE\nSERVER/ConnectedDevice:mainOLH.Head:Waiting/checking:TRUE\nSERVER/ConnectedDevice:mainOOL.Root/checking:TRUE\n\t\t\t\t\t\t\nDeviceFinding:you need to send from \"main OOL HU.reader.straperSting\"\n\tDEVICE/ClientAssembly:System.Collections.Specialized/ProcessDialog:dismath\n\tDEVICE/ClientAssembly:System.Collections.Concurrent/ProcessDialog:dismath)_\n\tDEVICE/ClientAssembly:System.Xml.Serialization/ProcessDialog:math)_\nPress any key to continue..", 3f));
     }
     private IEnumerator DoText(TMP_Text text, string endValue, float duration)
@@ -61,6 +63,8 @@ public class MenuStart : MonoBehaviour
     {
         gameObject.SetActive(false);
         MenuUI.SetActive(true);
+        mainCam.orthographicSize = 6.5f;
+        DOTween.KillAll();
     }
     public static class NetworkHelper
     {
