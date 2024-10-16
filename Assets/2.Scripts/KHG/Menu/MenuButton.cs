@@ -16,16 +16,17 @@ public class MenuButton : MonoBehaviour
         StartCoroutine(DoText(startBtn, "start",0.3f));
         StartCoroutine(DoText(settingBtn, "setting",0.5f));
         StartCoroutine(DoText(quitBtn, "quit",0.7f));
+        StartCoroutine(DoText(transform.parent.Find("MainTitle").GetComponent<TMP_Text>(), "connected", 1f));
     }
     public void StartBtnClicked()
     {
-        startMenuUI.gameObject.SetActive(true);
-        gameObject.SetActive(false);
+        startMenuUI.SetActive(true);
+        gameObject.transform.parent.gameObject.SetActive(false);
     }
     public void SettingBtnClicked()
     {
         settingMenuUI.gameObject.SetActive(true);
-        gameObject.SetActive(false);
+        gameObject.transform.parent.gameObject.SetActive(false);
     }
     public void ExitBtnClicked()
     {
@@ -33,13 +34,13 @@ public class MenuButton : MonoBehaviour
     }
     private IEnumerator DoText(TMP_Text text, string endValue, float duration)
     {
-        string tempString = null;
+        string nowString = null;
         WaitForSeconds charPerTime = new WaitForSeconds(duration / endValue.Length);
 
         for (int i = 0; i < endValue.Length; i++)
         {
-            tempString += endValue[i];
-            text.text = tempString;
+            nowString += endValue[i];
+            text.text = nowString;
 
             yield return charPerTime;
         }

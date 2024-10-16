@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.Net;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
@@ -11,11 +12,11 @@ using System.Net.Sockets;
 public class MenuStart : MonoBehaviour
 {
     [SerializeField] private Camera mainCam;
-    [SerializeField] private GameObject MenuUI;
+    [SerializeField] private GameObject MenuUI, button;
     private Image background;
     private TMP_Text consoleTxt;
     private int holdTime;
-    private bool canClick = true;
+    private bool canClick = true, requestActive = false;
     private void Awake()
     {
         background = GetComponent<Image>();
@@ -28,10 +29,45 @@ public class MenuStart : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.anyKeyDown)
+        
+        if (requestActive)
+        {
+            if (Keyboard.current.yKey.wasPressedThisFrame)
+            {
+                button.SetActive(true);
+                StartCoroutine(Positive());
+            }
+            else if (Keyboard.current.nKey.wasPressedThisFrame)
+            {
+                button.SetActive(true);
+                StartCoroutine(Negative());
+            }
+        }
+        else if (Keyboard.current.anyKey.wasPressedThisFrame)
         {
             MenuOpen();
         }
+    }
+    public void GrantBtnClicked()
+    {
+        StartCoroutine(Positive());
+    }
+    public void DenyBtnClicked()
+    {
+        StartCoroutine(Negative());
+    }
+    private IEnumerator Positive()
+    {
+        consoleTxt.text += "\naccessing...";
+        yield return new WaitForSeconds(1f);
+        consoleTxt.text += "\nconnected.";
+        MenuOpen();
+    }
+    private IEnumerator Negative()
+    {
+        consoleTxt.text += "\naccess denied.";
+        yield return new WaitForSeconds(1f);
+        Application.Quit();
     }
     private IEnumerator PleaseStandBy() 
     {
@@ -58,10 +94,19 @@ public class MenuStart : MonoBehaviour
     {
         background.DOFade(1, 1);
         yield return new WaitForSeconds(holdTime);
-        mainCam.DOOrthoSize(6.5f, 5f);
-        StartCoroutine(DoText(consoleTxt, "starting..\nchecking for essential elements to start.\t\t\t\t\t\t\t\t\t\nsystemMainKey ?:a1992j3jd82D92jD29djaa92ufFJ929Fj29fh89Zls92873jd82D92jD29dja8811Ad2DPi23jd82D92jD29djM29 \nsystem open requester:" + NetworkHelper.GetMyIpAddress() + NetworkHelper.GetMyAllIPAddress() + "\n\tmainSystem.b1HDGk.connect = true\n\tmainSystem.j5AUsJ.connect = true\n\tmainSystem.oaP2Fs.connect = true\nSERVER/ConnectedDevice:Serching\nSERVER/ConnectedDevice:mainOLH.Head:CanDestroy/checking:TRUE\nSERVER/ConnectedDevice:mainOLH.Head:Waiting/checking:TRUE\nSERVER/ConnectedDevice:mainOOL.Root/checking:TRUE\n\t\t\t\t\t\t\nDeviceFinding:you need to send from \"main OOL HU.reader.straperSting\"\n\tDEVICE/ClientAssembly:System.Collections.Specialized/ProcessDialog:dismath\n\tDEVICE/ClientAssembly:System.Collections.Concurrent/ProcessDialog:dismath)_\n\tDEVICE/ClientAssembly:System.Xml.Serialization/ProcessDialog:math)_\nWELCOME_BACK\nPress any key to continue..", 0));
-        yield return new WaitForSeconds(5.5f);
-        MenuOpen();
+        mainCam.DOOrthoSize(6.5f, 7f);
+        print(requestActive);
+        StartCoroutine(DoText(consoleTxt, "starting..\nchecking for essential elements to start.\nsystemMainKey?:a1992j3jd82D, requesterPCIP:" + NetworkHelper.GetMyIpAddress() + NetworkHelper.GetMyAllIPAddress() + "<-your ip :)", 1f));
+        yield return new WaitForSeconds(3f);
+        requestActive = true;
+        consoleTxt.text += "\nare you sure to connect?[ Y / N ]";
+        yield return new WaitForSeconds(1f);
+        if (requestActive == true)
+        {
+            button.SetActive(true);
+        }
+        //StartCoroutine(DoText(consoleTxt, "starting..\nchecking for essential elements to start.\t\t\t\t\t\t\t\t\t\nsystemMainKey ?:a1992j3jd82D92jD29djaa92ufFJ929Fj29fh89Zls92873jd82D92jD29dja8811Ad2DPi23jd82D92jD29djM29 \nsystem open requester:" + NetworkHelper.GetMyIpAddress() + NetworkHelper.GetMyAllIPAddress() + "\n\tmainSystem.b1HDGk.connect = true\n\tmainSystem.j5AUsJ.connect = true\n\tmainSystem.oaP2Fs.connect = true\nSERVER/ConnectedDevice:Serching\nSERVER/ConnectedDevice:mainOLH.Head:CanDestroy/checking:TRUE\nSERVER/ConnectedDevice:mainOLH.Head:Waiting/checking:TRUE\nSERVER/ConnectedDevice:mainOOL.Root/checking:TRUE\n\t\t\t\t\t\t\nDeviceFinding:you need to send from \"main OOL HU.reader.straperSting\"\n\tDEVICE/ClientAssembly:System.Collections.Specialized/ProcessDialog:dismath\n\tDEVICE/ClientAssembly:System.Collections.Concurrent/ProcessDialog:dismath)_\n\tDEVICE/ClientAssembly:System.Xml.Serialization/ProcessDialog:math)_\nWELCOME_BACK\nPress any key to continue..", 0));
+        //yield return new WaitForSeconds(5.5f);
     }
     private IEnumerator DoText(TMP_Text text, string endValue, float duration)
     {
@@ -79,6 +124,7 @@ public class MenuStart : MonoBehaviour
     private void MenuOpen()
     {
         gameObject.SetActive(false);
+        MenuUI.SetActive(true);
         MenuUI.transform.Find("MainMenu").gameObject.SetActive(true);
         mainCam.orthographicSize = 6.5f;
         DOTween.KillAll();
