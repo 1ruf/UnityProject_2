@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static EnemyStateMachine;
 
-public class EnemyState : MonoBehaviour
+public class EnemyState 
 {
     public int AnimBoolHash;
     public Enemy Enemy;
@@ -29,13 +29,13 @@ public class EnemyState : MonoBehaviour
 
     public virtual void Enter()
     {
-        animator.SetBool(AnimBoolHash, true);
-        IsTriggerCalled = false;//
+       // animator.SetBool(AnimBoolHash, true);
+        IsTriggerCalled = false;
     }
 
     public virtual void Exit()
     {
-        animator.SetBool(AnimBoolHash, false);
+      // animator.SetBool(AnimBoolHash, false);
 
     }
 

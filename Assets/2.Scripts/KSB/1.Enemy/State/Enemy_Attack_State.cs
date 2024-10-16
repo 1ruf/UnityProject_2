@@ -7,17 +7,18 @@ public class Enemy_Attack_State : EnemyState
     private bool On = false;
     public override void Enter()
     {
+        Debug.Log("follow_End");
         Enemy._attack = true;
     }
     public Enemy_Attack_State(Enemy enemy, EnemyStateMachine stateMachine, string animBoolHash) : base(enemy, stateMachine, animBoolHash)
     {
 
     }
-    private void Update()
+    public override void Update()
     {
         if(!On)
         {
-            StartCoroutine(Attack());
+            //StartCoroutine(Attack());
         }
        
     }

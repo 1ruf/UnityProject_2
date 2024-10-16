@@ -1,12 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Enemy_Idle_State : EnemyState
 {
     [SerializeField] private Pointer pointer;
-    [SerializeField] 
+
+
+    [SerializeField] private Transform target;
+
+
     public Enemy_Idle_State(Enemy enemy, EnemyStateMachine stateMachine, string animBoolHash) : base(enemy, stateMachine, animBoolHash)
     {
 
@@ -14,28 +16,51 @@ public class Enemy_Idle_State : EnemyState
 
     bool isSurveilling = false; // 감시가 진행 중인지 확인하는 변수
 
+    public override void Enter()
+    {
+
+        Debug.Log("Idle ");
+    }
     private void Update()
     {
-        if (!isSurveilling) 
+        if (!isSurveilling)
         {
-            StartCoroutine(Surveillance());
+           // StartCoroutine(Surveillance());
         }
     }
 
-    IEnumerator Surveillance() 
+    IEnumerator Surveillance()
     {
 
-        isSurveilling =  true;
-        for (int i = 0; i < pointer.Points.Length; i++)
+        isSurveilling = true;
+
+        for (int i = 1; i < pointer.points.Length; i++)
         {
-         
-          Enemy.transform.position = Vector2.MoveTowards(Enemy.transform.position, pointer.Points[i],Enemy.Speed);
-          yield return new WaitForSeconds(1f);
-          isSurveilling = false;
+            if (Enemy.transform.position != pointer.points[i])
+            {
+                Enemy.transform.position = Vector2.MoveTowards(Enemy.transform.position, target.position, 1);
+            }
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1f);
+        isSurveilling = false;
+
+        for (int i = 0; i < pointer.points.Length; i++)
+        {
+
+            Enemy.transform.position = Vector2.MoveTowards(Enemy.transform.position, pointer.points[i], Enemy.Speed);
+            yield return new WaitForSeconds(1f);
+            isSurveilling = false;
 
         }
-       
-       
+
+
+
+    }
+    public override void Exit()
+    {
+
     }
 
 

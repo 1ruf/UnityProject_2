@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class KHJPlayer : MonoBehaviour
+public class KSBPlayer : MonoBehaviour
 {
-    void Update()
+    public int HP;
+    private void Start()
     {
-        if (Keyboard.current.wKey.isPressed)
-        {
-            print("pressed");
-        }
+        HP = 100;
     }
 }
