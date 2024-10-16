@@ -6,8 +6,6 @@ public class Enemy_Idle_State : EnemyState
     [SerializeField] private Pointer pointer;
 
 
-    [SerializeField] private Transform target;
-
 
     public Enemy_Idle_State(Enemy enemy, EnemyStateMachine stateMachine, string animBoolHash) : base(enemy, stateMachine, animBoolHash)
     {
@@ -38,25 +36,13 @@ public class Enemy_Idle_State : EnemyState
         {
             if (Enemy.transform.position != pointer.points[i])
             {
-                Enemy.transform.position = Vector2.MoveTowards(Enemy.transform.position, target.position, 1);
+                Enemy.transform.position = Vector2.MoveTowards(Enemy.transform.position, pointer.points[i], 1);
             }
             yield return null;
         }
 
         yield return new WaitForSeconds(1f);
         isSurveilling = false;
-
-        for (int i = 0; i < pointer.points.Length; i++)
-        {
-
-            Enemy.transform.position = Vector2.MoveTowards(Enemy.transform.position, pointer.points[i], Enemy.Speed);
-            yield return new WaitForSeconds(1f);
-            isSurveilling = false;
-
-        }
-
-
-
     }
     public override void Exit()
     {
