@@ -2040,6 +2040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a43e5e65dfd614392fb54b5d9162cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCam: {fileID: 1720837170}
   mainMenuUI: {fileID: 1611890188}
   continueBtn: {fileID: 73984984}
   newgameBtn: {fileID: 1414593601}

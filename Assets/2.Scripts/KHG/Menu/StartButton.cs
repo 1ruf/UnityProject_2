@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 using TMPro;
 
 public class StartButton : MonoBehaviour
 {
+    [SerializeField] private Camera mainCam;
     [SerializeField] private GameObject mainMenuUI;
     [SerializeField] private TMP_Text continueBtn, newgameBtn, backBtn;
 
@@ -29,7 +31,8 @@ public class StartButton : MonoBehaviour
     }
     public void ContinueBtnClick()
     {
-
+        mainCam.DOOrthoSize(5f, 2f);
+        gameObject.transform.parent.gameObject.SetActive(false);
     }
     public void NewGameBtnClicked()
     {
