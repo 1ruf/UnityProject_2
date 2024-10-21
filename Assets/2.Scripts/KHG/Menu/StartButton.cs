@@ -9,6 +9,7 @@ public class StartButton : MonoBehaviour
     [SerializeField] private Camera mainCam;
     [SerializeField] private GameObject mainMenuUI;
     [SerializeField] private TMP_Text continueBtn, newgameBtn, backBtn;
+    [SerializeField] private string[] warnMessege;
 
     private void OnEnable()
     {
@@ -36,11 +37,23 @@ public class StartButton : MonoBehaviour
     }
     public void NewGameBtnClicked()
     {
+        int savedData = PlayerPrefs.GetInt("NowSavedStage");
+        if (savedData == 0)
+        {
 
+        }
+        else
+        {
+            WarnPopup(warnMessege[0],warnMessege[1]);
+        }
     }
     public void BackBtnClicked()
     {
         mainMenuUI.SetActive(true);
         gameObject.transform.parent.gameObject.SetActive(false);
+    }
+    private void WarnPopup(string Title, string message)
+    {
+
     }
 }
