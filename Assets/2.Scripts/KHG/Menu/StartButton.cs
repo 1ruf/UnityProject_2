@@ -61,7 +61,7 @@ public class StartButton : MonoBehaviour
     }
     public void NewGameBtnClicked()
     {
-        gameObject.transform.parent.gameObject.SetActive(false);
+        gameObject.SetActive(false);
         int savedData = PlayerPrefs.GetInt("NowSavedStage",0);
         if (savedData == 0)
         {

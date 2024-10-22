@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class MenuButton : MonoBehaviour
 {
@@ -17,6 +18,15 @@ public class MenuButton : MonoBehaviour
         StartCoroutine(DoText(settingBtn, "setting",0.5f));
         StartCoroutine(DoText(quitBtn, "quit",0.7f));
         StartCoroutine(DoText(transform.parent.Find("MainTitle").GetComponent<TMP_Text>(), "connected", 1f));
+    }
+    private void Update()
+    {
+        if (Keyboard.current.tKey.wasPressedThisFrame)
+        {
+            PlayerPrefs.SetInt("NowSavedStage", 1);
+
+            print(PlayerPrefs.GetInt("NowSavedStage"));
+        }
     }
     public void StartBtnClicked()
     {

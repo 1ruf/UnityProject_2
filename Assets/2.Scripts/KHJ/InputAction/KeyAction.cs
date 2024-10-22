@@ -235,9 +235,7 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
     public PlayerActions @Player => new PlayerActions(this);
     public interface IPlayerActions
     {
-        void OnSpace(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnSpace(InputAction.CallbackContext context);
     }
-
- 
 }
