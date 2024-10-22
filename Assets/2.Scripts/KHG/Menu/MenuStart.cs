@@ -95,7 +95,7 @@ public class MenuStart : MonoBehaviour
         background.DOFade(1, 1);
         yield return new WaitForSeconds(holdTime);
         mainCam.DOOrthoSize(6.5f, 7f);
-        StartCoroutine(DoText(consoleTxt, "starting..\nchecking for essential elements to start.\nsystemMainKey?:a1992j3jd82D, requesterPCIP:" + NetworkHelper.GetMyIpAddress() + NetworkHelper.GetMyAllIPAddress() + "<-your ip :)", 1f));
+        StartCoroutine(DoText(consoleTxt, "starting..\nchecking for essential elements to start.\nsystemMainKey?:a1992j3jd82D, requesterPCIP:" + NetworkHelper.GetMyIpAddress() + NetworkHelper.GetMyAllIPAddress() + "_", 1f));
         yield return new WaitForSeconds(3f);
         requestActive = true;
         consoleTxt.text += "\nare you sure to connect?[ Y / N ]";
