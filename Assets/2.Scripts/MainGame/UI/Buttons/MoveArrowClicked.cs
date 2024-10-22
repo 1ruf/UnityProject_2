@@ -77,7 +77,7 @@ public class MoveArrowClicked : MonoBehaviour
     private void RightMove()
     {
         arrowL.DOFade(1f, 0.1f);
-        CamSet();
+        CamSet(nowSector);
         //mainCam.transform.DOMoveX((mainCam.transform.position.x + moveVal), 0.7f);
         if (nowSector >= maxArea)
         {
@@ -87,7 +87,7 @@ public class MoveArrowClicked : MonoBehaviour
     private void LeftMove()
     {
         arrowR.DOFade(1f, 0.1f);
-        CamSet();
+        CamSet(nowSector);
         //mainCam.transform.DOMoveX((mainCam.transform.position.x - moveVal), 0.7f);
         if (nowSector <= minArea)
         {
@@ -118,14 +118,14 @@ public class MoveArrowClicked : MonoBehaviour
             arrowR.DOFade(1f, 0.1f);
             zoomBtnTxt.text = "ZOOM OUT\n(TAB)";
             mainCam.GetComponent<Camera>().DOOrthoSize(5f, 1f);
-            CamSet();
+            CamSet(nowSector);
             ArrowSet();
         }
     }
-    private void CamSet()
+    private void CamSet(int sector)
     {
         Transform camTP = mainCam.transform;
-        switch (nowSector)
+        switch (sector)
         {
             case 0:
                 camTP.DOMove(localCamPos_EZ, camMoveSpeed);
