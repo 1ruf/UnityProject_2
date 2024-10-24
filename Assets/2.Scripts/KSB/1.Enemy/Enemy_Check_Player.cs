@@ -11,7 +11,7 @@ public class Enemy_Check_Player : MonoBehaviour
         {
          
             enemy._follow = true;
-            Debug.Log("follow_Start");
+
             /*enemy.Target = collision.GetComponent<Player>();
            enemy.stateMachine.ChangeState(EnemyStateEnum.Follow);*/
         }
@@ -20,12 +20,12 @@ public class Enemy_Check_Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
-        enemy.Target = null;
         enemy._follow = false;
-        Debug.Log("follow_End");
+        enemy.Target = null;
+       
        /* enemy.Target = null;
         enemy.stateMachine.ChangeState(EnemyStateEnum.Idle);
        */
     }
+ 
 }

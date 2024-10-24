@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Enemy_Idle_State : EnemyState
 {
-    [SerializeField] private Pointer pointer;
+
 
 
 
@@ -17,26 +17,18 @@ public class Enemy_Idle_State : EnemyState
     public override void Enter()
     {
 
-        Debug.Log("Idle ");
-    }
-    private void Update()
-    {
-        if (!isSurveilling)
-        {
-           // StartCoroutine(Surveillance());
-        }
-    }
 
-    IEnumerator Surveillance()
+    }
+    public IEnumerator Surveillance()
     {
 
         isSurveilling = true;
 
-        for (int i = 1; i < pointer.points.Length; i++)
+        for (int i = 1; i < Enemy.Instance.pointer.points.Length; i++)
         {
-            if (Enemy.transform.position != pointer.points[i])
+            if (Enemy.transform.position != Enemy.Instance.pointer.points[i])
             {
-                Enemy.transform.position = Vector2.MoveTowards(Enemy.transform.position, pointer.points[i], 1);
+                Enemy.transform.position = Vector2.MoveTowards(Enemy.transform.position, Enemy.Instance.pointer.points[i], 1);
             }
             yield return null;
         }

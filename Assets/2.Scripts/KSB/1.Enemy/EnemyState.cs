@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static EnemyStateMachine;
 
-public class EnemyState 
+public class EnemyState
 {
     public int AnimBoolHash;
     public Enemy Enemy;

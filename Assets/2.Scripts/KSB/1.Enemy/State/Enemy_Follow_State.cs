@@ -6,6 +6,10 @@ public class Enemy_Follow_State : EnemyState
    
     private Rigidbody2D rd;
     Vector2 EnemyPos;
+    public override void Enter()
+    {
+        Debug.Log("Start Follow");
+    }
     private void Awake()
     {
         rd = Enemy.GetComponent<Rigidbody2D>();
@@ -28,5 +32,9 @@ public class Enemy_Follow_State : EnemyState
         rd.AddForce(direction *Enemy.Espeed);
     }
 
-  
+    public override void Exit()
+    {
+        Debug.Log("follow_End");
+    }
+
 }
