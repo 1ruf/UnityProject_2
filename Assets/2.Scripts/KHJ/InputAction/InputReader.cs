@@ -11,6 +11,7 @@ public class InputReader : ScriptableObject, IPlayerActions
 {
     public event Action<Vector2> OnMove;       //이동 이벤트
     public event Action OnJumpPressed;         //점프 이벤트
+    public event Action OnLeftMouse;
 
     public Vector2 InputVector { get; private set; }
 
@@ -36,6 +37,12 @@ public class InputReader : ScriptableObject, IPlayerActions
     {
         
         OnMove?.Invoke(context.ReadValue<Vector2>());
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            OnLeftMouse?.Invoke();
     }
 }
 

@@ -8,7 +8,7 @@ public class MoveState : State
     [SerializeField] private MovementData _movementData;
     protected override void EnterState()
     {
-        print("축하합니다 당신은 Movement 상태에 돌입 하였습니다!");
+        Debug.Log("축하합니다 당신은 Movement 상태에 돌입 하였습니다!");
     }
 
     protected override void HandleMovement(Vector2 vector)

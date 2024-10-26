@@ -26,6 +26,10 @@ public abstract class State : MonoBehaviour
 
     }
 
+    protected virtual void HandleLeftMousePressed()
+    {
+        _agent.TransitionState(_agent.StateCompo.GetState(StateType.Attack));
+    }
 
 
     public virtual void StateFixedUpdate()
@@ -51,12 +55,15 @@ public abstract class State : MonoBehaviour
 
     public void Enter()
     {
-        print(_agent);
+        _agent.InputCompo.OnLeftMouse += HandleLeftMousePressed;
         _agent.InputCompo.OnMove += HandleMovement;
+        EnterState();
     }
     public void Exit()
     {
-
+        _agent.InputCompo.OnLeftMouse -= HandleLeftMousePressed;
+        _agent.InputCompo.OnMove -= HandleMovement;
+        ExitState();
     }
 
 }
