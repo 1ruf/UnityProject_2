@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] public State _currentState {get; private set; }
-    [SerializeField] public State _previousState { get; private set; }
-
-    [field: SerializeField] public InputReader InputCompo { get; private set; }
+    public State _currentState {get; private set; }
+    public State _previousState { get; private set; }
+    [field : SerializeField] public InputReader InputCompo { get; private set; }
+    
+    public PlayerAnimaton AnimCompo { get; private set; }
     public Rigidbody2D RbCompo;
 
 
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     {
         StateCompo = GetComponentInChildren<StateFectory>();
         RbCompo = GetComponent<Rigidbody2D>();
+        AnimCompo = GetComponent<PlayerAnimaton>();
     }
 
     private void Start()

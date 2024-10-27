@@ -7,8 +7,7 @@ public class IdleState : State
 
     protected override void EnterState()
     {
-        //_agent.AnimCompo.PlayAnimaiton(AnimationType.idle);
-        Debug.Log("ถ๓ภฬต้");
+        _agent.AnimCompo.PlayAnimaton(AnimatonType.idle);
         _agent.RbCompo.velocity = Vector2.zero;
     }
 
