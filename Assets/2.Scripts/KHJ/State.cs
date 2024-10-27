@@ -52,7 +52,7 @@ public abstract class State : MonoBehaviour
     public void Enter()
     {
         print(_agent);
-        _agent.InputCompo.OnMove += HandleMovement;
+       // _agent.InputCompo.OnMove += HandleMovement;
     }
     public void Exit()
     {
