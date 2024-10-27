@@ -11,7 +11,8 @@ public class InputReader : ScriptableObject, IPlayerActions
 {
     public event Action<Vector2> OnMove;       //이동 이벤트
     public event Action OnJumpPressed;         //점프 이벤트
-
+    public event Action OnLeftMouse;
+    public Vector2 MousePos { get; private set; } 
     public Vector2 InputVector { get; private set; }
 
     private KeyAction _playerInputAction;
@@ -36,6 +37,16 @@ public class InputReader : ScriptableObject, IPlayerActions
     {
         
         OnMove?.Invoke(context.ReadValue<Vector2>());
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        
+        if (context.performed)
+        {
+            MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            OnLeftMouse?.Invoke();
+        }
     }
 }
 
