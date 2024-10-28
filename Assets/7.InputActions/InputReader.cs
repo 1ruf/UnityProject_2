@@ -54,6 +54,7 @@ public class InputReader : ScriptableObject, IPlayerActions
     {
         if (context.performed)
         {
+            MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             OnTabKey?.Invoke();
         }
     }
