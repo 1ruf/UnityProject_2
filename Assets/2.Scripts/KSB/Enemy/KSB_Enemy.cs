@@ -15,7 +15,7 @@ public class KSB_Enemy : MonoBehaviour
     public Collider2D target;
     public SpriteRenderer spriteRender;
 
-    float Hp;
+    public float Hp;
     public Sensing _sensing;
     [Header("State debugging:")]
     public string stateName = "";
@@ -31,7 +31,7 @@ public class KSB_Enemy : MonoBehaviour
 
     private void Awake()
     {
-        Hp = _enemySO.hp;
+      
         MoveState = GetComponent<MoveState_SB>();
         AttackState = GetComponent<AttackState_SB>();
         FollowState = GetComponent<FollowState_SB>();
@@ -51,7 +51,7 @@ public class KSB_Enemy : MonoBehaviour
 
     private void Start()
     {
-
+        Hp = _enemySO.hp;
         TransitionState(IdleState);
         spriteRender.sprite = Visual_Sprite;
 
@@ -59,7 +59,12 @@ public class KSB_Enemy : MonoBehaviour
 
     private void Update()
     {
-     
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Hp -= 100;
+        }
+      
+
         currentState.StateUpdate();
         point = IdlePositon.position;
     }
