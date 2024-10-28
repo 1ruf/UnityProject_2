@@ -35,6 +35,11 @@ public class PlayerAnimaton : MonoBehaviour
     {
         _animator.Play(animName);
     }
+
+    public void Stop()
+    {
+        _animator.enabled = false;
+    }
 }
 
 

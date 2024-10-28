@@ -62,6 +62,15 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CharacterSkill"",
+                    ""type"": ""Button"",
+                    ""id"": ""f73e321a-6b13-44da-b014-d385bcbd6d9a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
                     ""action"": ""ChangeSkill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d8c19a6b-3a48-4b22-844c-8082e088a735"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CharacterSkill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +184,7 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
         m_Player_Space = m_Player.FindAction("Space", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_ChangeSkill = m_Player.FindAction("ChangeSkill", throwIfNotFound: true);
+        m_Player_CharacterSkill = m_Player.FindAction("CharacterSkill", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +250,7 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Space;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_ChangeSkill;
+    private readonly InputAction m_Player_CharacterSkill;
     public struct PlayerActions
     {
         private @KeyAction m_Wrapper;
@@ -237,6 +259,7 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
         public InputAction @Space => m_Wrapper.m_Player_Space;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @ChangeSkill => m_Wrapper.m_Player_ChangeSkill;
+        public InputAction @CharacterSkill => m_Wrapper.m_Player_CharacterSkill;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +281,9 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
             @ChangeSkill.started += instance.OnChangeSkill;
             @ChangeSkill.performed += instance.OnChangeSkill;
             @ChangeSkill.canceled += instance.OnChangeSkill;
+            @CharacterSkill.started += instance.OnCharacterSkill;
+            @CharacterSkill.performed += instance.OnCharacterSkill;
+            @CharacterSkill.canceled += instance.OnCharacterSkill;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -274,6 +300,9 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
             @ChangeSkill.started -= instance.OnChangeSkill;
             @ChangeSkill.performed -= instance.OnChangeSkill;
             @ChangeSkill.canceled -= instance.OnChangeSkill;
+            @CharacterSkill.started -= instance.OnCharacterSkill;
+            @CharacterSkill.performed -= instance.OnCharacterSkill;
+            @CharacterSkill.canceled -= instance.OnCharacterSkill;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -297,5 +326,6 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
         void OnSpace(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnChangeSkill(InputAction.CallbackContext context);
+        void OnCharacterSkill(InputAction.CallbackContext context);
     }
 }

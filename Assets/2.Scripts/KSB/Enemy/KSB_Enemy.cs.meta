@@ -3,7 +3,21 @@ guid: e1e122fa7e00d2649b3fec8ef6f17ef8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _enemySO: {fileID: 11400000, guid: 29a8b0d7663b21844a9cac7ea243600b, type: 2}
+  - Visual_Sprite: {instanceID: 0}
+  - <InputCompo>k__BackingField: {instanceID: 0}
+  - IdlePositon: {instanceID: 0}
+  - currentState: {instanceID: 0}
+  - previousState: {instanceID: 0}
+  - target: {instanceID: 0}
+  - spriteRender: {instanceID: 0}
+  - _sensing: {instanceID: 0}
+  - MoveState: {instanceID: 0}
+  - AttackState: {instanceID: 0}
+  - FollowState: {instanceID: 0}
+  - IdleState: {instanceID: 0}
+  - DeathState: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
