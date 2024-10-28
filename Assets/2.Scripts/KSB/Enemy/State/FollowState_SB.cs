@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class FollowState_SB : E_State
 {
@@ -14,6 +15,10 @@ public class FollowState_SB : E_State
     }
     public override void StateUpdate()
     {
+        if (_agent.Hp <= 0)
+        {
+            _agent.TransitionState(_agent.DeathState);
+        }
         if (_agent._sensing.Attack)
         {
             _agent.TransitionState(_agent.AttackState);
