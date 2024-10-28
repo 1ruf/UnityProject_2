@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private State _currentState = null;
-
-    [field: SerializeField] public InputReader InputCompo { get; private set; }
+    public State _currentState {get; private set; }
+    public State _previousState { get; private set; }
+    [field : SerializeField] public InputReader InputCompo { get; private set; }
+    
+    public PlayerAnimaton AnimCompo { get; private set; }
     public Rigidbody2D RbCompo;
 
 
@@ -15,6 +17,7 @@ public class Player : MonoBehaviour
     {
         StateCompo = GetComponentInChildren<StateFectory>();
         RbCompo = GetComponent<Rigidbody2D>();
+        AnimCompo = GetComponent<PlayerAnimaton>();
     }
 
     private void Start()
@@ -38,7 +41,10 @@ public class Player : MonoBehaviour
         if (desireState == null) return;
 
         if (_currentState != null)
+        {
             _currentState.Exit();
+            _previousState = _currentState;
+        }
         _currentState = desireState;
         _currentState.Enter();
 
