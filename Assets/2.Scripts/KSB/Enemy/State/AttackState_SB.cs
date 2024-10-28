@@ -17,6 +17,10 @@ public class AttackState_SB : E_State
     public override void StateUpdate()
     {
         Flip();
+        if(_agent.Hp<=0)
+        {
+            _agent.TransitionState(_agent.DeathState);
+        }
         if(!_agent._sensing.Attack&& !_agent._sensing.Detected)
             _agent.TransitionState(_agent.MoveState);
 

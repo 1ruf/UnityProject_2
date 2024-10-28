@@ -20,16 +20,17 @@ public class MoveState_SB : E_State
         {
             _agent.TransitionState(_agent.DeathState);
         }
-        if (_agent.Hp <= 0)
+        if (_agent._sensing.Detected)
         {
-            _agent.TransitionState(_agent.DeathState);
+            _agent.TransitionState(_agent.FollowState);
         }
-        if (_agent.transform.position == _agent.point)
+        else if (_agent.transform.position == _agent.point)
         {
             _agent.TransitionState(_agent.IdleState);
         }
        else if (_agent.transform.position != _agent.point)
             _agent.transform.position = Vector2.MoveTowards(_agent.transform.position, _agent.point, _agent._enemySO.speed * Time.deltaTime);
+     
        
     }
 }

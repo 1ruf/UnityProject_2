@@ -10,12 +10,11 @@ public class KSB_Enemy : MonoBehaviour
     [SerializeField] private Transform IdlePositon;
     public bool shouldMove;
     public Rigidbody2D RbCompo { get; private set; }
-
-    [SerializeField] private E_State currentState = null, previousState = null;
+    public E_State currentState = null, previousState = null;
     public Collider2D target;
     public SpriteRenderer spriteRender;
 
-    public float Hp;
+    public float hp;
     public Sensing _sensing;
     [Header("State debugging:")]
     public string stateName = "";
@@ -26,16 +25,20 @@ public class KSB_Enemy : MonoBehaviour
     public FollowState_SB FollowState;
     public IdleState_SB IdleState;
     public DeathState_SB DeathState;
-
+    public HitSstate_SB HitState;
 
 
     private void Awake()
     {
-      
+
+        HitState = GetComponent<HitSstate_SB>();
         MoveState = GetComponent<MoveState_SB>();
         AttackState = GetComponent<AttackState_SB>();
         FollowState = GetComponent<FollowState_SB>();
         IdleState = GetComponent<IdleState_SB>();
+        DeathState = GetComponent<DeathState_SB>();
+        
+
 
         Visual_Sprite = _enemySO.Visual;
         spriteRender = GetComponentInChildren<SpriteRenderer>();
@@ -47,6 +50,24 @@ public class KSB_Enemy : MonoBehaviour
         E_State[] states = GetComponentsInChildren<E_State>();
         foreach (E_State state in states)
             state.InitializeState(this);
+    }
+    public float Hp
+    {
+        get
+        {
+            return hp;
+        }
+        set
+        {
+            if (value <= 100)
+            {
+                hp = value;
+            }
+            else
+            {
+                hp = 0;
+            }
+        }
     }
 
     private void Start()
@@ -63,7 +84,11 @@ public class KSB_Enemy : MonoBehaviour
         {
             Hp -= 100;
         }
-      
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            TransitionState(HitState);
+        }
 
         currentState.StateUpdate();
         point = IdlePositon.position;
@@ -71,8 +96,7 @@ public class KSB_Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-     
-            currentState.StateFixedUpdate();
+        currentState.StateFixedUpdate();
     }
 
     internal void TransitionState(E_State desireState)
@@ -98,6 +122,10 @@ public class KSB_Enemy : MonoBehaviour
         }
     }
 
+    public void Hited()
+    {
+
+    }
 
 }
 

@@ -25,6 +25,9 @@ public class EnemyAnimation : MonoBehaviour
             case AnimationType.die:
                 Play("Death");
                 break;
+            case AnimationType.hit:
+                Play("Hit");
+                break;
             default:
                 break;
         }

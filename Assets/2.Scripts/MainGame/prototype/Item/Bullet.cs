@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnEnable()
     {
-        _rigid.AddForce(transform.up * bulletSpd);
+        _rigid.AddForce(transform.right * bulletSpd);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

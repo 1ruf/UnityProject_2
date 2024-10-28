@@ -58,6 +58,7 @@ public class MenuStart : MonoBehaviour
     }
     private IEnumerator Positive()
     {
+        transform.Find("Buttons").gameObject.SetActive(false);
         consoleTxt.text += "\naccessing...";
         yield return new WaitForSeconds(1f);
         consoleTxt.text += "\nconnected.";
@@ -65,6 +66,7 @@ public class MenuStart : MonoBehaviour
     }
     private IEnumerator Negative()
     {
+        transform.Find("Buttons").gameObject.SetActive(false);
         consoleTxt.text += "\naccess denied.";
         yield return new WaitForSeconds(1f);
         Application.Quit();

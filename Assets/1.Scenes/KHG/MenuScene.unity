@@ -992,7 +992,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1485230499}
         m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
-        m_MethodName: ContinueBtnClick
+        m_MethodName: W_Reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2311,7 +2311,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1485230499}
         m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
-        m_MethodName: ContinueBtnClick
+        m_MethodName: W_BackBtnClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2374,7 +2374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1311083352
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2929,7 +2929,7 @@ MonoBehaviour:
   - {fileID: 816819892}
   mainCam: {fileID: 1720837170}
   warnMessage:
-  - "\uB370\uC774\uD130 \uBC1C\uACAC\uB428."
+  - "\uB370\uC774\uD130 \uBC1C\uACAC\uB428"
   - "\uC774 \uC804\uC5D0 \uD50C\uB808\uC774\uD588\uB358 \uAE30\uB85D\uC774 \uC788\uC2B5\uB2C8\uB2E4.
     \uB9AC\uC14B \uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
 --- !u!1 &1533709600
@@ -3409,7 +3409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1660487566
 RectTransform:
   m_ObjectHideFlags: 0

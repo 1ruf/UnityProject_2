@@ -406,6 +406,7 @@ GameObject:
   - component: {fileID: 585250499}
   - component: {fileID: 585250500}
   - component: {fileID: 585250501}
+  - component: {fileID: 585250502}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -548,6 +549,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd2c6fb434a2bd449603127a8479f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &585250502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585250496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e09d0b4cda28c84c8403bc9e5cd4f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _agent: {fileID: 1356945887}
+  _Enemy: {fileID: 1147324296}
 --- !u!1 &1147324290
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +611,9 @@ GameObject:
   - component: {fileID: 1356945884}
   - component: {fileID: 1356945883}
   - component: {fileID: 1356945882}
+  - component: {fileID: 1356945888}
+  - component: {fileID: 1356945889}
+  - component: {fileID: 1356945890}
   m_Layer: 0
   m_Name: Boby
   m_TagString: Untagged
@@ -743,7 +761,7 @@ MonoBehaviour:
   previousState: {fileID: 0}
   target: {fileID: 0}
   spriteRender: {fileID: 0}
-  Hp: 0
+  hp: 0
   _sensing: {fileID: 143232716}
   stateName: 
   point: {x: 0, y: 0, z: 0}
@@ -752,6 +770,70 @@ MonoBehaviour:
   FollowState: {fileID: 0}
   IdleState: {fileID: 0}
   DeathState: {fileID: 0}
+  HitState: {fileID: 0}
+--- !u!114 &1356945888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356945880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56711e99dac98af4a87a153251ddfb2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1356945889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356945880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f564f668f206b6d41bfcc385aa4b024e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!50 &1356945890
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356945880}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1407083938
 GameObject:
   m_ObjectHideFlags: 0
