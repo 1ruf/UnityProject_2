@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
@@ -35,10 +36,10 @@ public class StartButton : MonoBehaviour
 
     private void SetBtn()
     {
-        if (PlayerPrefs.GetInt("NowSavedStage") != 0)
-            continueBtn.enabled = false;
+        if (PlayerPrefs.GetInt("NowSavedStage") == 0)
+            continueBtn.interactable = false;
         else
-            continueBtn.enabled = true;
+            continueBtn.interactable = true;
     }
 
     private IEnumerator DoText(TMP_Text text, string endValue, float duration)
@@ -74,7 +75,9 @@ public class StartButton : MonoBehaviour
     }
     private void GameStart()
     {
-        mainCam.DOOrthoSize(5f, 2f);    }
+        mainCam.DOOrthoSize(5f, 2f);
+        SceneManager.LoadScene("StageSelectScene");
+    }
     public void BackBtnClicked()
     {
         mainMenuUI.SetActive(true);
@@ -89,6 +92,7 @@ public class StartButton : MonoBehaviour
     public void W_BackBtnClicked()
     {
         gameObject.transform.parent.gameObject.SetActive(true);
+        gameObject.SetActive(true);
         w_UI.SetActive(false);
     }
     public void W_Reset()
