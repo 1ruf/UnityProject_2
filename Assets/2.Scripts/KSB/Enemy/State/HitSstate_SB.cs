@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathState_SB :E_State
+public class HitSstate_SB : E_State
 {
     protected override void EnterState()
     {
-        print("qw");
-        _agent.AnimationCompo.PlayAnimaiton(AnimationType.die);
 
+        _agent.AnimationCompo.PlayAnimaiton(AnimationType.hit);
+        _agent.RbCompo.AddForce(Vector2.right, ForceMode2D.Impulse);
     }
     public override void StateFixedUpdate()
     {
@@ -20,5 +20,5 @@ public class DeathState_SB :E_State
         base.StateUpdate();
     }
 
-
+    
 }

@@ -22,20 +22,18 @@ public class IdleState_SB : E_State
         {
             _agent.TransitionState(_agent.DeathState);
         }
-        if (_agent.Hp <= 0)
+
+        else if (_agent._sensing.Detected)
         {
-            _agent.TransitionState(_agent.DeathState);
+            _agent.TransitionState(_agent.FollowState);
         }
-        if (_agent.transform.position != _agent.point)
+        else if (_agent.transform.position != _agent.point)
         {
             Debug.Log("toMove");
             _agent.shouldMove = true;
             _agent.TransitionState(_agent.MoveState);
         }
-        if (_agent._sensing.Detected)
-        {
-            _agent.TransitionState(_agent.FollowState);
-        }
+    
        
       
        

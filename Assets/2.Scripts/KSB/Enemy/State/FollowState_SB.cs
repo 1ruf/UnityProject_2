@@ -18,13 +18,18 @@ public class FollowState_SB : E_State
         if (_agent.Hp <= 0)
         {
             _agent.TransitionState(_agent.DeathState);
+            print("1");
         }
-        if (_agent._sensing.Attack)
+        else if(!_agent._sensing.Detected)
+        {
+            _agent.TransitionState(_agent.IdleState);
+        }
+        else if (_agent._sensing.Attack)
         {
             _agent.TransitionState(_agent.AttackState);
         }
-        if (!_agent._sensing.Attack)
-            _agent.TransitionState(_agent.IdleState);
+        else if (!_agent._sensing.Attack)
+            _agent.TransitionState(_agent.FollowState);
     }
     public override void StateFixedUpdate()
     {
