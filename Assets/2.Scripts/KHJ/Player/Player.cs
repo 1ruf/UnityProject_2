@@ -7,7 +7,9 @@ public class Player : MonoBehaviour
     public State _currentState {get; private set; }
     public State _previousState { get; private set; }
     [field : SerializeField] public InputReader InputCompo { get; private set; }
-    
+
+    [SerializeField] private PlayerFlip FlipCompo;
+
     public PlayerAnimaton AnimCompo { get; private set; }
     public Rigidbody2D RbCompo;
 
@@ -34,6 +36,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         _currentState.StateUpdate();
+        FlipCompo.Flip(this);
     }
 
     internal void TransitionState(State desireState)
