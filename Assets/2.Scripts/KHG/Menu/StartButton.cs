@@ -57,8 +57,8 @@ public class StartButton : MonoBehaviour
     }
     public void ContinueBtnClick()
     {
-        mainCam.DOOrthoSize(5f, 2f);
         gameObject.transform.parent.gameObject.SetActive(false);
+        GameStart();
     }
     public void NewGameBtnClicked()
     {
@@ -75,8 +75,7 @@ public class StartButton : MonoBehaviour
     }
     private void GameStart()
     {
-        mainCam.DOOrthoSize(5f, 2f);
-        SceneManager.LoadScene("StageSelectScene");
+        mainCam.DOOrthoSize(5f, 2f).OnComplete(()=> SceneManager.LoadScene(1));
     }
     public void BackBtnClicked()
     {
