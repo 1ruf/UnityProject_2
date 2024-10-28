@@ -735,6 +735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemySO: {fileID: 11400000, guid: 29a8b0d7663b21844a9cac7ea243600b, type: 2}
+  Visual_Sprite: {fileID: 0}
   <InputCompo>k__BackingField: {fileID: 0}
   IdlePositon: {fileID: 350862530}
   shouldMove: 0
@@ -742,6 +743,7 @@ MonoBehaviour:
   previousState: {fileID: 0}
   target: {fileID: 0}
   spriteRender: {fileID: 0}
+  Hp: 0
   _sensing: {fileID: 143232716}
   stateName: 
   point: {x: 0, y: 0, z: 0}
@@ -749,6 +751,7 @@ MonoBehaviour:
   AttackState: {fileID: 0}
   FollowState: {fileID: 0}
   IdleState: {fileID: 0}
+  DeathState: {fileID: 0}
 --- !u!1 &1407083938
 GameObject:
   m_ObjectHideFlags: 0

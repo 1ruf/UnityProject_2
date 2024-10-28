@@ -3,7 +3,7 @@ using UnityEngine;
 public class KSB_Enemy : MonoBehaviour
 {
     public EnemySO _enemySO;
-    private Sprite Visual_Sprite;
+    public Sprite Visual_Sprite;
     [field: SerializeField] public InputReader InputCompo { get; private set; }
     public EnemyAnimation AnimationCompo { get; private set; }
     public Collider2D ColliderCompo { get; private set; }
@@ -15,7 +15,7 @@ public class KSB_Enemy : MonoBehaviour
     public Collider2D target;
     public SpriteRenderer spriteRender;
 
-
+    public float Hp;
     public Sensing _sensing;
     [Header("State debugging:")]
     public string stateName = "";
@@ -25,9 +25,13 @@ public class KSB_Enemy : MonoBehaviour
     public AttackState_SB AttackState;
     public FollowState_SB FollowState;
     public IdleState_SB IdleState;
+    public DeathState_SB DeathState;
+
+
 
     private void Awake()
     {
+      
         MoveState = GetComponent<MoveState_SB>();
         AttackState = GetComponent<AttackState_SB>();
         FollowState = GetComponent<FollowState_SB>();
@@ -47,6 +51,7 @@ public class KSB_Enemy : MonoBehaviour
 
     private void Start()
     {
+        Hp = _enemySO.hp;
         TransitionState(IdleState);
         spriteRender.sprite = Visual_Sprite;
 
@@ -54,6 +59,11 @@ public class KSB_Enemy : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Hp -= 100;
+        }
+      
 
         currentState.StateUpdate();
         point = IdlePositon.position;
@@ -61,7 +71,8 @@ public class KSB_Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        currentState.StateFixedUpdate();
+     
+            currentState.StateFixedUpdate();
     }
 
     internal void TransitionState(E_State desireState)
@@ -86,6 +97,8 @@ public class KSB_Enemy : MonoBehaviour
             stateName = currentState.GetType().ToString();
         }
     }
+
+
 }
 
 
