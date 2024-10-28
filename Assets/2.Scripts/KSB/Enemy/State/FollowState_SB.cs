@@ -14,7 +14,12 @@ public class FollowState_SB : E_State
     }
     public override void StateUpdate()
     {
-
+        if (_agent._sensing.Attack)
+        {
+            _agent.TransitionState(_agent.AttackState);
+        }
+        if (!_agent._sensing.Attack)
+            _agent.TransitionState(_agent.IdleState);
     }
     public override void StateFixedUpdate()
     {

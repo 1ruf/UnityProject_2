@@ -267,7 +267,7 @@ Transform:
   m_GameObject: {fileID: 350862529}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.3200002, y: 0.8, z: 0}
+  m_LocalPosition: {x: -15.41, y: 2.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -352,7 +352,7 @@ Transform:
   m_GameObject: {fileID: 495590327}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.59, y: 1.16, z: 0}
+  m_LocalPosition: {x: 4.46, y: 1.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -573,7 +573,7 @@ Transform:
   m_GameObject: {fileID: 1147324290}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.32, y: 0.17, z: 0}
+  m_LocalPosition: {x: 15.58, y: -1.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -596,7 +596,6 @@ GameObject:
   - component: {fileID: 1356945884}
   - component: {fileID: 1356945883}
   - component: {fileID: 1356945882}
-  - component: {fileID: 1356945888}
   m_Layer: 0
   m_Name: Boby
   m_TagString: Untagged
@@ -613,7 +612,7 @@ Transform:
   m_GameObject: {fileID: 1356945880}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.55, y: 0.38, z: 0}
+  m_LocalPosition: {x: -14.97, y: 0.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -746,27 +745,10 @@ MonoBehaviour:
   _sensing: {fileID: 143232716}
   stateName: 
   point: {x: 0, y: 0, z: 0}
---- !u!114 &1356945888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1356945880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d35fa2ea3aa29394692a9129a8caffc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Visual: {fileID: 1653675400, guid: 95b552aae4bd4a144b7db8ec26c70e2d, type: 3}
-  damage: 2
-  hp: 100
-  speed: 3
-  detecting_Range: 6.5
-  MoveState: {fileID: 1356945884}
-  AttackState: {fileID: 1356945885}
-  FollowState: {fileID: 1356945882}
-  IdleState: {fileID: 1356945886}
+  MoveState: {fileID: 0}
+  AttackState: {fileID: 0}
+  FollowState: {fileID: 0}
+  IdleState: {fileID: 0}
 --- !u!1 &1407083938
 GameObject:
   m_ObjectHideFlags: 0

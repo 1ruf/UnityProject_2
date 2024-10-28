@@ -14,10 +14,7 @@ public class EnemySO :ScriptableObject
     public float speed = 3;
     public float detecting_Range = 6.5f;
 
-    /*public MoveState_SB MoveState;
-    public AttackState_SB AttackState;
-    public FollowState_SB FollowState; 
-    public IdleState_SB IdleState;
-    */
+    
+   
 
 }

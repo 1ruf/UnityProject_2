@@ -22,8 +22,14 @@ public class IdleState_SB : E_State
         {
             Debug.Log("toMove");
             _agent.shouldMove = true;
-          // _agent.TransitionState(_agent._enemySO.MoveState);
+            _agent.TransitionState(_agent.MoveState);
         }
+        if (_agent._sensing.Detected)
+        {
+            _agent.TransitionState(_agent.FollowState);
+        }
+       
+      
        
 
       

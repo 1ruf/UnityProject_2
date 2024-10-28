@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class KSB_Enemy : MonoBehaviour
 {
-    [field: SerializeField] EnemySO _enemySO;
-    private  Sprite Visual_Sprite;
+    public EnemySO _enemySO;
+    private Sprite Visual_Sprite;
     [field: SerializeField] public InputReader InputCompo { get; private set; }
     public EnemyAnimation AnimationCompo { get; private set; }
     public Collider2D ColliderCompo { get; private set; }
@@ -21,9 +21,18 @@ public class KSB_Enemy : MonoBehaviour
     public string stateName = "";
     public Vector3 point;
 
+    public MoveState_SB MoveState;
+    public AttackState_SB AttackState;
+    public FollowState_SB FollowState;
+    public IdleState_SB IdleState;
+
     private void Awake()
-    { 
-        _enemySO = GetComponent<EnemySO>();
+    {
+        MoveState = GetComponent<MoveState_SB>();
+        AttackState = GetComponent<AttackState_SB>();
+        FollowState = GetComponent<FollowState_SB>();
+        IdleState = GetComponent<IdleState_SB>();
+
         Visual_Sprite = _enemySO.Visual;
         spriteRender = GetComponentInChildren<SpriteRenderer>();
         ColliderCompo = GetComponent<Collider2D>();
@@ -38,34 +47,16 @@ public class KSB_Enemy : MonoBehaviour
 
     private void Start()
     {
-       // TransitionState(_enemySO.IdleState);
+        TransitionState(IdleState);
         spriteRender.sprite = Visual_Sprite;
 
     }
 
     private void Update()
     {
-       
+
         currentState.StateUpdate();
         point = IdlePositon.position;
-
-
-        if (_sensing.Attack && _sensing.Detected)
-        {
-           // TransitionState(_enemySO.AttackState);
-        }
-        else if (_sensing.Detected && !_sensing.Attack|| _sensing.Detected)
-        {
-            //TransitionState(_enemySO.FollowState);
-        }
-        else if (shouldMove)
-        {
-           //TransitionState(_enemySO.MoveState);
-        }
-        else if (!_sensing.Detected && !_sensing.Attack)
-        {
-            //TransitionState(_enemySO.MoveState);
-        }
     }
 
     private void FixedUpdate()

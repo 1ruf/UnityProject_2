@@ -18,7 +18,7 @@ public class MoveState_SB : E_State
     {
         if (_agent.transform.position == _agent.point)
         {
-            _agent.shouldMove = false;
+            _agent.TransitionState(_agent.IdleState);
         }
        else if (_agent.transform.position != _agent.point)
             _agent.transform.position = Vector2.MoveTowards(_agent.transform.position, _agent.point, _agent._enemySO.speed * Time.deltaTime);
