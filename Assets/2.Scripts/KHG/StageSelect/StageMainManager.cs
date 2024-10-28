@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class StageMainManager : MonoBehaviour
 {
@@ -9,5 +8,6 @@ public class StageMainManager : MonoBehaviour
     private void Awake()
     {
         _stageData = GetComponent<StageData>();
+        _stageData.nowStage = PlayerPrefs.GetInt("NowSavedStage");
     }
 }

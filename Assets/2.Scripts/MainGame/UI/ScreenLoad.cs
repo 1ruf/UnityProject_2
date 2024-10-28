@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using UnityEngine;
 using DG.Tweening;
 using System;
@@ -8,15 +9,59 @@ using TMPro;
 
 public class ScreenLoad : MonoBehaviour
 {
+    [Header("Information")]
+    [SerializeField] private int nowStage;
+    [Header("objects")]
+    [SerializeField] private GameObject nosignalPanel;
     [SerializeField] private GameObject map;
     [SerializeField] private Image loadingBar_Main;
     [SerializeField] private Image loadingBar_BG;
     [SerializeField] private TMP_Text loadingTitle, mainTitle;
+
+
+    private int a;
+    private void Awake()
+    {
+        nosignalPanel.SetActive(false);
+    }
     private void Start()
     {
-        StartCoroutine(load());
+        SetStage();
+    }
+    private void Update()
+    {
+        if (Keyboard.current.tKey.wasPressedThisFrame)
+        {
+            a += 1;
+            PlayerPrefs.SetInt("NowSavedStage",a);
+            print(PlayerPrefs.GetInt("NowSavedStage"));
+        }
+    }
+    private void SetStage()
+    {
+        EZSceneLoad(CheckStage());
+    }
+    private bool CheckStage()
+    {
+        if (nowStage <= PlayerPrefs.GetInt("NowSavedStage"))
+            return true;
+        else   
+            return false;    
     }
 
+    public void EZSceneLoad(bool canActive)
+    {
+        if (canActive)
+        {
+            StartCoroutine(load());
+
+        }
+        else
+        {
+            mainTitle.text = name + ": NO SIGNAL";
+            nosignalPanel.SetActive(true);
+        }
+    }
     private IEnumerator load()
     {
         string[] nowState = mainTitle.text.Split(':');
@@ -50,5 +95,4 @@ public class ScreenLoad : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         Smap.SetActive(true);
     }
-
 }

@@ -23,6 +23,12 @@ public class MoveArrowClicked : MonoBehaviour
     {
         ArrowSet();
     }
+    private void OnEnable()
+    {
+        IsTabCool = true;
+        mainCam.GetComponent<Camera>().DOOrthoSize(10f, 1f).OnComplete(() => IsTabCool = false);
+        IsTab = true;
+    }
     private void Update()
     {
         IsCool = IsTab;
