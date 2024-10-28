@@ -7,7 +7,7 @@ using UnityEngine;
 public class StateFectory : MonoBehaviour
 {
 
-    [SerializeField] private State Idle, Move, Attack;
+    [SerializeField] private State Idle, Move, Attack, Change;
 
 
     public State GetState(StateType stateType)
@@ -16,6 +16,7 @@ public class StateFectory : MonoBehaviour
             StateType.Idle => Idle,
             StateType.Move => Move,
             StateType.Attack => Attack,
+            StateType.Change => Change,
             _ => throw new System.Exception("hay what the fuck")
         };
 
@@ -33,5 +34,6 @@ public enum StateType
 {
     Idle,
     Move,
-    Attack
+    Attack,
+    Change
 }
