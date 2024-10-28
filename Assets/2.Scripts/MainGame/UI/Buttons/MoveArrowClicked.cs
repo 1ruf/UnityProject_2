@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
@@ -10,23 +10,34 @@ public class MoveArrowClicked : MonoBehaviour
     [SerializeField] private ScreenLoad EZ, S1, S2, S3;
     [SerializeField] private GameObject mainCam;
     [SerializeField] private Image arrowL, arrowR, tabBtn;
+    [SerializeField] private Button EnterBtn;
     [SerializeField] private TMP_Text zoomBtnTxt;
     [SerializeField] private int maxArea ,minArea, nowSector;
     [SerializeField] private float camMoveSpeed;
+    private GameObject buttonUI;
     private Camera cam = new Camera();
     private Vector3 nowCamPos;
     private Vector3 localCamPos_EZ = new Vector3(0, 0, -10), localCamPos_S1 = new Vector3(17.8f, 0, -10), localCamPos_S2 = new Vector3(0, -9.65f, -10), localCamPos_S3 = new Vector3(17.8f, -9.65f, -10);
     private bool IsCool,IsTab,IsTabCool;
     private bool canDispatch;
-
+    private void Awake()
+    {
+        buttonUI = transform.Find("ButtonsUI").gameObject;
+    }
     private void Start()
     {
         ArrowSet();
     }
     private void OnEnable()
     {
+        buttonUI.SetActive(false);
         IsTabCool = true;
-        mainCam.GetComponent<Camera>().DOOrthoSize(10f, 1f).OnComplete(() => IsTabCool = false);
+        mainCam.GetComponent<Camera>().DOOrthoSize(10f, 1f).OnComplete(() =>
+        {
+            IsTabCool = false;
+            buttonUI.SetActive(true);
+            CheckTab();
+        });
         IsTab = true;
     }
     private void Update()
@@ -44,7 +55,32 @@ public class MoveArrowClicked : MonoBehaviour
         {
             SectorClick();
         }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            EnterGame();
+        }
     }
+    public void EnterGame()
+    {
+        if (IsTab == false)
+        {
+            StartCoroutine(EnterStage());
+            EnterBtn.interactable = true;
+        }
+        else
+        {
+            EnterBtn.interactable = false;
+        }
+    }
+    private IEnumerator EnterStage()
+    {
+        buttonUI.SetActive(false);
+        CamSet(nowSector);
+        mainCam.GetComponent<Camera>().DOOrthoSize(0, 1.5f).SetEase(Ease.InBack);
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("Stage" + (nowSector + 1).ToString());
+    }
+
     public void RightClick()
     {
         print("Rclicked");
@@ -73,6 +109,7 @@ public class MoveArrowClicked : MonoBehaviour
     public void SectorClick()
     {
         MapPopUp();
+        CheckTab();
     }
     private IEnumerator Cooler(float coolTime)
     {
@@ -100,8 +137,20 @@ public class MoveArrowClicked : MonoBehaviour
             arrowL.DOFade(0.3f, 0.1f);
         }
     }
+    private void CheckTab()
+    {
+        if (IsTab == false)
+        {
+            EnterBtn.interactable = true;
+        }
+        else
+        {
+            EnterBtn.interactable = false;
+        }
+    }
     private void MapPopUp()
     {
+        CheckTab();
         nowCamPos = mainCam.transform.position;
         if (!IsTab && !IsTabCool)
         {
@@ -130,6 +179,7 @@ public class MoveArrowClicked : MonoBehaviour
     }
     private void CamSet(int sector)
     {
+        CheckTab();
         Transform camTP = mainCam.transform;
         switch (sector)
         {
