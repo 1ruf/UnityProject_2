@@ -10,9 +10,9 @@ using static KeyAction;
 public class InputReader : ScriptableObject, IPlayerActions
 {
     public event Action<Vector2> OnMove;       //이동 이벤트
-    public event Action OnJumpPressed;         //점프 이벤트
-    public event Action OnLeftMouse;
-    public event Action OnTabKey;
+    public event System.Action OnJumpPressed;         //점프 이벤트
+    public event System.Action OnLeftMouse;
+    public event System.Action OnTabKey;
     public Vector2 MousePos { get; private set; } 
     public Vector2 InputVector { get; private set; }
 
