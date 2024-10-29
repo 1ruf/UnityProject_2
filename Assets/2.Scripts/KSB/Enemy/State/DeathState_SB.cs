@@ -9,6 +9,7 @@ public class DeathState_SB :E_State
         print("qw");
         _agent.AnimationCompo.PlayAnimaiton(AnimationType.die);
 
+
     }
     public override void StateFixedUpdate()
     {

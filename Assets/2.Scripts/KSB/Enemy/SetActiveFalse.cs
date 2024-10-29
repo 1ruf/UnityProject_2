@@ -9,7 +9,8 @@ public class SetActiveFalse : MonoBehaviour
 
     public void M_SetActiveFalse()
     {
-        _Enemy.gameObject.SetActive(false);
+        Destroy(_Enemy.gameObject);
+
     }
     public void TOPreviousState()
     {

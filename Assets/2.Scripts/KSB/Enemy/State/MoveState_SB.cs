@@ -9,27 +9,19 @@ public class MoveState_SB : E_State
     {
         _agent.AnimationCompo.PlayAnimaiton(AnimationType.run);
     }
-    public override void StateFixedUpdate()
-    {
-      
-    }
-
     public override void StateUpdate()
     {
-        if (_agent.Hp <= 0)
+       
+        if (_sensing.Detected)
         {
-            _agent.TransitionState(_agent.DeathState);
-        }
-        if (_agent._sensing.Detected)
-        {
-            _agent.TransitionState(_agent.FollowState);
+            _agent.TransitionState(_agent.GetState<FollowState_SB>());
         }
         else if (_agent.transform.position == _agent.point)
         {
-            _agent.TransitionState(_agent.IdleState);
+            _agent.TransitionState(_agent.GetState<IdleState_SB>());
         }
        else if (_agent.transform.position != _agent.point)
-            _agent.transform.position = Vector2.MoveTowards(_agent.transform.position, _agent.point, _agent._enemySO.speed * Time.deltaTime);
+            _agent.transform.position = Vector2.MoveTowards(_agent.transform.position, _agent.point, _agent.enemyData.speed * Time.deltaTime);
      
        
     }

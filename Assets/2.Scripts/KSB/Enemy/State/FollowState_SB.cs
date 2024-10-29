@@ -1,50 +1,36 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class FollowState_SB : E_State
 {
-   
-    void Start()
-    {
-
-    }
-
     protected override void EnterState()
     {
-      _agent.AnimationCompo.PlayAnimaiton(AnimationType.run);
+        _agent.AnimationCompo.PlayAnimaiton(AnimationType.run);
     }
     public override void StateUpdate()
     {
-        if (_agent.Hp <= 0)
+
+        if (!_sensing.Detected)
         {
-            _agent.TransitionState(_agent.DeathState);
-            print("1");
+            _agent.TransitionState(_agent.GetState<IdleState_SB>());
         }
-        else if(!_agent._sensing.Detected)
+        else if (_sensing.Attack)
         {
-            _agent.TransitionState(_agent.IdleState);
+            _agent.TransitionState(_agent.GetState<AttackState_SB>());
         }
-        else if (_agent._sensing.Attack)
-        {
-            _agent.TransitionState(_agent.AttackState);
-        }
-        else if (!_agent._sensing.Attack)
-            _agent.TransitionState(_agent.FollowState);
+        
     }
     public override void StateFixedUpdate()
     {
         Follow();
-
-
     }
     private void Follow()
     {
         Flip();
-        if(_agent.target)
-        _agent.transform.position = Vector2.MoveTowards(_agent.transform.position, _agent.target.transform.position, _agent._enemySO.speed * Time.deltaTime);
-      
-
-
+        if (_agent.enemyData.target)
+        {
+            _agent.transform.position = Vector2.MoveTowards(_agent.transform.position,
+               _agent.enemyData.target.transform.position, _agent.enemyData.speed * Time.deltaTime);
+        }
     }
 
     protected override void Flip()

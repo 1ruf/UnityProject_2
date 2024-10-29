@@ -167,7 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31a1af18d13ca04d8cc9c32bdd371f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _circle_Size: 6.5
   Targetlayer:
     serializedVersion: 2
     m_Bits: 8
@@ -614,6 +613,7 @@ GameObject:
   - component: {fileID: 1356945888}
   - component: {fileID: 1356945889}
   - component: {fileID: 1356945890}
+  - component: {fileID: 1356945891}
   m_Layer: 0
   m_Name: Boby
   m_TagString: Untagged
@@ -752,25 +752,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e122fa7e00d2649b3fec8ef6f17ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemySO: {fileID: 11400000, guid: 29a8b0d7663b21844a9cac7ea243600b, type: 2}
-  Visual_Sprite: {fileID: 0}
-  <InputCompo>k__BackingField: {fileID: 0}
-  IdlePositon: {fileID: 350862530}
-  shouldMove: 0
   currentState: {fileID: 0}
   previousState: {fileID: 0}
+  States: []
+  enemyData: {fileID: 0}
+  Visual_Sprite: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   target: {fileID: 0}
-  spriteRender: {fileID: 0}
-  hp: 0
-  _sensing: {fileID: 143232716}
-  stateName: 
   point: {x: 0, y: 0, z: 0}
-  MoveState: {fileID: 0}
-  AttackState: {fileID: 0}
-  FollowState: {fileID: 0}
-  IdleState: {fileID: 0}
-  DeathState: {fileID: 0}
-  HitState: {fileID: 0}
+  IdlePosition: {fileID: 350862530}
 --- !u!114 &1356945888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,6 +824,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1356945891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356945880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7a3f6f4a0066be4da309c1f07f218c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: 29a8b0d7663b21844a9cac7ea243600b, type: 2}
+  Visual: {fileID: -1839479861, guid: 95b552aae4bd4a144b7db8ec26c70e2d, type: 3}
+  damage: 1
+  hp: 100
+  speed: 3
+  detecting_Range: 7
 --- !u!1 &1407083938
 GameObject:
   m_ObjectHideFlags: 0
