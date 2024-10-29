@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveState : State
@@ -11,23 +9,20 @@ public class MoveState : State
         _agent.AnimCompo.PlayAnimaton(AnimatonType.walk);
     }
 
-    protected override void HandleMovement(Vector2 vector)
-    {
-        _movementData.moveDir = vector;
-        
-    }
+    
 
     public override void StateFixedUpdate()
     {
         Move();
-        if (_movementData.moveDir.magnitude <= 0)
+        if (_agent.InputCompo.InputVector.magnitude <= 0)
         {
+
             _agent.TransitionState(_agent.StateCompo.GetState(StateType.Idle));
         }
     }
 
     private void Move()
     {
-        _agent.RbCompo.velocity = _movementData.moveDir;
+        _agent.RbCompo.velocity = _agent.InputCompo.InputVector;
     }
 }
