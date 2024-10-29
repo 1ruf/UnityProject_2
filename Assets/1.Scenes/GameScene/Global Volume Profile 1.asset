@@ -123,7 +123,7 @@ MonoBehaviour:
   active: 1
   scanLineJitter:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.028
   verticalJump:
     m_OverrideState: 1
     m_Value: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
     m_Value: 6
   intensity:
     m_OverrideState: 1
-    m_Value: 0.77
+    m_Value: 0.25
   response:
     m_OverrideState: 1
     m_Value: 0
