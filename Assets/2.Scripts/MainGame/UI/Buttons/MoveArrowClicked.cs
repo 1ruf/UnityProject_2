@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
 
-public class MoveArrowClicked : MonoBehaviour
+public class MoveArrowClicked : MonoBehaviour /////////////////코드를 에전에 짠거랑 섞었기 때문에 못알아보니까 주석으로 설명해드림
 {
     [SerializeField] private ScreenLoad EZ, S1, S2, S3;
     [SerializeField] private GameObject mainCam;
@@ -23,8 +23,7 @@ public class MoveArrowClicked : MonoBehaviour
     private Camera cam = new Camera();
     private Vector3 nowCamPos;
     private Vector3 localCamPos_EZ = new Vector3(0, 0, -10), localCamPos_S1 = new Vector3(17.8f, 0, -10), localCamPos_S2 = new Vector3(0, -9.65f, -10), localCamPos_S3 = new Vector3(17.8f, -9.65f, -10);
-    private bool IsCool,IsTab,IsTabCool;
-    private bool canDispatch;
+    private bool IsCool,IsTab,IsTabCool,canEnter,canClick = true;
 
 
     Bloom _bloom;
@@ -32,69 +31,73 @@ public class MoveArrowClicked : MonoBehaviour
 
     private void Awake()
     {
-        buttonUI = transform.Find("ButtonsUI").gameObject;
+        buttonUI = transform.Find("ButtonsUI").gameObject; //버튼 UI 게임오브젝트 가져오기
     }
     private void Start()
     {
-        ArrowSet();
+        ArrowSet();//함수 호출
     }
     private void OnEnable()
     {
-        buttonUI.SetActive(false);
+        buttonUI.SetActive(false);//버튼 UI 일시적으로 비활성화
         IsTabCool = true;
-        mainCam.GetComponent<Camera>().DOOrthoSize(10f, 1f).OnComplete(() =>
+        mainCam.GetComponent<Camera>().DOOrthoSize(10f, 1f).OnComplete(() => //DoTWeen에 카메라 사이즈 설정하는거 완료되면
         {
             IsTabCool = false;
-            buttonUI.SetActive(true);
-            CheckTab();
+            buttonUI.SetActive(true);//버튼 UI 켜기
+            CheckTab();//함수 호출
         });
         IsTab = true;
     }
     private void Update()
     {
         IsCool = IsTab;
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (canClick == true)
         {
-            LeftClick();
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            RightClick();
-        }
-        else if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            SectorClick();
-        }
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            EnterGame();
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                LeftClick();
+            }
+            else if (Input.GetKeyDown(KeyCode.E))
+            {
+                RightClick();
+            }
+            else if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                SectorClick();
+            }
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                EnterGame();
+            }
         }
     }
     public void EnterGame()
     {
-        if (IsTab == false)
+        if (IsTab == false && canEnter == true)
         {
-            StartCoroutine(EnterStage());
-            EnterBtn.interactable = true;
+            StartCoroutine(EnterStage());//코루틴 함수 호출
+            EnterBtn.interactable = true;//시작 버튼 활성
         }
         else
         {
-            EnterBtn.interactable = false;
+            EnterBtn.interactable = false;//시작 버튼 비활성
         }
     }
     private IEnumerator EnterStage()
     {
+        canClick = false;
         buttonUI.SetActive(false);
-        CamSet(nowSector);
-        mainCam.GetComponent<Camera>().DOOrthoSize(0, 1.5f).SetEase(Ease.InBack);
+        CamSet(nowSector);//함수에 nowSector 보내면서 호출
+        mainCam.GetComponent<Camera>().DOOrthoSize(0, 1.5f).SetEase(Ease.InBack); //DoTWeen 카메라 줌 인
 
 
-        Bloom bV;
+        /*Bloom bV;
         if (_volume.profile.TryGet<Bloom>(out bV))
         {
             _bloom = bV;
         }
-        _bloom.active = true;
+        _bloom.active = true;*///글리치 효과 만들어야댐
 
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Stage" + (nowSector + 1).ToString());
@@ -102,7 +105,6 @@ public class MoveArrowClicked : MonoBehaviour
 
     public void RightClick()
     {
-        print("Rclicked");
         if (IsCool == false)
         {
             if (nowSector < maxArea)
@@ -156,6 +158,19 @@ public class MoveArrowClicked : MonoBehaviour
             arrowL.DOFade(0.3f, 0.1f);
         }
     }
+    private void CheckMap()
+    {
+        if (nowSector > PlayerPrefs.GetInt("NowSavedStage"))
+        {
+            EnterBtn.interactable = false;
+            canEnter = false;
+        }
+        else
+        {
+            EnterBtn.interactable = true;
+            canEnter = true;
+        }
+    }
     private void CheckTab()
     {
         if (IsTab == false)
@@ -169,7 +184,7 @@ public class MoveArrowClicked : MonoBehaviour
     }
     private void MapPopUp()
     {
-        CheckTab();
+        //CheckTab();
         nowCamPos = mainCam.transform.position;
         if (!IsTab && !IsTabCool)
         {
@@ -199,6 +214,7 @@ public class MoveArrowClicked : MonoBehaviour
     private void CamSet(int sector)
     {
         CheckTab();
+        CheckMap();
         Transform camTP = mainCam.transform;
         switch (sector)
         {

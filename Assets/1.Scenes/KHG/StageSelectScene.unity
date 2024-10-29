@@ -2745,10 +2745,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77dd7ab43db46a54fb641ece71acf3eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EZ: {fileID: 0}
-  S1: {fileID: 0}
-  S2: {fileID: 0}
-  S3: {fileID: 0}
+  EZ: {fileID: 944332975}
+  S1: {fileID: 609644128}
+  S2: {fileID: 224490650}
+  S3: {fileID: 644580789}
   mainCam: {fileID: 519420028}
   arrowL: {fileID: 1623306192}
   arrowR: {fileID: 1655973256}
@@ -2759,6 +2759,7 @@ MonoBehaviour:
   minArea: 0
   nowSector: 0
   camMoveSpeed: 0.5
+  _volume: {fileID: 1781679621}
 --- !u!1 &1021862000
 GameObject:
   m_ObjectHideFlags: 0
