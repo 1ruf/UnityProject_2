@@ -5,10 +5,15 @@ using UnityEngine;
 public class SkillState : State
 {
     [SerializeField] private DashPunch _dashPunchSkill;
+    [SerializeField] private ElectorBulletSkill _electroBullet;
 
     protected override void EnterState()
     {
-        _dashPunchSkill.SkillPlay(_agent);
+        if (_agent.CompareTag("Player")) _dashPunchSkill.SkillPlay(_agent);
+        else _electroBullet.SkillPlay(_agent);
+
+        
+
         if (_agent.InputCompo.InputVector.magnitude > 0)
         {
             _agent.TransitionState(_agent.StateCompo.GetState(StateType.Move));

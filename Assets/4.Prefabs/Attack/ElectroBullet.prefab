@@ -105,8 +105,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.6992099, b: 0, a: 1}
-      key1: {r: 1, g: 0.85505235, b: 0, a: 1}
+      key0: {r: 0, g: 0.76249933, b: 1, a: 1}
+      key1: {r: 0, g: 0.89161634, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -155,11 +155,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8233756272030264219}
   - component: {fileID: 1666340500525721534}
-  - component: {fileID: 8991158813071234361}
   - component: {fileID: -8681284271517946884}
   - component: {fileID: 6239898650961788424}
+  - component: {fileID: -5156570275172826646}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: ElectroBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.68538034, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.44420862, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -233,20 +233,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8991158813071234361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3553771255522293302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cff3acc1bb5a6d40b8b6a46daa1ff28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletSpd: 1500
-  _effectPrefab: {fileID: 4035611852356126997, guid: 583478677ee749e4db4814673ad03350, type: 3}
 --- !u!50 &-8681284271517946884
 Rigidbody2D:
   serializedVersion: 4
@@ -309,3 +295,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-5156570275172826646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553771255522293302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cff3acc1bb5a6d40b8b6a46daa1ff28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletSpd: 1500
+  _effectPrefab: {fileID: 2857671619083154244, guid: e873dffb5b4f48447b70158606467039, type: 3}

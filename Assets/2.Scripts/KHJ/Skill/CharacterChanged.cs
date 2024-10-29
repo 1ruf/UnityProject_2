@@ -10,14 +10,13 @@ public class CharacterChanged : MonoBehaviour
     public void CharacterChange(Player agent, KSB_Enemy enemy)
     {
         CharCreate(agent);
-
+        agent.gameObject.tag = "Enemy";
         agent.AnimCompo.Stop();
         agent.GetComponent<SpriteRenderer>().sprite = enemy.Visual_Sprite;
         agent.transform.position = enemy.transform.position;
         agent.transform.localScale = enemy.transform.localScale;
         agent.RbCompo.velocity = Vector2.zero;
         enemy.gameObject.SetActive(false);
-        print("º¯°æ");
     }
 
 

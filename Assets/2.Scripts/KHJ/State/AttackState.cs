@@ -11,7 +11,6 @@ public class AttackState : State
 
     protected override void EnterState()
     {
-        print("어택 상태 입성");
         _agent.AnimCompo.PlayAnimaton(AnimatonType.attack);
         BulletFire();
     }
