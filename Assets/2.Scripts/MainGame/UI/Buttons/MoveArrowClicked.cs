@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -14,12 +16,20 @@ public class MoveArrowClicked : MonoBehaviour
     [SerializeField] private TMP_Text zoomBtnTxt;
     [SerializeField] private int maxArea ,minArea, nowSector;
     [SerializeField] private float camMoveSpeed;
+    [SerializeField] private Volume _volume;
+
+
     private GameObject buttonUI;
     private Camera cam = new Camera();
     private Vector3 nowCamPos;
     private Vector3 localCamPos_EZ = new Vector3(0, 0, -10), localCamPos_S1 = new Vector3(17.8f, 0, -10), localCamPos_S2 = new Vector3(0, -9.65f, -10), localCamPos_S3 = new Vector3(17.8f, -9.65f, -10);
     private bool IsCool,IsTab,IsTabCool;
     private bool canDispatch;
+
+
+    Bloom _bloom;
+
+
     private void Awake()
     {
         buttonUI = transform.Find("ButtonsUI").gameObject;
@@ -77,6 +87,15 @@ public class MoveArrowClicked : MonoBehaviour
         buttonUI.SetActive(false);
         CamSet(nowSector);
         mainCam.GetComponent<Camera>().DOOrthoSize(0, 1.5f).SetEase(Ease.InBack);
+
+
+        Bloom bV;
+        if (_volume.profile.TryGet<Bloom>(out bV))
+        {
+            _bloom = bV;
+        }
+        _bloom.active = true;
+
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Stage" + (nowSector + 1).ToString());
     }
