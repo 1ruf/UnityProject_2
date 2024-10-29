@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkillState : State
 {
-    [SerializeField] private DashPunchSkill _dashPunchSkill;
+    [SerializeField] private DashPunch _dashPunchSkill;
 
     protected override void EnterState()
     {
