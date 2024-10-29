@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
+using URPGlitch.Runtime.DigitalGlitch;
+using URPGlitch.Runtime.AnalogGlitch;
 
 public class MoveArrowClicked : MonoBehaviour /////////////////ÄÚµå¸¦ ¿¡Àü¿¡ Â§°Å¶û ¼¯¾ú±â ¶§¹®¿¡ ¸ø¾Ë¾Æº¸´Ï±î ÁÖ¼®À¸·Î ¼³¸íÇØµå¸²
 {
@@ -18,15 +20,13 @@ public class MoveArrowClicked : MonoBehaviour /////////////////ÄÚµå¸¦ ¿¡Àü¿¡ Â§°
     [SerializeField] private float camMoveSpeed;
     [SerializeField] private Volume _volume;
 
-
+    private DigitalGlitchVolume _digitalGt;
+    private AnalogGlitchVolume _analogGt;
     private GameObject buttonUI;
-    private Camera cam = new Camera();
     private Vector3 nowCamPos;
     private Vector3 localCamPos_EZ = new Vector3(0, 0, -10), localCamPos_S1 = new Vector3(17.8f, 0, -10), localCamPos_S2 = new Vector3(0, -9.65f, -10), localCamPos_S3 = new Vector3(17.8f, -9.65f, -10);
     private bool IsCool,IsTab,IsTabCool,canEnter,canClick = true;
 
-
-    Bloom _bloom;
 
 
     private void Awake()
@@ -48,6 +48,7 @@ public class MoveArrowClicked : MonoBehaviour /////////////////ÄÚµå¸¦ ¿¡Àü¿¡ Â§°
             CheckTab();//ÇÔ¼ö È£Ãâ
         });
         IsTab = true;
+
     }
     private void Update()
     {
@@ -89,17 +90,10 @@ public class MoveArrowClicked : MonoBehaviour /////////////////ÄÚµå¸¦ ¿¡Àü¿¡ Â§°
         canClick = false;
         buttonUI.SetActive(false);
         CamSet(nowSector);//ÇÔ¼ö¿¡ nowSector º¸³»¸é¼­ È£Ãâ
-        mainCam.GetComponent<Camera>().DOOrthoSize(0, 1.5f).SetEase(Ease.InBack); //DoTWeen Ä«¸Þ¶ó ÁÜ ÀÎ
-
-
-        /*Bloom bV;
-        if (_volume.profile.TryGet<Bloom>(out bV))
-        {
-            _bloom = bV;
-        }
-        _bloom.active = true;*///±Û¸®Ä¡ È¿°ú ¸¸µé¾î¾ß´ï
-
-        yield return new WaitForSeconds(2f);
+        mainCam.GetComponent<Camera>().DOOrthoSize(0.3f, 1.5f).SetEase(Ease.InBack); //DoTWeen Ä«¸Þ¶ó ÁÜ ÀÎ
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(GlitchChange());
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("Stage" + (nowSector + 1).ToString());
     }
 
@@ -131,6 +125,7 @@ public class MoveArrowClicked : MonoBehaviour /////////////////ÄÚµå¸¦ ¿¡Àü¿¡ Â§°
     {
         MapPopUp();
         CheckTab();
+        CheckMap();
     }
     private IEnumerator Cooler(float coolTime)
     {
@@ -254,5 +249,28 @@ public class MoveArrowClicked : MonoBehaviour /////////////////ÄÚµå¸¦ ¿¡Àü¿¡ Â§°
             tabBtn.fillAmount = nowfillAmt / 1;
         }
         IsTabCool = false;
+    }
+    private IEnumerator GlitchChange()
+    {
+        DigitalGlitchVolume _digitalGlitch;
+        AnalogGlitchVolume _analogGlitch;
+        if (_volume.profile.TryGet<DigitalGlitchVolume>(out _digitalGlitch))
+        {
+            _volume.profile.TryGet<AnalogGlitchVolume>(out _analogGlitch);
+            _digitalGt = _digitalGlitch;
+            _analogGt = _analogGlitch;
+            float value = 0.0f;
+            while(true)
+            {
+                if (_digitalGt.intensity.value >= 1)
+                {
+                    break;
+                }
+                value += 0.05f;
+                _analogGt.scanLineJitter.value = value;
+                _digitalGt.intensity.value = value;
+                yield return new WaitForSeconds(0.05f);
+            }
+        }
     }
 }
