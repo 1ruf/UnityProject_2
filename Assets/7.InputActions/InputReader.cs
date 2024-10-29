@@ -39,6 +39,7 @@ public class InputReader : ScriptableObject, IPlayerActions
     {
         
         OnMove?.Invoke(context.ReadValue<Vector2>());
+        InputVector = context.ReadValue<Vector2>();
     }
 
     public void OnAttack(InputAction.CallbackContext context)

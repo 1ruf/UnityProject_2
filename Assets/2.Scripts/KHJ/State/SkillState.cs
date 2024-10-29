@@ -9,7 +9,14 @@ public class SkillState : State
     protected override void EnterState()
     {
         _dashPunchSkill.SkillPlay(_agent);
-        _agent.TransitionState(_agent.StateCompo.GetState(StateType.Idle));
+        if (_agent.InputCompo.InputVector.magnitude > 0)
+        {
+            _agent.TransitionState(_agent.StateCompo.GetState(StateType.Move));
+        }
+        else
+        {
+            _agent.TransitionState(_agent.StateCompo.GetState(StateType.Idle));
+        }
     }
 
 

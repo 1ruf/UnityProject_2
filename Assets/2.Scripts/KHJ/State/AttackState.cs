@@ -11,29 +11,34 @@ public class AttackState : State
 
     protected override void EnterState()
     {
+        print("어택 상태 입성");
         _agent.AnimCompo.PlayAnimaton(AnimatonType.attack);
         BulletFire();
     }
 
     private void BulletFire()
     {
-
+        _agent.RbCompo.velocity = Vector2.zero;
         Vector3 direction = ((Vector3)_agent.InputCompo.MousePos - _agent.transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         Transform bullet = Instantiate(_bulletPrefab, transform.parent.position, Quaternion.Euler(0, 0, angle));
         bullet.LookAt(_agent.InputCompo.MousePos);
+        StartCoroutine(A());
+        
+    }
 
-        if (_agent._previousState && _agent._previousState != _agent.StateCompo.GetState(StateType.Attack))
+
+    IEnumerator A()
+    {
+        yield return new WaitForSeconds(1f);
+        if (_agent.InputCompo.InputVector.magnitude > 0)
         {
-            _agent.TransitionState(_agent._previousState);
+            _agent.TransitionState(_agent.StateCompo.GetState(StateType.Move));
         }
         else
         {
             _agent.TransitionState(_agent.StateCompo.GetState(StateType.Idle));
         }
     }
-
-
-
 }

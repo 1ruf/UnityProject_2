@@ -303,7 +303,7 @@ MonoBehaviour:
   previousState: {fileID: 0}
   target: {fileID: 0}
   spriteRender: {fileID: 0}
-  Hp: 0
+  hp: 0
   _sensing: {fileID: 0}
   stateName: 
   point: {x: 0, y: 0, z: 0}
@@ -312,6 +312,7 @@ MonoBehaviour:
   FollowState: {fileID: 0}
   IdleState: {fileID: 0}
   DeathState: {fileID: 0}
+  HitState: {fileID: 0}
 --- !u!1 &238470325
 GameObject:
   m_ObjectHideFlags: 3
@@ -566,7 +567,7 @@ MonoBehaviour:
   previousState: {fileID: 0}
   target: {fileID: 0}
   spriteRender: {fileID: 0}
-  Hp: 0
+  hp: 0
   _sensing: {fileID: 0}
   stateName: 
   point: {x: 0, y: 0, z: 0}
@@ -575,6 +576,7 @@ MonoBehaviour:
   FollowState: {fileID: 0}
   IdleState: {fileID: 0}
   DeathState: {fileID: 0}
+  HitState: {fileID: 0}
 --- !u!50 &576377902
 Rigidbody2D:
   serializedVersion: 4
@@ -899,83 +901,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!1001 &711212843
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5229892496342104203, guid: 8a7fb52d68b82e948b3f2d4a63382d2d, type: 3}
-      propertyPath: m_Name
-      value: SlashEffect (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711488024113403132, guid: 8a7fb52d68b82e948b3f2d4a63382d2d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.3097396
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711488024113403132, guid: 8a7fb52d68b82e948b3f2d4a63382d2d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -5.999546
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711488024113403132, guid: 8a7fb52d68b82e948b3f2d4a63382d2d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711488024113403132, guid: 8a7fb52d68b82e948b3f2d4a63382d2d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711488024113403132, guid: 8a7fb52d68b82e948b3f2d4a63382d2d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711488024113403132, guid: 8a7fb52d68b82e948b3f2d4a63382d2d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711488024113403132, guid: 8a7fb52d68b82e948b3f2d4a63382d2d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711488024113403132, guid: 8a7fb52d68b82e948b3f2d4a63382d2d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711488024113403132, guid: 8a7fb52d68b82e948b3f2d4a63382d2d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711488024113403132, guid: 8a7fb52d68b82e948b3f2d4a63382d2d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5229892496342104203, guid: 8a7fb52d68b82e948b3f2d4a63382d2d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 711212845}
-  m_SourcePrefab: {fileID: 100100000, guid: 8a7fb52d68b82e948b3f2d4a63382d2d, type: 3}
---- !u!1 &711212844 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5229892496342104203, guid: 8a7fb52d68b82e948b3f2d4a63382d2d, type: 3}
-  m_PrefabInstance: {fileID: 711212843}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &711212845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 711212844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d49a89a10c4a71418ccf761730500c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &718201708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,7 +1240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _distance: 5
-  _slashEffectPrefab: {fileID: 8711488024113403132, guid: 8a7fb52d68b82e948b3f2d4a63382d2d, type: 3}
+  _slashEffectPrefab: {fileID: 8711488024113403132, guid: edeb2a769bd2bb94d8f57ce1e4ff3f99, type: 3}
   _slashSize: {x: 4, y: 3}
 --- !u!1 &1139273979
 GameObject:
@@ -1689,7 +1614,7 @@ MonoBehaviour:
   previousState: {fileID: 0}
   target: {fileID: 0}
   spriteRender: {fileID: 0}
-  Hp: 0
+  hp: 0
   _sensing: {fileID: 0}
   stateName: 
   point: {x: 0, y: 0, z: 0}
@@ -1698,6 +1623,7 @@ MonoBehaviour:
   FollowState: {fileID: 0}
   IdleState: {fileID: 0}
   DeathState: {fileID: 0}
+  HitState: {fileID: 0}
 --- !u!50 &1954125959
 Rigidbody2D:
   serializedVersion: 4
@@ -1878,7 +1804,7 @@ MonoBehaviour:
   previousState: {fileID: 0}
   target: {fileID: 0}
   spriteRender: {fileID: 0}
-  Hp: 0
+  hp: 0
   _sensing: {fileID: 0}
   stateName: 
   point: {x: 0, y: 0, z: 0}
@@ -1887,6 +1813,7 @@ MonoBehaviour:
   FollowState: {fileID: 0}
   IdleState: {fileID: 0}
   DeathState: {fileID: 0}
+  HitState: {fileID: 0}
 --- !u!50 &2112596506
 Rigidbody2D:
   serializedVersion: 4
@@ -2040,4 +1967,3 @@ SceneRoots:
   - {fileID: 718201710}
   - {fileID: 1874580469}
   - {fileID: 1139273981}
-  - {fileID: 711212843}

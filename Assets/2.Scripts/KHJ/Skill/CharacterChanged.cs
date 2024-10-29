@@ -24,10 +24,11 @@ public class CharacterChanged : MonoBehaviour
     private void CharCreate(Player agent)
     {
         Transform clone = Instantiate(_clone, null);
+        clone.gameObject.SetActive(true);
         clone.GetComponent<SpriteRenderer>().sprite = agent.GetComponent<SpriteRenderer>().sprite;
         clone.transform.position = agent.transform.position;
         clone.localScale = agent.transform.localScale;
-        clone.gameObject.SetActive(true);
+        clone.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 0.3f, 1f); // 회색. 에너미 죽은것 처럼 표시
     }
 
 
