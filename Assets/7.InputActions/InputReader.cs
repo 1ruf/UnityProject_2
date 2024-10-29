@@ -13,6 +13,7 @@ public class InputReader : ScriptableObject, IPlayerActions
     public event System.Action OnJumpPressed;         //점프 이벤트
     public event System.Action OnLeftMouse;
     public event System.Action OnTabKey;
+    public event System.Action OnFKey;
     public Vector2 MousePos { get; private set; } 
     public Vector2 InputVector { get; private set; }
 
@@ -54,7 +55,16 @@ public class InputReader : ScriptableObject, IPlayerActions
     {
         if (context.performed)
         {
+            MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             OnTabKey?.Invoke();
+        }
+    }
+
+    public void OnCharacterSkill(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            OnFKey?.Invoke();
         }
     }
 }
