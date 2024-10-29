@@ -11,7 +11,7 @@ public class DashPunch : MonoBehaviour
 
     [SerializeField] private Vector2 _slashSize;
 
-    public void SkillPlay(Player agent)
+    public void SkillPlay(Player agent) // 아직 정리가 안됨 나중에 보거나 물어보세요
     {
         Vector3 direction = new Vector3((agent.GetComponent<SpriteRenderer>().flipX ? -1 : 1) * _distance, 0, 0);
 

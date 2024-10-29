@@ -40,7 +40,7 @@ public class InputReader : ScriptableObject, IPlayerActions
         InputVector = context.ReadValue<Vector2>();
     }
 
-    public void OnAttack(InputAction.CallbackContext context)
+    public void OnAttack(InputAction.CallbackContext context) // ÁÂÅ¬¸¯
     {
         
         if (context.performed)
@@ -50,7 +50,7 @@ public class InputReader : ScriptableObject, IPlayerActions
         }
     }
 
-    public void OnChangeSkill(InputAction.CallbackContext context)
+    public void OnChangeSkill(InputAction.CallbackContext context) // Tab Å°
     {
         if (context.performed)
         {
@@ -59,7 +59,7 @@ public class InputReader : ScriptableObject, IPlayerActions
         }
     }
 
-    public void OnCharacterSkill(InputAction.CallbackContext context)
+    public void OnCharacterSkill(InputAction.CallbackContext context) // F Å°
     {
         if (context.performed)
         {
