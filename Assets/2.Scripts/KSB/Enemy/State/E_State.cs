@@ -8,7 +8,8 @@ public class E_State : MonoBehaviour
     protected KSB_Enemy _agent;
     public UnityEvent OnEnter, OnExit;
     protected Sensing _sensing;//State 나갈때
- 
+
+
     public void InitializeState(KSB_Enemy agent)
     {
         _agent = agent;
@@ -16,7 +17,7 @@ public class E_State : MonoBehaviour
 
     public void Enter()
     {
-    
+
         EnterState();      //상태에 들어가자마다 EnterState 메소드 실행
         _sensing = _agent.gameObject.GetComponentInChildren<Sensing>();
     }
@@ -52,7 +53,7 @@ public class E_State : MonoBehaviour
 
     public void Exit()
     {
-      
+
         ExitState();
     }
 
@@ -60,10 +61,10 @@ public class E_State : MonoBehaviour
     {
     }
 
-   protected virtual void Flip()
+    protected virtual void Flip()
     {
 
-        if(_agent.enemyData.target != null)
+        if (_agent.enemyData.target != null)
         {
             Vector2 direction = (_agent.enemyData.target.transform.position - _agent.transform.position);
             Vector2 forward = _agent.transform.right;
@@ -71,15 +72,27 @@ public class E_State : MonoBehaviour
 
             if (crossProduct > 0)
             {
+
                 _agent.spriteRenderer.flipX = false;
+                _agent.enemyData.gun.flipX = false;
+
             }
             else if (crossProduct < 0)
             {
                 _agent.spriteRenderer.flipX = true;
+                _agent.enemyData.gun.flipX = true;
+
             }
         }
-      
-       
+
+
     }
 
+    protected virtual void Rotattion(GameObject target)
+    {
+        Vector2 direction = target.transform.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        _agent.enemyData.GunCase.transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
 }

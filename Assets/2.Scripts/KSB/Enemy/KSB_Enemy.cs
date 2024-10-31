@@ -19,8 +19,7 @@ public class KSB_Enemy : MonoBehaviour
 
  
     public Vector3 point;
-    [SerializeField] private Transform IdlePosition;
-
+    public Transform IdlePosition;
     private float hp;
 
     private void Awake()
@@ -89,9 +88,6 @@ public class KSB_Enemy : MonoBehaviour
         previousState = currentState;
         currentState = desiredState;
         currentState.Enter();
-
-
-
     }
 
 

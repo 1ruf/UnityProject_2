@@ -9,6 +9,7 @@ public class Sensing : MonoBehaviour
 
     [SerializeField]private KSB_Enemy _agent;
     Vector3 _enemyPos;
+    public  float decetingLength = 2f;
 
     private void Update()
     {
@@ -33,7 +34,7 @@ public class Sensing : MonoBehaviour
 
     private void Detecting()
     {
-        _agent.enemyData.target = Physics2D.OverlapCircle(_enemyPos, _circle_Size, Targetlayer);
+        _agent.enemyData.target = Physics2D.OverlapCircle(_enemyPos, _circle_Size, Targetlayer).gameObject;
         if (_agent.enemyData.target != null)
         {
             Debug.Log("Target detected");
@@ -51,7 +52,7 @@ public class Sensing : MonoBehaviour
     private void AttackDecting()
     {
         float distance = Vector2.Distance(_agent.transform.position, _agent.enemyData.target.transform.position);
-        if (distance <= 1.7f)
+        if (distance <= decetingLength)
         {
             Attack = true;
         }

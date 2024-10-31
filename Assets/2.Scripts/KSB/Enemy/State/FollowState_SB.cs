@@ -22,6 +22,7 @@ public class FollowState_SB : E_State
     public override void StateFixedUpdate()
     {
         Follow();
+        //Rotattion(_agent.enemyData.target);
     }
     private void Follow()
     {
@@ -36,6 +37,11 @@ public class FollowState_SB : E_State
     protected override void Flip()
     {
         base.Flip();
+    }
+
+    protected override void Rotattion(GameObject target)
+    {
+        base.Rotattion(target);
     }
 
 }
