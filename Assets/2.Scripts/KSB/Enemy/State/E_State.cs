@@ -61,38 +61,5 @@ public class E_State : MonoBehaviour
     {
     }
 
-    protected virtual void Flip()
-    {
-
-        if (_agent.enemyData.target != null)
-        {
-            Vector2 direction = (_agent.enemyData.target.transform.position - _agent.transform.position);
-            Vector2 forward = _agent.transform.right;
-            float crossProduct = forward.x * direction.y - forward.y * direction.x;
-
-            if (crossProduct > 0)
-            {
-
-                _agent.spriteRenderer.flipX = false;
-                _agent.enemyData.gun.flipX = false;
-
-            }
-            else if (crossProduct < 0)
-            {
-                _agent.spriteRenderer.flipX = true;
-                _agent.enemyData.gun.flipX = true;
-
-            }
-        }
-
-
-    }
-
-    protected virtual void Rotattion(GameObject target)
-    {
-        Vector2 direction = target.transform.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        _agent.enemyData.GunCase.transform.rotation = Quaternion.Euler(0, 0, angle);
-    }
+   
 }

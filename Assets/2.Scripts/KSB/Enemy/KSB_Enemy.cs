@@ -17,7 +17,7 @@ public class KSB_Enemy : MonoBehaviour
     public Collider2D ColliderCompo { get; set; }
     public Rigidbody2D RbCompo { get; set; }
 
- 
+
     public Vector3 point;
     public Transform IdlePosition;
     private float hp;
@@ -38,7 +38,7 @@ public class KSB_Enemy : MonoBehaviour
             GetComponent<AttackState_SB>() ,
             GetComponent<FollowState_SB>(),
             GetComponent<IdleState_SB>(),
-            GetComponent<DeathState_SB>() 
+            GetComponent<DeathState_SB>()
         };
 
         foreach (var state in States)
@@ -73,6 +73,9 @@ public class KSB_Enemy : MonoBehaviour
 
         currentState?.StateUpdate();
         point = IdlePosition.position;
+
+        Flip();
+        Rotattion(enemyData.target);
     }
 
     private void FixedUpdate()
@@ -102,10 +105,44 @@ public class KSB_Enemy : MonoBehaviour
         return null;
     }
 
-    public void Hited()
+
+    private void Flip()
     {
-        // 맞았을 때의 로직 구현
+        if (enemyData.target != null)
+        {
+            Vector2 direction = (enemyData.target.transform.position - transform.position).normalized;
+            Vector2 forward = transform.right;
+
+            float dotProduct = Vector2.Dot(forward, direction);
+
+            if (dotProduct < 0)
+            {
+                spriteRenderer.flipX = true;
+                enemyData.gun.flipX = true;
+
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+                enemyData.gun.flipX = false;
+            }
+        }
     }
+
+
+    private void Rotattion(GameObject target)
+    {
+        if (target == null)
+        {
+            return; 
+        }
+
+        Vector2 direction = target.transform.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        enemyData.GunCase.transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
 }
 
 

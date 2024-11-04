@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,8 +7,17 @@ public class AttackState_SB : E_State
 
     private bool isDoing = false;
 
-    private void Awake()
+    private void Start()
     {
+        if (!_agent.enemyData.Bullet || !_agent.enemyData.gunPos)
+        {
+            Console.WriteLine("¾ø½é");
+
+        }
+        else
+        {
+            Console.WriteLine("ÀÖÀ½");
+        }
         
     }
     protected override void EnterState()
@@ -16,13 +26,17 @@ public class AttackState_SB : E_State
     }
     public override void StateFixedUpdate()
     {
-        StartCoroutine(Shoot());
-    
+
+        if (!isDoing)
+        {
+            StartCoroutine(Shoot());
+        }
+        _agent.RbCompo.velocity = Vector3.zero;
+
     }
     public override void StateUpdate()
     {
-        Rotattion(_agent.enemyData.target);
-        Flip();
+
         if (_sensing.Attack)
         {
             _agent.TransitionState(_agent.GetState<AttackState_SB>());
@@ -40,26 +54,16 @@ public class AttackState_SB : E_State
     }
     IEnumerator Shoot()
     {
-        
-        if(!isDoing)
-        {
-            isDoing = true;
-            print("ÆÎ");
-        }
+        isDoing = true;
+        print("ÆÎ");
+        Instantiate(_agent.enemyData.Bullet,_agent.enemyData.gunPos);
         yield return new WaitForSeconds(_agent.enemyData.attackDelay);
         isDoing = false;
- 
-
-
-    }
-    
-    protected override void Flip()
-    {
-        base.Flip();
     }
 
-    protected override void Rotattion(GameObject target)
-    {
-        base.Rotattion(target);
-    }
+
+
+
+
+
 }

@@ -9,7 +9,7 @@ public class Sensing : MonoBehaviour
 
     [SerializeField]private KSB_Enemy _agent;
     Vector3 _enemyPos;
-    public  float decetingLength = 2f;
+    public  float decetingLength = 3f;
 
     private void Update()
     {
@@ -34,20 +34,22 @@ public class Sensing : MonoBehaviour
 
     private void Detecting()
     {
-        _agent.enemyData.target = Physics2D.OverlapCircle(_enemyPos, _circle_Size, Targetlayer).gameObject;
-        if (_agent.enemyData.target != null)
+        Collider2D targetCollider = Physics2D.OverlapCircle(_enemyPos, _circle_Size, Targetlayer);
+        if (targetCollider != null)
         {
+            _agent.enemyData.target = targetCollider.gameObject;
             Debug.Log("Target detected");
             Detected = true;
             AttackDecting();
         }
         else
         {
+            _agent.enemyData.target = null;
             Detected = false;
             Attack = false;
-
         }
     }
+
 
     private void AttackDecting()
     {

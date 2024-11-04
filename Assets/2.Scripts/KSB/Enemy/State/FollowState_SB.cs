@@ -22,26 +22,20 @@ public class FollowState_SB : E_State
     public override void StateFixedUpdate()
     {
         Follow();
-        //Rotattion(_agent.enemyData.target);
     }
     private void Follow()
     {
-        Flip();
         if (_agent.enemyData.target)
         {
-            _agent.transform.position = Vector2.MoveTowards(_agent.transform.position,
-               _agent.enemyData.target.transform.position, _agent.enemyData.speed * Time.deltaTime);
+            Vector2 targetPosition = _agent.enemyData.target.transform.position;
+            Vector2 direction = (targetPosition - _agent.RbCompo.position).normalized; 
+            
+            _agent.RbCompo.velocity=(direction * _agent.enemyData.speed);
         }
+
+
     }
 
-    protected override void Flip()
-    {
-        base.Flip();
-    }
 
-    protected override void Rotattion(GameObject target)
-    {
-        base.Rotattion(target);
-    }
 
 }

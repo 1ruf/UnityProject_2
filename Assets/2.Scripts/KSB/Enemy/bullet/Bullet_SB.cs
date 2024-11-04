@@ -1,30 +1,42 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet_SB : MonoBehaviour
 {
 
     Rigidbody2D rigid;
+    bool isShoot = false;
 
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
-      
+
+
 
     }
 
     private void FixedUpdate()
     {
-        rigid.MovePosition(transform.position + transform.right *15 * Time.fixedDeltaTime);
+        
+        rigid.AddForce(transform.right*2, ForceMode2D.Impulse);
+        if(!isShoot) 
+        StartCoroutine(Destroys());
+
 
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    IEnumerator Destroys()
     {
-       
-        if (collision != null)
+        isShoot = true;
+        transform.parent = null;
+        yield return new WaitForSeconds(10f);
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player1"))
         {
             Destroy(gameObject);
         }

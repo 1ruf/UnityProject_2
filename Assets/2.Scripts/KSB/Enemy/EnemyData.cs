@@ -14,7 +14,10 @@ public class EnemyData : MonoBehaviour
     public float attackDelay;
     public GameObject Bullet;
     public SpriteRenderer gun;
+    public Transform gunPos;
+    
 
+       
     [Header("else")]
     public GameObject target;
     public Vector3 direction;
@@ -25,8 +28,8 @@ public class EnemyData : MonoBehaviour
         Visual = Data.Visual;
         damage = Data.damage;
         speed = Data.speed;
-        //gun = Data.gun;
         detecting_Range = Data.detecting_Range;
+       
     }
 
 
