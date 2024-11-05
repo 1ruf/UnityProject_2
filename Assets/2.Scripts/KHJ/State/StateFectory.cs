@@ -1,13 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
 public class StateFectory : MonoBehaviour
 {
 
-    [SerializeField] private State Idle, Move, Attack, Change;
+    [SerializeField] private State Idle, Move, Attack, Change, Skill;
 
 
     public State GetState(StateType stateType)
@@ -17,6 +14,7 @@ public class StateFectory : MonoBehaviour
             StateType.Move => Move,
             StateType.Attack => Attack,
             StateType.Change => Change,
+            StateType.Skill => Skill,
             _ => throw new System.Exception("hay what the fuck")
         };
 
@@ -35,5 +33,6 @@ public enum StateType
     Idle,
     Move,
     Attack,
-    Change
+    Change,
+    Skill
 }

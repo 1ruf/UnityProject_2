@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static KeyAction;
@@ -13,6 +11,7 @@ public class InputReader : ScriptableObject, IPlayerActions
     public event System.Action OnJumpPressed;         //점프 이벤트
     public event System.Action OnLeftMouse;
     public event System.Action OnTabKey;
+    public event System.Action OnFKey;
     public Vector2 MousePos { get; private set; } 
     public Vector2 InputVector { get; private set; }
 
@@ -38,9 +37,10 @@ public class InputReader : ScriptableObject, IPlayerActions
     {
         
         OnMove?.Invoke(context.ReadValue<Vector2>());
+        InputVector = context.ReadValue<Vector2>();
     }
 
-    public void OnAttack(InputAction.CallbackContext context)
+    public void OnAttack(InputAction.CallbackContext context) // 좌클릭
     {
         
         if (context.performed)
@@ -50,11 +50,21 @@ public class InputReader : ScriptableObject, IPlayerActions
         }
     }
 
-    public void OnChangeSkill(InputAction.CallbackContext context)
+    public void OnChangeSkill(InputAction.CallbackContext context) // Tab 키
     {
         if (context.performed)
         {
+            MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             OnTabKey?.Invoke();
+        }
+    }
+
+    public void OnCharacterSkill(InputAction.CallbackContext context) // F 키
+    {
+        if (context.performed)
+        {
+            MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            OnFKey?.Invoke();
         }
     }
 }

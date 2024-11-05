@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 
 public abstract class State : MonoBehaviour
 {
@@ -36,6 +31,11 @@ public abstract class State : MonoBehaviour
         _agent.TransitionState(_agent.StateCompo.GetState(StateType.Change));
     }
 
+    protected virtual void HandleFKey()
+    {
+        _agent.TransitionState(_agent.StateCompo.GetState(StateType.Skill));
+    }
+
     public virtual void StateFixedUpdate()
     {
 
@@ -62,6 +62,7 @@ public abstract class State : MonoBehaviour
         _agent.InputCompo.OnLeftMouse += HandleLeftMousePressed;
         _agent.InputCompo.OnMove += HandleMovement;
         _agent.InputCompo.OnTabKey += HandleTabKey;
+        _agent.InputCompo.OnFKey += HandleFKey;
         EnterState();
     }
     public void Exit()
@@ -69,6 +70,7 @@ public abstract class State : MonoBehaviour
         _agent.InputCompo.OnLeftMouse -= HandleLeftMousePressed;
         _agent.InputCompo.OnMove -= HandleMovement;
         _agent.InputCompo.OnTabKey -= HandleTabKey;
+        _agent.InputCompo.OnFKey -= HandleFKey;
         ExitState();
     }
 

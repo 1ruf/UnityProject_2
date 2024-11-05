@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float bulletSpd;
+    [SerializeField] private float _bulletSpd;
+    [SerializeField] private Transform _effectPrefab;
     private Rigidbody2D _rigid;
     private void Awake()
     {
@@ -12,13 +13,16 @@ public class Bullet : MonoBehaviour
     }
     private void OnEnable()
     {
-        _rigid.AddForce(transform.right * bulletSpd);
+        _rigid.AddForce(transform.right * _bulletSpd);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") == false)
+        if (collision.gameObject.CompareTag("Well"))
         {
+            Transform _effect = Instantiate(_effectPrefab);
+            _effect.position = transform.position;
             Destroy(gameObject);
+            Destroy(_effect.gameObject, 0.5f);
         }
     }
 }
