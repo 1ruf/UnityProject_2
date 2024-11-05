@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ElectorBullet : MonoBehaviour
+public class ElectorBullet : MonoBehaviour // 일반 총알과 다른 점 : 이펙트, 총알 색깔, 총알 맞은 곳 근처의 적을 스턴시킴(아직 미구현)
 {
     [SerializeField] private float _bulletSpd;
     [SerializeField] private Transform _effectPrefab;
