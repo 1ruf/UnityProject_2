@@ -5,13 +5,16 @@ using UnityEngine;
 public class MoveState_SB : E_State
 {
     // Start is called before the first frame update
+   
     protected override void EnterState()
     {
         _agent.AnimationCompo.PlayAnimaiton(AnimationType.run);
     }
     public override void StateUpdate()
     {
-       
+
+        Debug.Log(_agent.IdlePosition.gameObject);
+
         if (_sensing.Detected)
         {
             _agent.TransitionState(_agent.GetState<FollowState_SB>());
