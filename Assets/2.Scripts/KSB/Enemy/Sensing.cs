@@ -2,26 +2,19 @@ using UnityEngine;
 
 public class Sensing : MonoBehaviour
 {
-    [SerializeField] private float _circle_Size = 1f;
+    private float _circle_Size;
     [SerializeField] private LayerMask Targetlayer;
     public bool Detected = false;
     public bool Attack = false;
 
-    [SerializeField] private KSB_Enemy _agent;
-
-    float _distance;
-    float _refDis = 1;
+    [SerializeField]private KSB_Enemy _agent;
     Vector3 _enemyPos;
-
-
-    private void Awake()
-    {
-      
-        _enemyPos = _agent.transform.position;
-    }
+    public  float decetingLength = 3f;
 
     private void Update()
     {
+        _circle_Size = _agent.enemyData.detecting_Range;
+        _enemyPos = _agent.transform.position;
         _enemyPos = _agent.transform.position;
         Detecting();
     }
@@ -41,25 +34,27 @@ public class Sensing : MonoBehaviour
 
     private void Detecting()
     {
-        _agent.target = Physics2D.OverlapCircle(_enemyPos, _circle_Size, Targetlayer);
-        if (_agent.target != null)
+        Collider2D targetCollider = Physics2D.OverlapCircle(_enemyPos, _circle_Size, Targetlayer);
+        if (targetCollider != null)
         {
+            _agent.enemyData.target = targetCollider.gameObject;
             Debug.Log("Target detected");
             Detected = true;
             AttackDecting();
         }
         else
         {
+            _agent.enemyData.target = null;
             Detected = false;
             Attack = false;
-
         }
     }
 
+
     private void AttackDecting()
     {
-        float distance = Vector2.Distance(_agent.transform.position, _agent.target.transform.position);
-        if (distance <= 1.7f)
+        float distance = Vector2.Distance(_agent.transform.position, _agent.enemyData.target.transform.position);
+        if (distance <= decetingLength)
         {
             Attack = true;
         }

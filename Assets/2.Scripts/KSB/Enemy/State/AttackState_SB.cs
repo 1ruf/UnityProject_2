@@ -1,39 +1,69 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackState_SB : E_State
 {
+
+    private bool isDoing = false;
+
+    private void Start()
+    {
+        if (!_agent.enemyData.Bullet || !_agent.enemyData.gunPos)
+        {
+            Console.WriteLine("¾ø½é");
+
+        }
+        else
+        {
+            Console.WriteLine("ÀÖÀ½");
+        }
+        
+    }
     protected override void EnterState()
     {
-       _agent.AnimationCompo.PlayAnimaiton(AnimationType.attack);
+        _agent.AnimationCompo.PlayAnimaiton(AnimationType.attack);
     }
-
     public override void StateFixedUpdate()
     {
-        base.StateFixedUpdate();
-    }
 
+        if (!isDoing)
+        {
+            StartCoroutine(Shoot());
+        }
+        _agent.RbCompo.velocity = Vector3.zero;
+
+    }
     public override void StateUpdate()
     {
-        Flip();
-        if(_agent.Hp<=0)
-        {
-            _agent.TransitionState(_agent.DeathState);
-        }
-        if(!_agent._sensing.Attack&& !_agent._sensing.Detected)
-            _agent.TransitionState(_agent.MoveState);
 
-        if (!_agent._sensing.Attack)
+        if (_sensing.Attack)
         {
-            _agent.TransitionState(_agent.FollowState);
-
+            _agent.TransitionState(_agent.GetState<AttackState_SB>());
         }
+        else if (_sensing.Detected)
+        {
+            _agent.TransitionState(_agent.GetState<FollowState_SB>());
+        }
+        else
+        {
+            _agent.TransitionState(_agent.GetState<MoveState_SB>());
+        }
+
 
     }
-
-    protected override void Flip()
+    IEnumerator Shoot()
     {
-        base.Flip();
+        isDoing = true;
+        print("ÆÎ");
+        Instantiate(_agent.enemyData.Bullet,_agent.enemyData.gunPos);
+        yield return new WaitForSeconds(_agent.enemyData.attackDelay);
+        isDoing = false;
     }
+
+
+
+
+
+
 }

@@ -3,12 +3,11 @@ using UnityEngine;
 public class EnemyAnimation : MonoBehaviour
 {
     private Animator _animator;
-
+    
     private void Awake()
     {
         _animator = GetComponent<Animator>();
     }
-
     public void PlayAnimaiton(AnimationType animationType)
     {
         switch (animationType)
@@ -32,13 +31,11 @@ public class EnemyAnimation : MonoBehaviour
                 break;
         }
     }
-
     public void Play(string name)
     {
         _animator.Play(name, -1, 0f);
     }
 }
-
 public enum AnimationType
 {
     die,
@@ -46,10 +43,6 @@ public enum AnimationType
     idle,
     attack,
     run,
-    jump,
-    fall,
-    climb,
-    land
 }
 
 

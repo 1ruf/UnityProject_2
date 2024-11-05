@@ -18,20 +18,15 @@ public class IdleState_SB : E_State
 
     public override void StateUpdate()
     {
-        if (_agent.Hp <= 0)
+     
+        if (_sensing.Detected)
         {
-            _agent.TransitionState(_agent.DeathState);
-        }
-
-        else if (_agent._sensing.Detected)
-        {
-            _agent.TransitionState(_agent.FollowState);
+            _agent.TransitionState(_agent.GetState<FollowState_SB>());
         }
         else if (_agent.transform.position != _agent.point)
         {
             Debug.Log("toMove");
-            _agent.shouldMove = true;
-            _agent.TransitionState(_agent.MoveState);
+            _agent.TransitionState(_agent.GetState<MoveState_SB>());
         }
     
        

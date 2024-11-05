@@ -6,7 +6,10 @@ using UnityEngine.Events;
 public class E_State : MonoBehaviour
 {
     protected KSB_Enemy _agent;
-    public UnityEvent OnEnter, OnExit;  //State 나갈때
+    public UnityEvent OnEnter, OnExit;
+    protected Sensing _sensing;//State 나갈때
+
+
     public void InitializeState(KSB_Enemy agent)
     {
         _agent = agent;
@@ -14,8 +17,9 @@ public class E_State : MonoBehaviour
 
     public void Enter()
     {
-  
+
         EnterState();      //상태에 들어가자마다 EnterState 메소드 실행
+        _sensing = _agent.gameObject.GetComponentInChildren<Sensing>();
     }
 
     protected virtual void EnterState()
@@ -49,7 +53,7 @@ public class E_State : MonoBehaviour
 
     public void Exit()
     {
-      
+
         ExitState();
     }
 
@@ -57,26 +61,5 @@ public class E_State : MonoBehaviour
     {
     }
 
-   protected virtual void Flip()
-    {
-
-        if(_agent.target != null)
-        {
-            Vector2 direction = (_agent.target.transform.position - _agent.transform.position);
-            Vector2 forward = _agent.transform.right;
-            float crossProduct = forward.x * direction.y - forward.y * direction.x;
-
-            if (crossProduct > 0)
-            {
-                _agent.spriteRender.flipX = false;
-            }
-            else if (crossProduct < 0)
-            {
-                _agent.spriteRender.flipX = true;
-            }
-        }
-      
-       
-    }
-
+   
 }

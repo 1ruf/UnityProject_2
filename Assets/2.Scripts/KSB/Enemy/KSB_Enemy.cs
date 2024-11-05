@@ -1,132 +1,149 @@
+
 using UnityEngine;
 
 public class KSB_Enemy : MonoBehaviour
 {
-    public EnemySO _enemySO;
+    [Header("State")]
+    public E_State currentState;
+    public E_State previousState;
+    public E_State[] States;
+
+    [Header("External access")]
+    public EnemyData enemyData;
     public Sprite Visual_Sprite;
-    [field: SerializeField] public InputReader InputCompo { get; private set; }
-    public EnemyAnimation AnimationCompo { get; private set; }
-    public Collider2D ColliderCompo { get; private set; }
-    [SerializeField] private Transform IdlePositon;
-    public bool shouldMove;
-    public Rigidbody2D RbCompo { get; private set; }
-    public E_State currentState = null, previousState = null;
-    public Collider2D target;
-    public SpriteRenderer spriteRender;
+    public SpriteRenderer spriteRenderer;
 
-    public float hp;
-    public Sensing _sensing;
-    [Header("State debugging:")]
-    public string stateName = "";
+    public EnemyAnimation AnimationCompo { get; set; }
+    public Collider2D ColliderCompo { get; set; }
+    public Rigidbody2D RbCompo { get; set; }
+
+
     public Vector3 point;
-
-    public MoveState_SB MoveState;
-    public AttackState_SB AttackState;
-    public FollowState_SB FollowState;
-    public IdleState_SB IdleState;
-    public DeathState_SB DeathState;
-    public HitSstate_SB HitState;
-
+    public Transform IdlePosition;
+    private float hp;
 
     private void Awake()
     {
-
-        HitState = GetComponent<HitSstate_SB>();
-        MoveState = GetComponent<MoveState_SB>();
-        AttackState = GetComponent<AttackState_SB>();
-        FollowState = GetComponent<FollowState_SB>();
-        IdleState = GetComponent<IdleState_SB>();
-        DeathState = GetComponent<DeathState_SB>();
-        
-
-
-        Visual_Sprite = _enemySO.Visual;
-        spriteRender = GetComponentInChildren<SpriteRenderer>();
+        enemyData = GetComponent<EnemyData>();
+        Visual_Sprite = enemyData.Visual;
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         ColliderCompo = GetComponent<Collider2D>();
         RbCompo = GetComponent<Rigidbody2D>();
         AnimationCompo = GetComponentInChildren<EnemyAnimation>();
-        _sensing = GetComponentInChildren<Sensing>();
 
-        E_State[] states = GetComponentsInChildren<E_State>();
-        foreach (E_State state in states)
-            state.InitializeState(this);
+        States = new E_State[]
+        {
+            GetComponent<HitSstate_SB>(),
+            GetComponent<MoveState_SB>(),
+            GetComponent<AttackState_SB>() ,
+            GetComponent<FollowState_SB>(),
+            GetComponent<IdleState_SB>(),
+            GetComponent<DeathState_SB>()
+        };
+
+        foreach (var state in States)
+        {
+            state?.InitializeState(this);
+        }
     }
     public float Hp
     {
-        get
-        {
-            return hp;
-        }
+        get => hp;
         set
         {
-            if (value <= 100)
+            hp = Mathf.Clamp(value, 0, 100);
+            if (hp <= 0)
             {
-                hp = value;
-            }
-            else
-            {
-                hp = 0;
+                TransitionState(GetState<DeathState_SB>());
             }
         }
     }
 
     private void Start()
     {
-        Hp = _enemySO.hp;
-        TransitionState(IdleState);
-        spriteRender.sprite = Visual_Sprite;
-
+        Hp = enemyData.hp;
+        TransitionState(GetState<IdleState_SB>());
+        spriteRenderer.sprite = Visual_Sprite;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Hp -= 100;
-        }
+        if (Input.GetKeyDown(KeyCode.R)) Hp -= 100;
+        if (Input.GetKeyDown(KeyCode.W)) TransitionState(GetState<HitSstate_SB>());
 
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            TransitionState(HitState);
-        }
+        currentState?.StateUpdate();
+        point = IdlePosition.position;
 
-        currentState.StateUpdate();
-        point = IdlePositon.position;
+        Flip();
+        Rotattion(enemyData.target);
     }
 
     private void FixedUpdate()
     {
-        currentState.StateFixedUpdate();
+        currentState?.StateFixedUpdate();
     }
 
-    internal void TransitionState(E_State desireState)
+    internal void TransitionState(E_State desiredState)
     {
-        if (desireState == null) return;
+        if (desiredState == null || currentState == desiredState) return;
 
-        if (currentState == desireState) return;
-        else if (currentState != null)
-            currentState.Exit();
-
+        currentState?.Exit();
         previousState = currentState;
-        currentState = desireState;
+        currentState = desiredState;
         currentState.Enter();
-
-        DisplayState();
     }
 
-    private void DisplayState()
+
+
+
+    public T GetState<T>() where T : E_State
     {
-        if (previousState == null || previousState.GetType() != currentState.GetType())
+        foreach (var state in States)
         {
-            stateName = currentState.GetType().ToString();
+            if (state is T) return (T)state;
+        }
+        return null;
+    }
+
+
+    private void Flip()
+    {
+        if (enemyData.target != null)
+        {
+            Vector2 direction = (enemyData.target.transform.position - transform.position).normalized;
+            Vector2 forward = transform.right;
+
+            float dotProduct = Vector2.Dot(forward, direction);
+
+            if (dotProduct < 0)
+            {
+                spriteRenderer.flipX = true;
+                enemyData.gun.flipX = true;
+
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+                enemyData.gun.flipX = false;
+            }
         }
     }
 
-    public void Hited()
-    {
 
+    private void Rotattion(GameObject target)
+    {
+        if (target == null)
+        {
+            return; 
+        }
+
+        Vector2 direction = target.transform.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        enemyData.GunCase.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
 }
+
 
 
