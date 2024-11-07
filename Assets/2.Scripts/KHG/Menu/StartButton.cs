@@ -20,6 +20,7 @@ public class StartButton : MonoBehaviour
     [Header("etc.")]
     [SerializeField] private Camera mainCam;
     [SerializeField] private string[] warnMessage;
+    [SerializeField] private MenuBGMManager _bgmManager;
 
     private void Awake()
     {
@@ -75,6 +76,7 @@ public class StartButton : MonoBehaviour
     }
     private void GameStart()
     {
+        _bgmManager.SetVolume(_bgmManager._audio,0f,1f); // 오디오, 목표값,시간, 킬것인가 끌것인가
         mainCam.DOOrthoSize(5f, 2f).OnComplete(()=> SceneManager.LoadScene(1));
     }
     public void BackBtnClicked()
