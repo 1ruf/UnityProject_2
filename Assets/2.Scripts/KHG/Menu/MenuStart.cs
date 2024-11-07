@@ -60,10 +60,10 @@ public class MenuStart : MonoBehaviour
     }
     private IEnumerator Positive()
     {
+        BGMPlay();
         transform.Find("Buttons").gameObject.SetActive(false);
         AddText("\naccessing...");
         yield return new WaitForSeconds(1f);
-        BGMPlay();
         AddText("\nconnected.");
         MenuOpen();
     }

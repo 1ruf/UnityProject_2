@@ -35,6 +35,10 @@ public class MenuBGMManager : MonoBehaviour
         }
         
     }
+    public void SetVolume(AudioSource audio, float targetValue, float time)
+    {
+        audio.DOFade(targetValue, time);
+    }
     public void PlayBGMWithPitch(AudioSource audio,float pitch,float time,bool play)
     {
         if (play == true)
