@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 185976506}
   - component: {fileID: 185976505}
   - component: {fileID: 185976504}
+  - component: {fileID: 185976507}
   m_Layer: 5
   m_Name: SkillEnergyBar (1)
   m_TagString: Untagged
@@ -317,6 +318,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185976502}
   m_CullTransparentMesh: 1
+--- !u!114 &185976507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185976502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d63d0371fc36c2742bc360c5a8161fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxValue: 100
 --- !u!1 &218892966
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dashPunchSkill: {fileID: 610276891}
   _electroBullet: {fileID: 610276892}
+  _bar: {fileID: 185976507}
 --- !u!114 &539546827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1066,6 +1081,7 @@ GameObject:
   - component: {fileID: 793345906}
   - component: {fileID: 793345905}
   - component: {fileID: 793345904}
+  - component: {fileID: 793345907}
   m_Layer: 5
   m_Name: HpBar
   m_TagString: Untagged
@@ -1137,7 +1153,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2012720711}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.2
+  m_Size: 0.635
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1180,6 +1196,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793345902}
   m_CullTransparentMesh: 1
+--- !u!114 &793345907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793345902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d63d0371fc36c2742bc360c5a8161fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxValue: 0
 --- !u!1 &814333847
 GameObject:
   m_ObjectHideFlags: 0
@@ -3212,7 +3241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3287,7 +3316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.22047567, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
