@@ -2,34 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+using System;
 
 public class Bar : MonoBehaviour
 {
-    private Scrollbar _slider;
-    [SerializeField] private float _maxValue;
-    private float _currentValue;
+    [SerializeField] private int energyChargeSpeed;
+    [SerializeField] private Transform _bar;
+    private Image _slider;
+    private bool _charging;
+    public int _maxCharge { get; private set; } = 50;
 
 
     private void Start()
     {
-        _slider = GetComponent<Scrollbar>();
-        _slider.size = 1;
-        _currentValue = _maxValue;
+        _slider = _bar.GetComponent<Image>();
     }
 
     private void Update()
     {
-        if (_maxValue <= 0) return;
-        BarScrollChange(_currentValue/_maxValue);
     }
 
+    private void CheckCharge()
+    {
+        if (_charging == false)
+        {
+            StartCoroutine(EnegyCharge());
+            _charging = true;
+        }
+    }
+
+    private IEnumerator EnegyCharge()
+    {
+        while (true)
+        { 
+            if (_slider.fillAmount >= 1) break;                
+            yield return new WaitForSeconds(0.05f);
+            _slider.fillAmount += 0.01f;                 
+        }
+        _charging = false;
+    }
     private void BarScrollChange(float value)
     {
-        _slider.size = Mathf.Lerp(_slider.size, value, Time.deltaTime*10);
+        _slider.fillAmount += value / _maxCharge;
+        CheckCharge();
     }
 
     public void BarValueChange(float value)
     {
-        _currentValue += value;
+        BarScrollChange(value);
     }
 }
