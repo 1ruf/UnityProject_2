@@ -6,7 +6,7 @@ public class SkillState : State
 {
     [SerializeField] private DashPunch _dashPunchSkill;
     [SerializeField] private ElectorBulletSkill _electroBullet;
-
+    [SerializeField] private Bar _bar;
 
     protected override void EnterState()
     {
@@ -14,6 +14,7 @@ public class SkillState : State
         {
             if (_agent.CompareTag("Player")) _dashPunchSkill.SkillPlay(_agent);
             else _electroBullet.SkillPlay(_agent);// 지금 내가 어떤 캐릭터를 해킹한 상태인지에 따라 (태그로 구분) 다른 스킬 사용
+            _bar.BarValueChange(-10);
             _agent.SkillUICompo.Cool();
         }
                                     
