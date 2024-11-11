@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public State _previousState { get; private set; }
     [field : SerializeField] public InputReader InputCompo { get; private set; }
 
+    [SerializeField] public SkillUI SkillUICompo;
+
     [SerializeField] private PlayerFlip FlipCompo;
 
     public PlayerAnimaton AnimCompo { get; private set; }

@@ -23,9 +23,6 @@ public class PlayerAnimaton : MonoBehaviour
             case AnimatonType.walk:
                 Play("Walk");
                 break;
-            case AnimatonType.attack:
-                Play("Attack");
-                break;
         }
     }
 
