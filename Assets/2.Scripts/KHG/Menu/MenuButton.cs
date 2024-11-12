@@ -31,9 +31,7 @@ public class MenuButton : MonoBehaviour
     {
         if (Keyboard.current.tKey.wasPressedThisFrame)
         {
-            PlayerPrefs.SetInt("NowSavedStage", 1);
-
-            print(PlayerPrefs.GetInt("NowSavedStage"));
+            SaveManager.Instance.SetData(30, true);
         }
     }
     public void StartBtnClicked()

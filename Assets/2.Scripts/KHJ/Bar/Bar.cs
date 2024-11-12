@@ -11,7 +11,7 @@ public class Bar : MonoBehaviour
     [SerializeField] private Transform _bar;
     private Image _slider;
     private bool _charging;
-    public int _maxCharge { get; private set; } = 50;
+    public int _maxCharge { get; private set; } = 100;
 
 
     private void Start()

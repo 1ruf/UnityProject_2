@@ -28,25 +28,9 @@ public class ScreenLoad : MonoBehaviour
     {
         SetStage();
     }
-    private void Update()
-    {
-        if (Keyboard.current.tKey.wasPressedThisFrame)
-        {
-            a += 1;
-            PlayerPrefs.SetInt("NowSavedStage",a);
-            print(PlayerPrefs.GetInt("NowSavedStage"));
-        }
-    }
     private void SetStage()
     {
-        EZSceneLoad(CheckStage());
-    }
-    private bool CheckStage()
-    {
-        if (nowStage <= PlayerPrefs.GetInt("NowSavedStage"))
-            return true;
-        else   
-            return false;    
+        EZSceneLoad(SaveManager.Instance.CheckData(30));
     }
 
     public void EZSceneLoad(bool canActive)

@@ -37,10 +37,10 @@ public class StartButton : MonoBehaviour
 
     private void SetBtn()
     {
-        if (PlayerPrefs.GetInt("NowSavedStage") == 0)
-            continueBtn.interactable = false;
-        else
+        if (SaveManager.Instance.CheckData(30))
             continueBtn.interactable = true;
+        else
+            continueBtn.interactable = false;
     }
 
     private IEnumerator DoText(TMP_Text text, string endValue, float duration)
@@ -64,14 +64,13 @@ public class StartButton : MonoBehaviour
     public void NewGameBtnClicked()
     {
         gameObject.SetActive(false);
-        int savedData = PlayerPrefs.GetInt("NowSavedStage",0);
-        if (savedData == 0)
+        if (SaveManager.Instance.CheckData(30)) //30번째줄에 저장값이 true이면
         {
-            GameStart();
+            WarnPopup(warnMessage[0],warnMessage[1]);
         }
         else
         {
-            WarnPopup(warnMessage[0],warnMessage[1]);
+            GameStart();
         }
     }
     private void GameStart()
@@ -98,7 +97,10 @@ public class StartButton : MonoBehaviour
     }
     public void W_Reset()
     {
-        PlayerPrefs.SetInt("NowSavedStage", 0);
+        for (int i = 0; i < 4; i++)
+        {
+            SaveManager.Instance.CheckData(30 + i);
+        }
         ContinueBtnClick();
     }
 }
