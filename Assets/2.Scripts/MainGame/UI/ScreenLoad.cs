@@ -30,7 +30,7 @@ public class ScreenLoad : MonoBehaviour
     }
     private void SetStage()
     {
-        EZSceneLoad(SaveManager.Instance.CheckData(30));
+        EZSceneLoad(SaveManager.Instance.CheckData(nowStage + 30));
     }
 
     public void EZSceneLoad(bool canActive)

@@ -38,20 +38,18 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                ResetAllData();
-            }
+            SetDatas(25, 50, "이 구역은 내가 점령한다 하하하하하");
         }
     }
-    public void ResetData(int startLine, int endLine) //시작값 끝값 받아와서 그 부분만 수정하기
+    public void SetDatas(int startLine, int endLine, string value) //시작값 끝값 받아와서 그 부분만 수정하기
     {
-        //string startData = "";
-        //for (int i = startLine; i < endLine; i++)
+        //string[] Data = File.ReadAllLines(filePath);
+        //for (int i = startLine; i <= endLine; i++)
         //{
-        //    startData += "0\n";
+        //    Data[i] = (value + "\n");
+        //    File.WriteAllText(filePath, Data[i]);
+        //    Debug.Log($"값이 교체되었습니다.\n교체 시작지점:{startLine},교체 종료지점:{endLine}.\n교체된 값:{value}");
         //}
-        //File.WriteAllText(filePath, startData);
     }
     public void ResetAllData()
     {

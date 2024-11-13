@@ -155,16 +155,36 @@ public class MoveArrowClicked : MonoBehaviour /////////////////코드를 에전에 짠�
     }
     private void CheckMap()
     {
-        if (nowSector > PlayerPrefs.GetInt("NowSavedStage"))
-        {
-            EnterBtn.interactable = false;
-            canEnter = false;
-        }
-        else
+        if (Check(nowSector))
         {
             EnterBtn.interactable = true;
             canEnter = true;
         }
+        else
+        {
+            EnterBtn.interactable = false;
+            canEnter = false;
+        }
+    }
+    private bool Check(int Sector)
+    {
+        if (Sector == 3)
+        {
+            return SaveManager.Instance.CheckData(33);
+        }
+        else if (Sector == 2)
+        {
+            return SaveManager.Instance.CheckData(32);
+        }
+        else if (Sector == 1)
+        {
+            return SaveManager.Instance.CheckData(31);
+        }
+        else if (Sector == 0)
+        {
+            return SaveManager.Instance.CheckData(30);
+        }
+        else return true;
     }
     private void CheckTab()
     {
