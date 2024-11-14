@@ -1,0 +1,1259 @@
+fileFormatVersion: 2
+guid: 9d128f2b99b716a4bb7c7e4adafe6b30
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Ball Tank_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 79
+      y: 46
+      width: 12
+      height: 12
+    spriteID: 3b4ac989e73220546bad499dbb0b7218
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 79, y: 46}
+  - name: Ball Tank_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 79
+      y: 66
+      width: 12
+      height: 12
+    spriteID: 7810c9dfcfe7cb14c88676c84f2dc721
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 79, y: 66}
+  - name: Ball Tank_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 79
+      y: 86
+      width: 12
+      height: 12
+    spriteID: 24869bee7c94a2e4397203d6ddb45e93
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 79, y: 86}
+  - name: Ball Tank_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 79
+      y: 106
+      width: 12
+      height: 12
+    spriteID: 29ef00fe63135e44da8ee8d7374da660
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 79, y: 106}
+  - name: Ball Tank_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 79
+      y: 126
+      width: 12
+      height: 12
+    spriteID: c15e4675d00ea584688b7a39fa8fb292
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 79, y: 126}
+  - name: Ball Tank_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 79
+      y: 146
+      width: 12
+      height: 12
+    spriteID: 685eec7b38f8ee24d88a7a0560190a48
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 79, y: 146}
+  - name: Ball Tank_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: -0.84615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 53
+      y: 225
+      width: 12
+      height: 13
+    spriteID: c517336e163e84d4ebd831a06d0f1445
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 53, y: 225}
+  - name: Ball Tank_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: -0.84615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 79
+      y: 4
+      width: 12
+      height: 13
+    spriteID: b86bcd0239070244ea0bf33dee4110dd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 79, y: 4}
+  - name: Ball Tank_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: -0.7692308}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 79
+      y: 25
+      width: 12
+      height: 13
+    spriteID: cef9b7df0bc96414185851f7896878e4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 79, y: 25}
+  - name: Ball Tank_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: -0.6428572}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 53
+      y: 203
+      width: 12
+      height: 14
+    spriteID: ab7f2247dd69f2546bd145d7460dbde0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 53, y: 203}
+  - name: Ball Tank_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: -0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 53
+      y: 180
+      width: 12
+      height: 15
+    spriteID: afba3713c21670c4582905d2d666dc3b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 53, y: 180}
+  - name: Ball Tank_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: -0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 53
+      y: 156
+      width: 12
+      height: 16
+    spriteID: 36ed075982ea9b849a93970822c7eb44
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 53, y: 156}
+  - name: Ball Tank_Frame_12
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 79
+      y: 166
+      width: 12
+      height: 12
+    spriteID: 8b10971e77fc6244c8d82dabbb77ea42
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 79, y: 166}
+  - name: Ball Tank_Frame_13
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 79
+      y: 186
+      width: 12
+      height: 12
+    spriteID: 3676562d4be02964bb3e1aa2db40461b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 79, y: 186}
+  - name: Ball Tank_Frame_14
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 79
+      y: 206
+      width: 12
+      height: 12
+    spriteID: 71d0172125747b041a794f49262cc23b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 79, y: 206}
+  - name: Ball Tank_Frame_15
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 79
+      y: 226
+      width: 12
+      height: 12
+    spriteID: 55becb1895ba1414884b3a1c9ba7c0fa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 79, y: 226}
+  - name: Ball Tank_Frame_16
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 4
+      width: 12
+      height: 12
+    spriteID: 9444260bca542934c9a7d1787218a7c0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 4}
+  - name: Ball Tank_Frame_17
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 24
+      width: 12
+      height: 12
+    spriteID: f320a9e04afdb514891c7e3a5456c8ac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 24}
+  - name: Ball Tank_Frame_18
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 44
+      width: 12
+      height: 12
+    spriteID: 7c9d4deec89b43143b9f9d350a7e38c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 44}
+  - name: Ball Tank_Frame_19
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.6428572}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 30
+      y: 214
+      width: 14
+      height: 14
+    spriteID: 6b6b913c38491da4fb206c34182e6e70
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 30, y: 214}
+  - name: Ball Tank_Frame_20
+    originalName: 
+    pivot: {x: 0.5, y: -0.3888889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 214
+      width: 18
+      height: 18
+    spriteID: d399f2bd22246cc43bdf3e2565c12a3e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 214}
+  - name: Ball Tank_Frame_21
+    originalName: 
+    pivot: {x: 0.5, y: -0.3888889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 53
+      y: 4
+      width: 18
+      height: 18
+    spriteID: e2819f0b360f4704aaa31e20a1d60a22
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 53, y: 4}
+  - name: Ball Tank_Frame_22
+    originalName: 
+    pivot: {x: 0.5, y: -0.3888889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 53
+      y: 30
+      width: 18
+      height: 18
+    spriteID: ec86c47c3ef50864cb28a95aac42ff24
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 53, y: 30}
+  - name: Ball Tank_Frame_23
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 64
+      width: 12
+      height: 12
+    spriteID: c515646c5da3fae4e8886939d4361e25
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 64}
+  - name: Ball Tank_Frame_24
+    originalName: 
+    pivot: {x: 0.5, y: -0.3888889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 53
+      y: 56
+      width: 18
+      height: 18
+    spriteID: 2e15459ee712da04abf1ef2c30075ea2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 53, y: 56}
+  - name: Ball Tank_Frame_25
+    originalName: 
+    pivot: {x: 0.5555556, y: -0.5625}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 53
+      y: 108
+      width: 18
+      height: 16
+    spriteID: f2ea213d7bcb0d84db2ab3e433f358a4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 53, y: 108}
+  - name: Ball Tank_Frame_26
+    originalName: 
+    pivot: {x: 0.5, y: -0.5625}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 53
+      y: 132
+      width: 18
+      height: 16
+    spriteID: ef3f5abd0bc7650439d73e3702e134ab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 53, y: 132}
+  - name: Ball Tank_Frame_27
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 240
+      width: 18
+      height: 12
+    spriteID: c8e558ac3d174934da2392d28f41d1d1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 240}
+  - name: Ball Tank_Frame_28
+    originalName: 
+    pivot: {x: 0.4, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 30
+      y: 240
+      width: 15
+      height: 12
+    spriteID: 980afae632605c44ca5260532bd6ad83
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 30, y: 240}
+  - name: Ball Tank_Frame_29
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 84
+      width: 12
+      height: 12
+    spriteID: c9512005780be7d40888b1c0bdd483bb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 84}
+  - name: Ball Tank_Frame_30
+    originalName: 
+    pivot: {x: 0.5, y: -0.8333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 104
+      width: 12
+      height: 12
+    spriteID: 30a6ffbec3af8b94f9485fc24142edbb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 104}
+  - name: Ball Tank_Frame_31
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.47058824}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 189
+      width: 34
+      height: 17
+    spriteID: ef16c54861bc318488e50546402095a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 189}
+  - name: Ball Tank_Frame_32
+    originalName: 
+    pivot: {x: 0.48648646, y: -0.3}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 131
+      width: 37
+      height: 20
+    spriteID: 3fe0566dda25cc0488d1f7e27fe9ff9b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 131}
+  - name: Ball Tank_Frame_33
+    originalName: 
+    pivot: {x: 0.5, y: -0.22727273}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 67
+      width: 38
+      height: 22
+    spriteID: 7b6bcc286152fd64f8880e662fcf8146
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 67}
+  - name: Ball Tank_Frame_34
+    originalName: 
+    pivot: {x: 0.51282054, y: -0.17391305}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 36
+      width: 39
+      height: 23
+    spriteID: 3bc0af9a459c10341990157d308171b3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 36}
+  - name: Ball Tank_Frame_35
+    originalName: 
+    pivot: {x: 0.5121951, y: -0.16666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 41
+      height: 24
+    spriteID: 75f87cafad0f5674f882998e2b761c76
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Ball Tank_Frame_36
+    originalName: 
+    pivot: {x: 0.6875, y: -0.11538462}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 97
+      width: 32
+      height: 26
+    spriteID: adfd0b23bea7361418c85e560805e973
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 97}
+  - name: Ball Tank_Frame_37
+    originalName: 
+    pivot: {x: 0.6875, y: -0.3181818}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 159
+      width: 32
+      height: 22
+    spriteID: 5af9682c4d0f71c4b84d59e5dcdea9b5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 159}
+  - name: Ball Tank_Frame_38
+    originalName: 
+    pivot: {x: -2.333333, y: -6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 119
+      y: 4
+      width: 3
+      height: 3
+    spriteID: c9d28257bee14d84999ee775b618317b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 119, y: 4}
+  - name: Ball Tank_Frame_39
+    originalName: 
+    pivot: {x: 0.5, y: -0.3888889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 53
+      y: 82
+      width: 18
+      height: 18
+    spriteID: 7678c87f1c3936a498addf25ae1a7d73
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 53, y: 82}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1467238497
+    name: Ball Tank
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Ball Tank_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 12
+      spriteId: 3b4ac989e73220546bad499dbb0b7218
+    - name: Ball Tank_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 12
+      spriteId: 7810c9dfcfe7cb14c88676c84f2dc721
+    - name: Ball Tank_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 12
+      spriteId: 24869bee7c94a2e4397203d6ddb45e93
+    - name: Ball Tank_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 12
+      spriteId: 29ef00fe63135e44da8ee8d7374da660
+    - name: Ball Tank_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 12
+      spriteId: c15e4675d00ea584688b7a39fa8fb292
+    - name: Ball Tank_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 12
+      spriteId: 685eec7b38f8ee24d88a7a0560190a48
+    - name: Ball Tank_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 18
+        y: 11
+        width: 12
+        height: 13
+      spriteId: c517336e163e84d4ebd831a06d0f1445
+    - name: Ball Tank_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 18
+        y: 11
+        width: 12
+        height: 13
+      spriteId: b86bcd0239070244ea0bf33dee4110dd
+    - name: Ball Tank_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 13
+      spriteId: cef9b7df0bc96414185851f7896878e4
+    - name: Ball Tank_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 18
+        y: 9
+        width: 12
+        height: 14
+      spriteId: ab7f2247dd69f2546bd145d7460dbde0
+    - name: Ball Tank_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 18
+        y: 9
+        width: 12
+        height: 15
+      spriteId: afba3713c21670c4582905d2d666dc3b
+    - name: Ball Tank_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 18
+        y: 8
+        width: 12
+        height: 16
+      spriteId: 36ed075982ea9b849a93970822c7eb44
+    - name: Ball Tank_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 12
+      spriteId: 8b10971e77fc6244c8d82dabbb77ea42
+    - name: Ball Tank_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 12
+      spriteId: 3676562d4be02964bb3e1aa2db40461b
+    - name: Ball Tank_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 12
+      spriteId: 71d0172125747b041a794f49262cc23b
+    - name: Ball Tank_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 12
+      spriteId: 55becb1895ba1414884b3a1c9ba7c0fa
+    - name: Ball Tank_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 12
+      spriteId: 9444260bca542934c9a7d1787218a7c0
+    - name: Ball Tank_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 12
+      spriteId: f320a9e04afdb514891c7e3a5456c8ac
+    - name: Ball Tank_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 12
+      spriteId: 7c9d4deec89b43143b9f9d350a7e38c3
+    - name: Ball Tank_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 17
+        y: 9
+        width: 14
+        height: 14
+      spriteId: 6b6b913c38491da4fb206c34182e6e70
+    - name: Ball Tank_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 15
+        y: 7
+        width: 18
+        height: 18
+      spriteId: d399f2bd22246cc43bdf3e2565c12a3e
+    - name: Ball Tank_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 15
+        y: 7
+        width: 18
+        height: 18
+      spriteId: e2819f0b360f4704aaa31e20a1d60a22
+    - name: Ball Tank_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 15
+        y: 7
+        width: 18
+        height: 18
+      spriteId: ec86c47c3ef50864cb28a95aac42ff24
+    - name: Ball Tank_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 12
+      spriteId: c515646c5da3fae4e8886939d4361e25
+    - name: Ball Tank_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 15
+        y: 7
+        width: 18
+        height: 18
+      spriteId: 2e15459ee712da04abf1ef2c30075ea2
+    - name: Ball Tank_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 14
+        y: 9
+        width: 18
+        height: 16
+      spriteId: f2ea213d7bcb0d84db2ab3e433f358a4
+    - name: Ball Tank_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 15
+        y: 9
+        width: 18
+        height: 16
+      spriteId: ef3f5abd0bc7650439d73e3702e134ab
+    - name: Ball Tank_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 15
+        y: 10
+        width: 18
+        height: 12
+      spriteId: c8e558ac3d174934da2392d28f41d1d1
+    - name: Ball Tank_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 18
+        y: 10
+        width: 15
+        height: 12
+      spriteId: 980afae632605c44ca5260532bd6ad83
+    - name: Ball Tank_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 12
+      spriteId: c9512005780be7d40888b1c0bdd483bb
+    - name: Ball Tank_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 18
+        y: 10
+        width: 12
+        height: 12
+      spriteId: 30a6ffbec3af8b94f9485fc24142edbb
+    - name: Ball Tank_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 7
+        y: 8
+        width: 34
+        height: 17
+      spriteId: ef16c54861bc318488e50546402095a0
+    - name: Ball Tank_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 6
+        y: 6
+        width: 37
+        height: 20
+      spriteId: 3fe0566dda25cc0488d1f7e27fe9ff9b
+    - name: Ball Tank_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 5
+        y: 5
+        width: 38
+        height: 22
+      spriteId: 7b6bcc286152fd64f8880e662fcf8146
+    - name: Ball Tank_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 4
+        y: 4
+        width: 39
+        height: 23
+      spriteId: 3bc0af9a459c10341990157d308171b3
+    - name: Ball Tank_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 3
+        y: 4
+        width: 41
+        height: 24
+      spriteId: 75f87cafad0f5674f882998e2b761c76
+    - name: Ball Tank_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 2
+        y: 3
+        width: 32
+        height: 26
+      spriteId: adfd0b23bea7361418c85e560805e973
+    - name: Ball Tank_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: 2
+        y: 7
+        width: 32
+        height: 22
+      spriteId: 5af9682c4d0f71c4b84d59e5dcdea9b5
+    - name: Ball Tank_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: 31
+        y: 18
+        width: 3
+        height: 3
+      spriteId: c9d28257bee14d84999ee775b618317b
+    - name: Ball Tank_Frame_39
+      frameIndex: 39
+      cellRect:
+        x: 15
+        y: 7
+        width: 18
+        height: 18
+      spriteId: 7678c87f1c3936a498addf25ae1a7d73
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 48, y: 32}
