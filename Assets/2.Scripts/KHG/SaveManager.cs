@@ -95,5 +95,11 @@ public class SaveManager : MonoBehaviour                    //0ÀÌ false °ם 1ÀÌ t
             return false;
         }
     }
-
+}
+public enum Datas
+{
+    Stage1 = 30,
+    Stage2 = 31,
+    Stage3 = 32,
+    Stage4 = 33
 }

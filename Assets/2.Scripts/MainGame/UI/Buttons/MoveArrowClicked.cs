@@ -170,19 +170,19 @@ public class MoveArrowClicked : MonoBehaviour /////////////////코드를 에전에 짠�
     {
         if (Sector == 3)
         {
-            return SaveManager.Instance.CheckData(33);
+            return SaveManager.Instance.CheckData((int)Datas.Stage4);
         }
         else if (Sector == 2)
         {
-            return SaveManager.Instance.CheckData(32);
+            return SaveManager.Instance.CheckData((int)Datas.Stage3);
         }
         else if (Sector == 1)
         {
-            return SaveManager.Instance.CheckData(31);
+            return SaveManager.Instance.CheckData((int)Datas.Stage2);
         }
         else if (Sector == 0)
         {
-            return SaveManager.Instance.CheckData(30);
+            return SaveManager.Instance.CheckData((int)Datas.Stage1);
         }
         else return true;
     }

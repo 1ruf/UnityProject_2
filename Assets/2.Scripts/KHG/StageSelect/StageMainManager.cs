@@ -13,13 +13,13 @@ public class StageMainManager : MonoBehaviour
     }
     private int Check()
     {
-        if (SaveManager.Instance.CheckData(33))
+        if (SaveManager.Instance.CheckData((int)Datas.Stage4))
             return 4;
-        else if (SaveManager.Instance.CheckData(32))
+        else if (SaveManager.Instance.CheckData((int)Datas.Stage3))
             return 3;
-        else if (SaveManager.Instance.CheckData(31))
+        else if (SaveManager.Instance.CheckData((int)Datas.Stage2))
             return 2;
-        else if (SaveManager.Instance.CheckData(30))
+        else if (SaveManager.Instance.CheckData((int)Datas.Stage1))
             return 1;
         else return 0;
     }
