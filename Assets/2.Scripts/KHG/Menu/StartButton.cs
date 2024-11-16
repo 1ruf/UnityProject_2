@@ -18,9 +18,12 @@ public class StartButton : MonoBehaviour
     [SerializeField] private GameObject mainMenuUI;
     [SerializeField] private List<TMP_Text> BtnTxt = new List<TMP_Text>();
     [Header("etc.")]
+    [SerializeField] private GameObject _nameInputUI;
+    [SerializeField] private TMP_Text _input;
     [SerializeField] private Camera mainCam;
     [SerializeField] private string[] warnMessage;
     [SerializeField] private MenuBGMManager _bgmManager;
+    [SerializeField] private TMP_Text _warningTxt;
 
     private void Awake()
     {
@@ -70,13 +73,24 @@ public class StartButton : MonoBehaviour
         }
         else
         {
-            GameStart();
+            InputPopup();
         }
     }
     private void GameStart()
     {
+        _nameInputUI.SetActive(false);
         _bgmManager.SetVolume(_bgmManager._audio,0f,1f); // 오디오, 목표값,시간, 킬것인가 끌것인가
-        mainCam.DOOrthoSize(5f, 2f).OnComplete(()=> SceneManager.LoadScene(1));
+        mainCam.DOOrthoSize(5f, 2f).OnComplete(()=>
+        {
+            if (SaveManager.Instance.CheckData((int)Datas.Cutscene1))
+            {
+                SceneManager.LoadScene("Stage1");
+            }
+            else
+            {
+                SceneManager.LoadScene("Cinema1");
+            }
+        });
     }
     public void BackBtnClicked()
     {
@@ -97,10 +111,42 @@ public class StartButton : MonoBehaviour
     }
     public void W_Reset()
     {
-        for (int i = 0; i < 4; i++)
+        SaveManager.Instance.ResetAllData();
+        w_UI.SetActive(false);
+        InputPopup();
+    }
+
+    private void InputPopup()
+    {
+        _nameInputUI.SetActive(true);
+    }
+
+    public void Submit()
+    {
+        if (_input.text.Length <= 6)
         {
-            SaveManager.Instance.CheckData(30 + i);
+            SaveManager.Instance.SetDataString(1, _input.text);
+            GameStart();
         }
-        ContinueBtnClick();
+        else
+        {
+            _warningTxt.text = "이름은 5글자를 넘을수 없습니다.";
+        }
+    }
+    public void StartCancle()
+    {
+        _nameInputUI.SetActive(false);
+        gameObject.SetActive(true);
+    }
+    public void CheckInput()
+    {
+        if (_input.text.Length <= 5)
+        {
+            _warningTxt.text = "";
+        }
+        else
+        {
+            _warningTxt.text = "이름은 5글자를 넘을수 없습니다.";
+        }
     }
 }

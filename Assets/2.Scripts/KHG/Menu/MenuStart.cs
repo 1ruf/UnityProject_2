@@ -11,6 +11,8 @@ using System.Net.Sockets;
 
 public class MenuStart : MonoBehaviour
 {
+    [SerializeField] private AudioSource _audio;
+
     [SerializeField] private MenuBGMManager _menuManager;
     [SerializeField] private Camera mainCam;
     [SerializeField] private GameObject MenuUI, button;
@@ -126,6 +128,7 @@ public class MenuStart : MonoBehaviour
         {
             tempString += endValue[i];
             text.text = tempString;
+            _audio.Play();
 
             yield return charPerTime;
         }

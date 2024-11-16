@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
 
 public class SaveManager : MonoBehaviour                    //0이 false 고 1이 true임 님들
 {
@@ -21,17 +22,23 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
     }
     private void Start()
     {
+        StartDataSetting();
+        //FileCreate();
+    }
+
+    public void StartDataSetting()
+    {
         filePath = Path.Combine(Application.persistentDataPath, "DATA.txt");
         if (File.Exists(filePath) == false)
         {
             string startData = "";
-            for (int i = 0; i < 100; i++)
+            startData += "[데이터 접근 거부됨]\n";
+            for (int i = 1; i < 100; i++)
             {
                 startData += "0\n";
             }
             File.WriteAllText(filePath, startData);
         }
-        //FileCreate();
     }
 
     private void Update()
@@ -54,7 +61,7 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
     public void ResetAllData()
     {
         string startData = "";
-        for (int i = 0; i < 100; i++)
+        for (int i = 1; i < 100; i++)
         {
             startData += "0\n";
         }
@@ -81,6 +88,20 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
             Debug.LogError("파일 추가 중 오류 발생: " + e.Message);
         }
     }
+    public void SetDataString(int path, string value)
+    {
+        try
+        {
+            string[] existingText = File.ReadAllLines(filePath);
+            existingText[path - 1] = value;
+            File.WriteAllLines(filePath, existingText); //파일 다시쓰기
+            //(existingText[path - 1].Trim().ToLower() == "0") //이 전(전체)에서 같은 데이터가 있는지 확인
+        }
+        catch (IOException e)
+        {
+            Debug.LogError("파일 추가 중 오류 발생: " + e.Message);
+        }
+    }
     public bool CheckData(int lineNum)
     {
         try
@@ -95,11 +116,28 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
             return false;
         }
     }
+    public string GetData(int lineNum)
+    {
+        try
+        {
+            string[] lines = File.ReadAllLines(filePath);
+            return lines[lineNum];
+        }
+        catch (IOException error)
+        {
+            Debug.LogError("에러: " + error.Message);
+            return "maybe it's an error. sorry";
+        }
+    }
 }
 public enum Datas
 {
-    Stage1 = 30,
-    Stage2 = 31,
-    Stage3 = 32,
-    Stage4 = 33
+    Username =  0,
+    Cutscene1 = 10,
+    Cutscene2 = 11,
+    Cutscene3 = 12,
+    Stage1 =    30,
+    Stage2 =    31,
+    Stage3 =    32,
+    Stage4 =    33
 }
