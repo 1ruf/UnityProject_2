@@ -8,7 +8,7 @@ public class Boss_Animator : MonoBehaviour
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
 
     }
 
@@ -16,17 +16,17 @@ public class Boss_Animator : MonoBehaviour
     {
         switch (type)
         {
-            case Boss_AnimationType.Attack1:
-                Play("Boss_Attack1");
+            case Boss_AnimationType.Attack1_L:
+                Play("Boss_Attack1(L)");
+                break;
+            case Boss_AnimationType.Attack1_R:
+                Play("Boss_Attack1(R)");
                 break;
             case Boss_AnimationType.Attack2:
                 Play("Boss_Attack2");
                 break;
             case Boss_AnimationType.Attack3:
                 Play("Boss_Attack3");
-                break;
-            case Boss_AnimationType.Attack4:
-                Play("Boss_Attack4");
                 break;
             case Boss_AnimationType.Run:
                 Play("Boss_Run");
@@ -37,23 +37,31 @@ public class Boss_Animator : MonoBehaviour
             case Boss_AnimationType.Death:
                 Play("Boss_Death");
                 break;
+            case Boss_AnimationType.Hit:
+                Play("Boss_Hit");
+                break;
+            case Boss_AnimationType.Spawn:
+                Play("Boss_Spawn");
+                break;
 
         }
     }
-    private void Play(string name)
+    public void Play(string name)
     {
         animator.Play(name);
     }
 }
-
 public enum Boss_AnimationType
 {
-    Attack1,
+    Attack1_R,
+    Attack1_L,
     Attack2,
     Attack3,
     Attack4,
     Run,
     Idle,
     Death,
+    Hit,
+    Spawn
 
 }
