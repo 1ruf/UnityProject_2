@@ -51,14 +51,13 @@ public class Boss : MonoBehaviour
 
     public void TransitionState(BossState InputState)
     {
+        print(InputState);
         if (InputState == null)
             return;
-
         if (currentState == InputState)
             return;
         if (currentState != null)
             currentState.Exit();
-
         InputState.InitializeState(this);
 
         lastState = currentState;

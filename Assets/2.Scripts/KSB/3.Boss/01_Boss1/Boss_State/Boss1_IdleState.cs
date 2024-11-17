@@ -38,4 +38,6 @@ public class Boss1_IdleState : BossState
             _boss.TransitionState(_boss.StateCompo.Boss_GetState(Boss_StateType.Death));
         }
     }
+
+
 }

@@ -49,5 +49,8 @@ public class Boss1_FollowState : BossState
      
 
     }
-
+    private void Awake()
+    {
+        print(1);
+    }
 }
