@@ -29,6 +29,7 @@ public class InputReader : ScriptableObject, IPlayerActions
 
     public void OnSpace(InputAction.CallbackContext context)
     {
+
         if (context.performed)
             OnJumpPressed?.Invoke();
     }

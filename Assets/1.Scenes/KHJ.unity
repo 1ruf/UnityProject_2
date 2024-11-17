@@ -330,7 +330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63d0371fc36c2742bc360c5a8161fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxValue: 100
+  energyChargeSpeed: 0
+  _bar: {fileID: 0}
 --- !u!1 &218892966
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dashPunchSkill: {fileID: 610276891}
   _electroBullet: {fileID: 610276892}
-  _bar: {fileID: 185976507}
+  _energybar: {fileID: 0}
 --- !u!114 &539546827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1208,7 +1209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63d0371fc36c2742bc360c5a8161fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxValue: 0
+  energyChargeSpeed: 0
+  _bar: {fileID: 0}
 --- !u!1 &814333847
 GameObject:
   m_ObjectHideFlags: 0

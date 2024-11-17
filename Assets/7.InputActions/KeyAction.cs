@@ -38,12 +38,12 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Space"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""37c005c0-77a9-48b5-8eab-f89dbae89f2e"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Attack"",
