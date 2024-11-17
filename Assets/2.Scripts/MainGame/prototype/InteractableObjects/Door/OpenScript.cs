@@ -13,7 +13,6 @@ public class OpenScript : MonoBehaviour
     [SerializeField] private float detectableRadius;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private int targetAngle;
-    private float currentTime = 0;
     private bool IsOpen = false;
     private bool IsCool = false;
 

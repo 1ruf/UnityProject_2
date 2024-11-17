@@ -11,18 +11,14 @@ public class Boss : MonoBehaviour
     public float distanceThreshold = 0.2f;
     public Point point;
     public bool CanAttack = true;
-
+    [SerializeField] private int SkillCount;
 
     [SerializeField] private int _Health = 300;
     public int health;
     public int damage;
 
+ 
     [SerializeField] private BossState attackState;
-
-
-    private float _attackDelay;
-
-
     [SerializeField] private BossState currentState;
     public BossState lastState;
 
@@ -39,10 +35,11 @@ public class Boss : MonoBehaviour
         Detecting = GetComponentInChildren<Boss_Detecting>();
         attackState = StateCompo.Boss_GetState(Boss_StateType.Attack);
 
-        attackState.OnAttack1 += boss_Skill.Skill1;
-        attackState.OnAttack2 += boss_Skill.Skill2;
-        attackState.OnAttack3 += boss_Skill.Skill3;
-        attackState.OnAttack4 += boss_Skill.Skill4;
+
+        attackState.OnAttack1 += boss_Skill.Boss_Skill1;
+        attackState.OnAttack2 += boss_Skill.Boss_Skill2;
+        attackState.OnAttack3 += boss_Skill.Boss_Skill3;
+        attackState.OnAttack4 += boss_Skill.Boss_Skill4;
     }
 
     private void Start()
@@ -93,8 +90,8 @@ public class Boss : MonoBehaviour
         }
 
         currentState.StateUpdate();
-        if(CanAttack)
-        Flip();
+        if (CanAttack)
+            Flip();
     }
 
     private void FixedUpdate()
@@ -110,26 +107,25 @@ public class Boss : MonoBehaviour
     public void ChoseRandomAttack()
     {
         CanAttack = false;
-        Vector3 targetPos = Detecting.target.transform.position;
         float randomValue;
 
         if (Detecting.melee_Attack)
         {
-       
+
             randomValue = Random.Range(0, 10);
-            if (randomValue < 7) 
+            if (randomValue < 7)
             {
                 attackState.OnAttack4.Invoke();
             }
-            else if (randomValue < 8) 
+            else if (randomValue < 8)
             {
                 attackState.OnAttack3.Invoke();
             }
-            else if (randomValue < 9) 
+            else if (randomValue < 9)
             {
                 attackState.OnAttack2.Invoke();
             }
-            else 
+            else
             {
                 attackState.OnAttack1.Invoke();
             }
@@ -137,15 +133,15 @@ public class Boss : MonoBehaviour
         else
         {
             randomValue = Random.Range(0, 10);
-            if (randomValue < 4) 
+            if (randomValue < 4)
             {
                 attackState.OnAttack3.Invoke();
             }
-            else if (randomValue < 7) 
+            else if (randomValue < 7)
             {
                 attackState.OnAttack2.Invoke();
             }
-            else 
+            else
             {
                 attackState.OnAttack1.Invoke();
             }
@@ -157,6 +153,7 @@ public class Boss : MonoBehaviour
 
     private void Flip()
     {
+        
         if (Detecting.target != null)
         {
             Vector2 direction = (Detecting.target.transform.position - transform.position).normalized;
@@ -166,13 +163,13 @@ public class Boss : MonoBehaviour
 
             if (dotProduct < 0)
             {
-                _sprite.flipX = true;
+                _sprite.flipX = false;
 
 
             }
             else
             {
-                _sprite.flipX = false;
+                _sprite.flipX = true;
 
             }
         }

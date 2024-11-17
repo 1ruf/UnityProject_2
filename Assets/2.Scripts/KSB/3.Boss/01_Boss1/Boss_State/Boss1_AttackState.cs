@@ -41,7 +41,7 @@ public class Boss1_AttackState : BossState
                 _boss.TransitionState(_boss.StateCompo.Boss_GetState(Boss_StateType.Death));
             }
         }
-     
+
     }
 
     IEnumerator AttacPattern()

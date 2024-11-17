@@ -13,6 +13,7 @@ public class Boss1_MoveState : BossState
     }
     public override void StateUpdate()
     {
+
         float distance = (_boss.transform.position - _boss.point.point).magnitude;
         if (_boss.Detecting.isDetecting)
         {
@@ -28,5 +29,6 @@ public class Boss1_MoveState : BossState
         }
         else if (_boss.transform.position != _boss.point.point)
             _boss.transform.position = Vector2.MoveTowards(_boss.transform.position, _boss.point.point, 3 * Time.deltaTime);
+
     }
 }

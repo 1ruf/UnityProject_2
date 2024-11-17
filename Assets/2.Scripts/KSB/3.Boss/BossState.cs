@@ -4,6 +4,7 @@ using static Boss1_AttackState;
 public class BossState : MonoBehaviour
 {
     protected Boss _boss;
+    protected Minimob _minimob;
 
     public AttackAction OnAttack1;
     public AttackAction OnAttack2;
@@ -15,6 +16,11 @@ public class BossState : MonoBehaviour
     public void InitializeState(Boss boss)
     {
         _boss = boss;
+    }
+
+    public void InitializeState(Minimob minimob)
+    {
+        _minimob = minimob;
     }
 
     public void Enter()

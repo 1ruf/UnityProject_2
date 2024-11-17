@@ -6,6 +6,7 @@ using UnityEngine;
 public class Boss_Detecting : MonoBehaviour
 {
     private Boss _boss;
+    private Minimob _minimob;
     public bool isDetecting;
     public bool startAttack;
     [SerializeField] private float _red_radius;
@@ -14,14 +15,24 @@ public class Boss_Detecting : MonoBehaviour
     public GameObject target;
     private Vector3 _center;
     public bool melee_Attack;
+    private Transform _mytransform;
+    
     void Start()
     {
         _boss = GetComponentInParent<Boss>();
+        _minimob = GetComponentInParent<Minimob>();
+
+        if(_boss)
+            _mytransform =_boss.transform;
+        else
+            _mytransform = _minimob.transform;
+
+
     }
 
     private void Update()
     {
-        _center = _boss.transform.position;
+        _center = _mytransform.position;
         Detecting();
         AttacRangeDetecting();
     }
@@ -38,7 +49,7 @@ public class Boss_Detecting : MonoBehaviour
 
     private void Detecting()
     {
-        Collider2D detectingTarget = Physics2D.OverlapCircle(_boss.transform.position, _yellow_radius, _player);
+        Collider2D detectingTarget = Physics2D.OverlapCircle(_mytransform.position, _yellow_radius, _player);
         if (detectingTarget != null)
         {
             target = detectingTarget.gameObject;
@@ -53,7 +64,7 @@ public class Boss_Detecting : MonoBehaviour
 
     private void AttacRangeDetecting()
     {
-        Collider2D detectingTarget = Physics2D.OverlapCircle(_boss.transform.position, _red_radius, _player);
+        Collider2D detectingTarget = Physics2D.OverlapCircle(_mytransform.position, _red_radius, _player);
         if (detectingTarget != null)
         {
           

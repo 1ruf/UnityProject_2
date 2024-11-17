@@ -35,6 +35,7 @@ public class Boss1Skill : Boss_AttackSkill
     private float currentTime = 0;
     private Transform[] bulletPositions;
     private GameObject _currentPos;
+    private GameObject MinimobCase;
 
     private void Start()
     {
@@ -42,7 +43,7 @@ public class Boss1Skill : Boss_AttackSkill
     }
     private void Awake()
     {
-
+        MinimobCase = GameObject.Find("MinimobCase");
     }
     private void Update()
     {
@@ -67,23 +68,23 @@ public class Boss1Skill : Boss_AttackSkill
     }
 
     // ==================== Skill Methods ====================
-    public override void Skill1()
+    public override void Boss_Skill1()
     {
         Debug.Log("100");
         StartCoroutine(SpawnMin(spawnInterval, spawnDuration));
     }
 
-    public override void Skill2()
+    public override void Boss_Skill2()
     {
         StartCoroutine(ShootBullets());
     }
 
-    public override void Skill3()
+    public override void Boss_Skill3()
     {
         StartCoroutine(IncreaseRadius());
     }
 
-    public override void Skill4()
+    public override void Boss_Skill4()
     {
         StartCoroutine(Attack1());
     }
@@ -164,6 +165,7 @@ public class Boss1Skill : Boss_AttackSkill
         foreach (Transform bulletPos in bulletPositions)
         {
             Instantiate(bulletPrefab, bulletPos.position, bulletPos.rotation);
+
         }
     }
 
@@ -213,7 +215,7 @@ public class Boss1Skill : Boss_AttackSkill
         while (currentTime <= spawnDuration)
         {
             Vector2 randomPosition = (Vector2)transform.position + UnityEngine.Random.insideUnitCircle * radius;
-            Instantiate(Minimob, randomPosition, _boss.transform.rotation);
+            Instantiate(Minimob, randomPosition, _boss.transform.rotation,MinimobCase.transform);
             print("S");
 
             yield return wait;
@@ -229,11 +231,11 @@ public class Boss1Skill : Boss_AttackSkill
     {
         Debug.Log("hi");
         if (!_boss._sprite.flipX)
-            _boss.AniCompo.Boss_PlayAnimaton(Boss_AnimationType.Attack1_R);
+            _boss.AniCompo.Boss_PlayAnimaton(Boss_AnimationType.Attack1_L);
         else
         {
-            _boss._sprite.flipX = false; //밑에 있는 에니메이션에서 y축으로 180도 회전하기 때문에
-            _boss.AniCompo.Boss_PlayAnimaton(Boss_AnimationType.Attack1_L);
+            _boss._sprite.flipX = false; 
+            _boss.AniCompo.Boss_PlayAnimaton(Boss_AnimationType.Attack1_R);
         }
 
 

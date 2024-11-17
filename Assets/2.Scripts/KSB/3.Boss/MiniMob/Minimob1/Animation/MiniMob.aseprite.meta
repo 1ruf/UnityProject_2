@@ -1,0 +1,1507 @@
+fileFormatVersion: 2
+guid: ba6f45ee2c1d52e4a8a0a5bcdd2cdb1c
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 20
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638672867655925996
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: MiniMob_Frame_0
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 433
+      width: 44
+      height: 31
+    spriteID: c917d09ce065fd04bbdad6c9b55eb97e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 433}
+  - name: MiniMob_Frame_1
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 472
+      width: 44
+      height: 31
+    spriteID: 3f45e7e269559724f990b55d72a852f8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 472}
+  - name: MiniMob_Frame_2
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 316
+      width: 45
+      height: 31
+    spriteID: 21867f68649269e428a123bb5841e217
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 316}
+  - name: MiniMob_Frame_3
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 355
+      width: 45
+      height: 31
+    spriteID: bf74b496ea849174e86b529f7c2c4c31
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 355}
+  - name: MiniMob_Frame_4
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 394
+      width: 45
+      height: 31
+    spriteID: 81e116c03e1365048a45ab9c84692272
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 394}
+  - name: MiniMob_Frame_5
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 4
+      width: 44
+      height: 31
+    spriteID: f82e162da85fe764298e306c3abd82b6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: 4}
+  - name: MiniMob_Frame_6
+    originalName: 
+    pivot: {x: 0.81395346, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 206
+      y: 316
+      width: 43
+      height: 31
+    spriteID: 5fe85939a0f3fdf44aaef07c59d997cf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 206, y: 316}
+  - name: MiniMob_Frame_7
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 43
+      width: 44
+      height: 31
+    spriteID: c8b1f0fe05beb614190aac66a7f638dc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: 43}
+  - name: MiniMob_Frame_8
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 82
+      width: 44
+      height: 31
+    spriteID: 97f399c8112fde44e8cf74add1d7494d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: 82}
+  - name: MiniMob_Frame_9
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 121
+      width: 44
+      height: 31
+    spriteID: cce68d6c7b953e449baa1a197a25578a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: 121}
+  - name: MiniMob_Frame_10
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 160
+      width: 44
+      height: 31
+    spriteID: 823776dee9d3bb44da72ca828746d337
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: 160}
+  - name: MiniMob_Frame_11
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 199
+      width: 44
+      height: 31
+    spriteID: dbf7787a0f35ab64286cb03bda1d9f9e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: 199}
+  - name: MiniMob_Frame_12
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 238
+      width: 44
+      height: 31
+    spriteID: d2cb695568456d545832ace9230e0809
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: 238}
+  - name: MiniMob_Frame_13
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 277
+      width: 44
+      height: 31
+    spriteID: 21b5ad0062d788344995a728c535bc05
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: 277}
+  - name: MiniMob_Frame_14
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 316
+      width: 44
+      height: 31
+    spriteID: 034a60e028de16d4fbe3fdba2927865a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: 316}
+  - name: MiniMob_Frame_15
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 355
+      width: 44
+      height: 31
+    spriteID: 709c8c1bcef778541916179be8731613
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: 355}
+  - name: MiniMob_Frame_16
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 394
+      width: 44
+      height: 31
+    spriteID: 81afc155b721bdf489589068f19dc88f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: 394}
+  - name: MiniMob_Frame_17
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 433
+      width: 44
+      height: 31
+    spriteID: 288ca5d3a6db90341a45c6814c493e98
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: 433}
+  - name: MiniMob_Frame_18
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 472
+      width: 44
+      height: 31
+    spriteID: 983814d5679f65947b4cfaf415032f57
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: 472}
+  - name: MiniMob_Frame_19
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 154
+      y: 4
+      width: 44
+      height: 31
+    spriteID: 28b23b62162564d4b8752437713eb28b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 154, y: 4}
+  - name: MiniMob_Frame_20
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 154
+      y: 43
+      width: 44
+      height: 31
+    spriteID: 6841bd9045ced3840bdb96604720bc31
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 154, y: 43}
+  - name: MiniMob_Frame_21
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 154
+      y: 82
+      width: 44
+      height: 31
+    spriteID: 9814654d32006604e8efa19d8443fd6e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 154, y: 82}
+  - name: MiniMob_Frame_22
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 154
+      y: 121
+      width: 44
+      height: 31
+    spriteID: f26214a98bc3c7044ac8e0956b768c2f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 154, y: 121}
+  - name: MiniMob_Frame_23
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 154
+      y: 160
+      width: 44
+      height: 31
+    spriteID: ff20ecf86bbac0040908cf99a84f2a3e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 154, y: 160}
+  - name: MiniMob_Frame_24
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 154
+      y: 199
+      width: 44
+      height: 31
+    spriteID: cc0b13786b7e9e94899088ab8efbe71e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 154, y: 199}
+  - name: MiniMob_Frame_25
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 154
+      y: 238
+      width: 44
+      height: 31
+    spriteID: 5a131e1a26b018b44a099dc27107f695
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 154, y: 238}
+  - name: MiniMob_Frame_26
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 154
+      y: 277
+      width: 44
+      height: 31
+    spriteID: e2abcdae2a1fddf4594191e1cde61625
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 154, y: 277}
+  - name: MiniMob_Frame_27
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 154
+      y: 316
+      width: 44
+      height: 31
+    spriteID: 26dec92c073bed745a6f0d0c30201162
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 154, y: 316}
+  - name: MiniMob_Frame_28
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 154
+      y: 355
+      width: 44
+      height: 31
+    spriteID: 9b77da9d5f6b5464a9e848a6b8c16233
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 154, y: 355}
+  - name: MiniMob_Frame_29
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 154
+      y: 394
+      width: 44
+      height: 31
+    spriteID: cf8cbb8eed41a674782d0f6bcae2058c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 154, y: 394}
+  - name: MiniMob_Frame_30
+    originalName: 
+    pivot: {x: 0.6363636, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 277
+      width: 55
+      height: 31
+    spriteID: 20b8cd76966f941469fb7899eb00b9ff
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 277}
+  - name: MiniMob_Frame_31
+    originalName: 
+    pivot: {x: 0.59322035, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 199
+      width: 59
+      height: 31
+    spriteID: 1ed5d3309bd13884e94cfa82a7a9f342
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 199}
+  - name: MiniMob_Frame_32
+    originalName: 
+    pivot: {x: 0.59322035, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 238
+      width: 59
+      height: 31
+    spriteID: 7636dfc52989a1d4e81cab4e2018f574
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 238}
+  - name: MiniMob_Frame_33
+    originalName: 
+    pivot: {x: 0.5645161, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 160
+      width: 62
+      height: 31
+    spriteID: 9c2b272147e8a7d40845eb8da297e8c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 160}
+  - name: MiniMob_Frame_34
+    originalName: 
+    pivot: {x: 0.4871795, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 82
+      width: 78
+      height: 31
+    spriteID: 17fa35f1096835f438f9a736dbc0c714
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 82}
+  - name: MiniMob_Frame_35
+    originalName: 
+    pivot: {x: 0.5147059, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 121
+      width: 68
+      height: 31
+    spriteID: 9f426705ac9e0a049879a6985e98c714
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 121}
+  - name: MiniMob_Frame_36
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 154
+      y: 433
+      width: 44
+      height: 31
+    spriteID: 878d8c3c5fdf1724ba3659f1def5a4cd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 154, y: 433}
+  - name: MiniMob_Frame_37
+    originalName: 
+    pivot: {x: 0.5, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 90
+      height: 31
+    spriteID: 65ef923013422f746bcba849fbd5673e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: MiniMob_Frame_38
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 154
+      y: 472
+      width: 44
+      height: 31
+    spriteID: 2686c34488a2c5c4b838a740ecdfaf58
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 154, y: 472}
+  - name: MiniMob_Frame_39
+    originalName: 
+    pivot: {x: 0.5, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 43
+      width: 90
+      height: 31
+    spriteID: 07e37744454dafa43bb76861d609410c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 43}
+  - name: MiniMob_Frame_40
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 206
+      y: 4
+      width: 44
+      height: 31
+    spriteID: 7a74d0566f845654eafd184f45b1d68e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 206, y: 4}
+  - name: MiniMob_Frame_41
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 206
+      y: 43
+      width: 44
+      height: 31
+    spriteID: 2e6e2bad9d9dee5458c63ed9006fd45a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 206, y: 43}
+  - name: MiniMob_Frame_42
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 206
+      y: 82
+      width: 44
+      height: 31
+    spriteID: ee796a1e9c9671342b6af40e6ff59bca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 206, y: 82}
+  - name: MiniMob_Frame_43
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 206
+      y: 121
+      width: 44
+      height: 31
+    spriteID: d3000f36921197042975f79368785118
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 206, y: 121}
+  - name: MiniMob_Frame_44
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 206
+      y: 160
+      width: 44
+      height: 31
+    spriteID: 1b0a29721bf782e4ebe8199b2fc9c216
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 206, y: 160}
+  - name: MiniMob_Frame_45
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 206
+      y: 199
+      width: 44
+      height: 31
+    spriteID: c2e1df90bf1a6e84d83a1285f5c64917
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 206, y: 199}
+  - name: MiniMob_Frame_46
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 206
+      y: 238
+      width: 44
+      height: 31
+    spriteID: 1a224cee2b06a3349828f946c17d2aa5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 206, y: 238}
+  - name: MiniMob_Frame_47
+    originalName: 
+    pivot: {x: 0.79545456, y: -0.6451613}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 206
+      y: 277
+      width: 44
+      height: 31
+    spriteID: b994d273ee8f5dd45a5530c2df9bf6a3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 206, y: 277}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 117509599
+    name: MiniMob
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: MiniMob_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: c917d09ce065fd04bbdad6c9b55eb97e
+    - name: MiniMob_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 3f45e7e269559724f990b55d72a852f8
+    - name: MiniMob_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: -3
+        y: 20
+        width: 45
+        height: 31
+      spriteId: 21867f68649269e428a123bb5841e217
+    - name: MiniMob_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: -3
+        y: 20
+        width: 45
+        height: 31
+      spriteId: bf74b496ea849174e86b529f7c2c4c31
+    - name: MiniMob_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: -3
+        y: 20
+        width: 45
+        height: 31
+      spriteId: 81e116c03e1365048a45ab9c84692272
+    - name: MiniMob_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: f82e162da85fe764298e306c3abd82b6
+    - name: MiniMob_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: -3
+        y: 20
+        width: 43
+        height: 31
+      spriteId: 5fe85939a0f3fdf44aaef07c59d997cf
+    - name: MiniMob_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: c8b1f0fe05beb614190aac66a7f638dc
+    - name: MiniMob_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 97f399c8112fde44e8cf74add1d7494d
+    - name: MiniMob_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: cce68d6c7b953e449baa1a197a25578a
+    - name: MiniMob_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 823776dee9d3bb44da72ca828746d337
+    - name: MiniMob_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: dbf7787a0f35ab64286cb03bda1d9f9e
+    - name: MiniMob_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: d2cb695568456d545832ace9230e0809
+    - name: MiniMob_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 21b5ad0062d788344995a728c535bc05
+    - name: MiniMob_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 034a60e028de16d4fbe3fdba2927865a
+    - name: MiniMob_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 709c8c1bcef778541916179be8731613
+    - name: MiniMob_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 81afc155b721bdf489589068f19dc88f
+    - name: MiniMob_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 288ca5d3a6db90341a45c6814c493e98
+    - name: MiniMob_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 983814d5679f65947b4cfaf415032f57
+    - name: MiniMob_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 28b23b62162564d4b8752437713eb28b
+    - name: MiniMob_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 6841bd9045ced3840bdb96604720bc31
+    - name: MiniMob_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 9814654d32006604e8efa19d8443fd6e
+    - name: MiniMob_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: f26214a98bc3c7044ac8e0956b768c2f
+    - name: MiniMob_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: ff20ecf86bbac0040908cf99a84f2a3e
+    - name: MiniMob_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: cc0b13786b7e9e94899088ab8efbe71e
+    - name: MiniMob_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 5a131e1a26b018b44a099dc27107f695
+    - name: MiniMob_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: e2abcdae2a1fddf4594191e1cde61625
+    - name: MiniMob_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 26dec92c073bed745a6f0d0c30201162
+    - name: MiniMob_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 9b77da9d5f6b5464a9e848a6b8c16233
+    - name: MiniMob_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: cf8cbb8eed41a674782d0f6bcae2058c
+    - name: MiniMob_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: -3
+        y: 20
+        width: 55
+        height: 31
+      spriteId: 20b8cd76966f941469fb7899eb00b9ff
+    - name: MiniMob_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: -3
+        y: 20
+        width: 59
+        height: 31
+      spriteId: 1ed5d3309bd13884e94cfa82a7a9f342
+    - name: MiniMob_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: -3
+        y: 20
+        width: 59
+        height: 31
+      spriteId: 7636dfc52989a1d4e81cab4e2018f574
+    - name: MiniMob_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: -3
+        y: 20
+        width: 62
+        height: 31
+      spriteId: 9c2b272147e8a7d40845eb8da297e8c3
+    - name: MiniMob_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: -6
+        y: 20
+        width: 78
+        height: 31
+      spriteId: 17fa35f1096835f438f9a736dbc0c714
+    - name: MiniMob_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: -3
+        y: 20
+        width: 68
+        height: 31
+      spriteId: 9f426705ac9e0a049879a6985e98c714
+    - name: MiniMob_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 878d8c3c5fdf1724ba3659f1def5a4cd
+    - name: MiniMob_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: -13
+        y: 20
+        width: 90
+        height: 31
+      spriteId: 65ef923013422f746bcba849fbd5673e
+    - name: MiniMob_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 2686c34488a2c5c4b838a740ecdfaf58
+    - name: MiniMob_Frame_39
+      frameIndex: 39
+      cellRect:
+        x: -13
+        y: 20
+        width: 90
+        height: 31
+      spriteId: 07e37744454dafa43bb76861d609410c
+    - name: MiniMob_Frame_40
+      frameIndex: 40
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 7a74d0566f845654eafd184f45b1d68e
+    - name: MiniMob_Frame_41
+      frameIndex: 41
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 2e6e2bad9d9dee5458c63ed9006fd45a
+    - name: MiniMob_Frame_42
+      frameIndex: 42
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: ee796a1e9c9671342b6af40e6ff59bca
+    - name: MiniMob_Frame_43
+      frameIndex: 43
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: d3000f36921197042975f79368785118
+    - name: MiniMob_Frame_44
+      frameIndex: 44
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 1b0a29721bf782e4ebe8199b2fc9c216
+    - name: MiniMob_Frame_45
+      frameIndex: 45
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: c2e1df90bf1a6e84d83a1285f5c64917
+    - name: MiniMob_Frame_46
+      frameIndex: 46
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: 1a224cee2b06a3349828f946c17d2aa5
+    - name: MiniMob_Frame_47
+      frameIndex: 47
+      cellRect:
+        x: -3
+        y: 20
+        width: 44
+        height: 31
+      spriteId: b994d273ee8f5dd45a5530c2df9bf6a3
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 64, y: 64}

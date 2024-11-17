@@ -18,7 +18,7 @@ public class Bullet_SB : MonoBehaviour
     private void FixedUpdate()
     {
         
-        rigid.AddForce(transform.up*0.25f, ForceMode2D.Impulse);
+        rigid.AddForce(transform.up*0.5f, ForceMode2D.Impulse);
         if(!isShoot) 
         StartCoroutine(Destroys());
 
