@@ -17,7 +17,7 @@ public class Boss : MonoBehaviour
     public int health;
     public int damage;
 
- 
+
     [SerializeField] private BossState attackState;
     [SerializeField] private BossState currentState;
     public BossState lastState;
@@ -153,7 +153,7 @@ public class Boss : MonoBehaviour
 
     private void Flip()
     {
-        
+
         if (Detecting.target != null)
         {
             Vector2 direction = (Detecting.target.transform.position - transform.position).normalized;
