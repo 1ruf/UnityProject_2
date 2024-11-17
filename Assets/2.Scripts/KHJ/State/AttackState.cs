@@ -5,38 +5,26 @@ using UnityEngine.InputSystem;
 
 public class AttackState : State
 {
-    [SerializeField] private Transform _bulletPrefab;
-
-  
-
     protected override void EnterState()
     {
-        BulletFire();
+        _agent.AnimCompo.PlayAnimaton(AnimatonType.attack);
+        _agent.AnimCompo.OnAnimationAction.AddListener(PerfromAttack);
+        _agent.AnimCompo.OnAnimationEnd.AddListener(TransitionState);
     }
 
-    private void BulletFire()
+    private void TransitionState()
     {
-        _agent.RbCompo.velocity = Vector2.zero;
-        Vector3 direction = ((Vector3)_agent.InputCompo.MousePos - _agent.transform.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        Transform bullet = Instantiate(_bulletPrefab, transform.parent.position, Quaternion.Euler(0, 0, angle));
-        bullet.LookAt(_agent.InputCompo.MousePos);
-        StartCoroutine(A());
-        
+        _agent.TransitionState(_agent.StateCompo.GetState(StateType.Idle));
     }
 
-
-    IEnumerator A()
+    private void PerfromAttack()
     {
-        yield return new WaitForSeconds(1f);
-        if (_agent.InputCompo.InputVector.magnitude > 0)
-        {
-            _agent.TransitionState(_agent.StateCompo.GetState(StateType.Move));
-        }
-        else
-        {
-            _agent.TransitionState(_agent.StateCompo.GetState(StateType.Idle));
-        }
+
     }
+
+    protected override void ExitState()
+    {
+        _agent.AnimCompo.ResetEvent();
+    }
+
 }

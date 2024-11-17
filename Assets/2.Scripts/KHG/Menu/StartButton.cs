@@ -18,8 +18,12 @@ public class StartButton : MonoBehaviour
     [SerializeField] private GameObject mainMenuUI;
     [SerializeField] private List<TMP_Text> BtnTxt = new List<TMP_Text>();
     [Header("etc.")]
+    [SerializeField] private GameObject _nameInputUI;
+    [SerializeField] private TMP_Text _input;
     [SerializeField] private Camera mainCam;
     [SerializeField] private string[] warnMessage;
+    [SerializeField] private MenuBGMManager _bgmManager;
+    [SerializeField] private TMP_Text _warningTxt;
 
     private void Awake()
     {
@@ -36,10 +40,10 @@ public class StartButton : MonoBehaviour
 
     private void SetBtn()
     {
-        if (PlayerPrefs.GetInt("NowSavedStage") == 0)
-            continueBtn.interactable = false;
-        else
+        if (SaveManager.Instance.CheckData(30))
             continueBtn.interactable = true;
+        else
+            continueBtn.interactable = false;
     }
 
     private IEnumerator DoText(TMP_Text text, string endValue, float duration)
@@ -63,19 +67,30 @@ public class StartButton : MonoBehaviour
     public void NewGameBtnClicked()
     {
         gameObject.SetActive(false);
-        int savedData = PlayerPrefs.GetInt("NowSavedStage",0);
-        if (savedData == 0)
+        if (SaveManager.Instance.CheckData(30)) //30번째줄에 저장값이 true이면
         {
-            GameStart();
+            WarnPopup(warnMessage[0],warnMessage[1]);
         }
         else
         {
-            WarnPopup(warnMessage[0],warnMessage[1]);
+            InputPopup();
         }
     }
     private void GameStart()
     {
-        mainCam.DOOrthoSize(5f, 2f).OnComplete(()=> SceneManager.LoadScene(1));
+        _nameInputUI.SetActive(false);
+        _bgmManager.SetVolume(_bgmManager._audio,0f,1f); // 오디오, 목표값,시간, 킬것인가 끌것인가
+        mainCam.DOOrthoSize(5f, 2f).OnComplete(()=>
+        {
+            if (SaveManager.Instance.CheckData((int)Datas.Cutscene1))
+            {
+                SceneManager.LoadScene("Stage1");
+            }
+            else
+            {
+                SceneManager.LoadScene("Cinema1");
+            }
+        });
     }
     public void BackBtnClicked()
     {
@@ -96,7 +111,42 @@ public class StartButton : MonoBehaviour
     }
     public void W_Reset()
     {
-        PlayerPrefs.SetInt("NowSavedStage", 0);
-        ContinueBtnClick();
+        SaveManager.Instance.ResetAllData();
+        w_UI.SetActive(false);
+        InputPopup();
+    }
+
+    private void InputPopup()
+    {
+        _nameInputUI.SetActive(true);
+    }
+
+    public void Submit()
+    {
+        if (_input.text.Length <= 6)
+        {
+            SaveManager.Instance.SetDataString(1, _input.text);
+            GameStart();
+        }
+        else
+        {
+            _warningTxt.text = "이름은 5글자를 넘을수 없습니다.";
+        }
+    }
+    public void StartCancle()
+    {
+        _nameInputUI.SetActive(false);
+        gameObject.SetActive(true);
+    }
+    public void CheckInput()
+    {
+        if (_input.text.Length <= 5)
+        {
+            _warningTxt.text = "";
+        }
+        else
+        {
+            _warningTxt.text = "이름은 5글자를 넘을수 없습니다.";
+        }
     }
 }

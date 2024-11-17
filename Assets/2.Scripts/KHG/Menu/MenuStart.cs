@@ -11,6 +11,9 @@ using System.Net.Sockets;
 
 public class MenuStart : MonoBehaviour
 {
+    [SerializeField] private AudioSource _audio;
+
+    [SerializeField] private MenuBGMManager _menuManager;
     [SerializeField] private Camera mainCam;
     [SerializeField] private GameObject MenuUI, button;
     private Image background;
@@ -46,6 +49,7 @@ public class MenuStart : MonoBehaviour
         else if (Keyboard.current.anyKey.wasPressedThisFrame)
         {
             MenuOpen();
+            BGMPlay();
         }
     }
     public void GrantBtnClicked()
@@ -58,16 +62,21 @@ public class MenuStart : MonoBehaviour
     }
     private IEnumerator Positive()
     {
+        BGMPlay();
         transform.Find("Buttons").gameObject.SetActive(false);
-        consoleTxt.text += "\naccessing...";
+        AddText("\naccessing...");
         yield return new WaitForSeconds(1f);
-        consoleTxt.text += "\nconnected.";
+        AddText("\nconnected.");
         MenuOpen();
+    }
+    private void AddText(string text)
+    {
+        consoleTxt.text += text;
     }
     private IEnumerator Negative()
     {
         transform.Find("Buttons").gameObject.SetActive(false);
-        consoleTxt.text += "\naccess denied.";
+        AddText("\naccess denied.");
         yield return new WaitForSeconds(1f);
         Application.Quit();
     }
@@ -98,9 +107,9 @@ public class MenuStart : MonoBehaviour
         yield return new WaitForSeconds(holdTime);
         mainCam.DOOrthoSize(6.5f, 7f);
         StartCoroutine(DoText(consoleTxt, "starting..\nchecking for essential elements to start.\nsystemMainKey?:a1992j3jd82D, requesterPCIP:" + NetworkHelper.GetMyIpAddress() + NetworkHelper.GetMyAllIPAddress() + "_", 1f));
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         requestActive = true;
-        consoleTxt.text += "\nare you sure to connect?[ Y / N ]";
+        AddText("\nare you sure to connect?[ Y / N ])");
         yield return new WaitForSeconds(1f);
         print(requestActive);
         if (requestActive == true)
@@ -119,9 +128,15 @@ public class MenuStart : MonoBehaviour
         {
             tempString += endValue[i];
             text.text = tempString;
+            _audio.Play();
 
             yield return charPerTime;
         }
+    }
+    private void BGMPlay()
+    {
+        _menuManager.PlayBGMWithPitch(_menuManager._audio,0.9f, 1f, true);
+        print("played");
     }
     private void MenuOpen()
     {

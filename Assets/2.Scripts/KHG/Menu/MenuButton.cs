@@ -17,15 +17,21 @@ public class MenuButton : MonoBehaviour
         StartCoroutine(DoText(startBtn, "start",0.3f));
         StartCoroutine(DoText(settingBtn, "setting",0.5f));
         StartCoroutine(DoText(quitBtn, "quit",0.7f));
-        StartCoroutine(DoText(transform.parent.Find("MainTitle").GetComponent<TMP_Text>(), "connected", 1f));
+        StartCoroutine(MainTitle(transform.parent.Find("MainTitle").gameObject));
+    }
+    private IEnumerator MainTitle(GameObject mainTitle)
+    {
+        mainTitle.SetActive(true);
+        yield return new WaitForSeconds(0.15f);
+        mainTitle.gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.15f);
+        mainTitle.gameObject.SetActive(true);
     }
     private void Update()
     {
         if (Keyboard.current.tKey.wasPressedThisFrame)
         {
-            PlayerPrefs.SetInt("NowSavedStage", 1);
-
-            print(PlayerPrefs.GetInt("NowSavedStage"));
+            SaveManager.Instance.SetData(30, true);
         }
     }
     public void StartBtnClicked()
