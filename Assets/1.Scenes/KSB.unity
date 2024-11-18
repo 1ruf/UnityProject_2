@@ -229,6 +229,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400913549954011623, guid: ae86f00d1d724ad439010ed571be8af6, type: 3}
   m_PrefabInstance: {fileID: 1774892581949981463}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1198232549 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7120247966836210226, guid: 1944708d82aeff741acf9d66c3fb5241, type: 3}
+  m_PrefabInstance: {fileID: 3428140844094364318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1407083938
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,6 +658,10 @@ PrefabInstance:
       propertyPath: startingHealth
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 3176124351238561349, guid: 1944708d82aeff741acf9d66c3fb5241, type: 3}
+      propertyPath: shootSign
+      value: 
+      objectReference: {fileID: 1198232549}
     - target: {fileID: 4862589208758825535, guid: 1944708d82aeff741acf9d66c3fb5241, type: 3}
       propertyPath: m_Name
       value: Boss1
