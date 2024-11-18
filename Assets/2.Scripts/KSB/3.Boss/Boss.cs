@@ -2,186 +2,130 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
+    [Header("컴포넌트들")]
     public Rigidbody2D RbCompo;
     public Boss_Animator AniCompo;
     public Boss_StateFactory StateCompo;
-    public Boss_AttackSkill boss_Skill;
+    public Boss_AttackSkill BossSkill;
     public Boss_Detecting Detecting;
     public SpriteRenderer _sprite;
+
+    [Header("상태 관련 변수")]
     public float distanceThreshold = 0.2f;
     public Point point;
     public bool CanAttack = true;
-    [SerializeField] private int SkillCount;
+    [SerializeField] private int startingHealth;
 
-    [SerializeField] private int _Health = 300;
-    public int health;
+    public int Health
+    {
+        get
+        {
+            return startingHealth;
+        }
+        set
+        {
+            startingHealth = Mathf.Max(0, value);
+        }
+    }
     public int damage;
 
-
+    [Header("State")]
     [SerializeField] private BossState attackState;
     [SerializeField] private BossState currentState;
     public BossState lastState;
 
     private void Awake()
     {
-
-
+        // 컴포넌트 초기화
         RbCompo = GetComponent<Rigidbody2D>();
         AniCompo = GetComponentInChildren<Boss_Animator>();
         StateCompo = GetComponentInChildren<Boss_StateFactory>();
         _sprite = GetComponentInChildren<SpriteRenderer>();
-
-        boss_Skill = GetComponent<Boss_AttackSkill>();
+        BossSkill = GetComponentInChildren<Boss_AttackSkill>();
         Detecting = GetComponentInChildren<Boss_Detecting>();
+
+        // 공격 상태 초기화
         attackState = StateCompo.Boss_GetState(Boss_StateType.Attack);
 
-
-        attackState.OnAttack1 += boss_Skill.Boss_Skill1;
-        attackState.OnAttack2 += boss_Skill.Boss_Skill2;
-        attackState.OnAttack3 += boss_Skill.Boss_Skill3;
-        attackState.OnAttack4 += boss_Skill.Boss_Skill4;
+        // 공격 이벤트 구독
+        attackState.OnAttack1 += BossSkill.Boss_Skill1;
+        attackState.OnAttack2 += BossSkill.Boss_Skill2;
+        attackState.OnAttack3 += BossSkill.Boss_Skill3;
+        attackState.OnAttack4 += BossSkill.Boss_Skill4;
     }
 
     private void Start()
     {
-        health = _Health;
+        // 초기 상태 전환
         TransitionState(StateCompo.Boss_GetState(Boss_StateType.Idle));
-
     }
 
-    public void TransitionState(BossState InputState)
+    public void TransitionState(BossState inputState)
     {
-        print(InputState);
-        if (InputState == null)
-            return;
-        if (currentState == InputState)
-            return;
-        if (currentState != null)
-            currentState.Exit();
-        InputState.InitializeState(this);
+        if (inputState == null || currentState == inputState) return;
+
+        currentState?.Exit();
+        inputState.InitializeState(this);
 
         lastState = currentState;
-        currentState = InputState;
+        currentState = inputState;
         currentState.Enter();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            print("s");
-            attackState.OnAttack1.Invoke();
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
+        // 테스트
+        if (Input.GetKeyDown(KeyCode.W)) attackState.OnAttack1.Invoke();
+        if (Input.GetKeyDown(KeyCode.E)) attackState.OnAttack2.Invoke();
+        if (Input.GetKeyDown(KeyCode.Q)) attackState.OnAttack3.Invoke();
+        if (Input.GetKeyDown(KeyCode.R)) attackState.OnAttack4.Invoke();
 
-            attackState.OnAttack2.Invoke();
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            attackState.OnAttack3.Invoke();
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            print("work");
-            attackState.OnAttack4.Invoke();
-        }
 
         currentState.StateUpdate();
-        if (CanAttack)
-            Flip();
+
+        // 공격 가능 시 Flip
+        if (CanAttack) Flip();
     }
 
     private void FixedUpdate()
     {
         currentState.StateFixedUpdate();
     }
+
     public float GetDelay()
     {
-        float delay = Random.Range(0.5f, 1.5f);
-        return delay;
+        return Random.Range(0.5f, 1.5f);
     }
 
     public void ChoseRandomAttack()
     {
         CanAttack = false;
-        float randomValue;
+        float randomValue = Detecting.melee_Attack ? Random.Range(0, 10) : Random.Range(0, 10);
 
         if (Detecting.melee_Attack)
         {
-
-            randomValue = Random.Range(0, 10);
-            if (randomValue < 7)
-            {
-                attackState.OnAttack4.Invoke();
-            }
-            else if (randomValue < 8)
-            {
-                attackState.OnAttack3.Invoke();
-            }
-            else if (randomValue < 9)
-            {
-                attackState.OnAttack2.Invoke();
-            }
-            else
-            {
-                attackState.OnAttack1.Invoke();
-            }
+            if (randomValue < 7) attackState.OnAttack4.Invoke();
+            else if (randomValue < 8) attackState.OnAttack3.Invoke();
+            else if (randomValue < 9) attackState.OnAttack2.Invoke();
+            else attackState.OnAttack1.Invoke();
         }
         else
         {
-            randomValue = Random.Range(0, 10);
-            if (randomValue < 4)
-            {
-                attackState.OnAttack3.Invoke();
-            }
-            else if (randomValue < 7)
-            {
-                attackState.OnAttack2.Invoke();
-            }
-            else
-            {
-                attackState.OnAttack1.Invoke();
-            }
+            if (randomValue < 4) attackState.OnAttack3.Invoke();
+            else if (randomValue < 7) attackState.OnAttack2.Invoke();
+            else attackState.OnAttack1.Invoke();
         }
     }
-
-
-
 
     private void Flip()
     {
-
         if (Detecting.target != null)
         {
             Vector2 direction = (Detecting.target.transform.position - transform.position).normalized;
-            Vector2 forward = transform.right;
+            float dotProduct = Vector2.Dot(transform.right, direction);
 
-            float dotProduct = Vector2.Dot(forward, direction);
-
-            if (dotProduct < 0)
-            {
-                _sprite.flipX = false;
-
-
-            }
-            else
-            {
-                _sprite.flipX = true;
-
-            }
+            _sprite.flipX = dotProduct < 0;
         }
-    }
-    private void Rotattion(GameObject target)//target
-    {
-        if (target == null)
-        {
-            return;
-        }
-
-        Vector2 direction = target.transform.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -189,17 +133,15 @@ public class Boss : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
-            //health -= bullet.damage;
-            if (health <= 0)
+            // health -= bullet.damage;
+
+            if (Health <= 0)
             {
                 TransitionState(StateCompo.Boss_GetState(Boss_StateType.Death));
                 return;
             }
+
             TransitionState(StateCompo.Boss_GetState(Boss_StateType.Hit));
-
-
         }
     }
-
-
 }

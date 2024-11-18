@@ -33,7 +33,7 @@ public class Boss1_IdleState : BossState
             _boss.TransitionState(_boss.StateCompo.Boss_GetState(Boss_StateType.Attack));
         }
 
-        if (_boss.health <= 0)
+        if (_boss.Health <= 0)
         {
             _boss.TransitionState(_boss.StateCompo.Boss_GetState(Boss_StateType.Death));
         }

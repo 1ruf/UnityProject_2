@@ -5,14 +5,10 @@ using UnityEngine;
 public class Boss1_AttackState : BossState
 {
     public delegate void AttackAction();
-    bool isAttacking = false;
-
 
     protected override void EnterState()
     {
-        base.EnterState();
-
-
+        StartCoroutine(AttacPattern());
     }
 
     public override void StateFixedUpdate()
@@ -22,8 +18,8 @@ public class Boss1_AttackState : BossState
 
     public override void StateUpdate()
     {
-        if (!isAttacking)
-            StartCoroutine(AttacPattern());
+
+         
         if (_boss.CanAttack)
         {
             if (!_boss.Detecting.isDetecting)
@@ -36,7 +32,7 @@ public class Boss1_AttackState : BossState
                 _boss.TransitionState(_boss.StateCompo.Boss_GetState(Boss_StateType.Run));
             }
 
-            if (_boss.health <= 0)
+            if (_boss.Health <= 0)
             {
                 _boss.TransitionState(_boss.StateCompo.Boss_GetState(Boss_StateType.Death));
             }
@@ -46,21 +42,12 @@ public class Boss1_AttackState : BossState
 
     IEnumerator AttacPattern()
     {
-        isAttacking = true;
         if (_boss.CanAttack == true)
         {
             _boss.ChoseRandomAttack();
             yield return new WaitForSeconds(0.5f);
-            isAttacking = false;
         }
      
 
     }
-
-    protected override void ExitState()
-    {
-        isAttacking = false;
-    }
-
-
 }
