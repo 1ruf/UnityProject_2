@@ -179,18 +179,6 @@ public class Minimob : MonoBehaviour
         }
     }
 
-    // 회전 함수 (사용되지 않음)
-    private void Rotattion(GameObject target)
-    {
-        if (target == null)
-        {
-            return;
-        }
-
-        // 타겟을 향해 회전
-        Vector2 direction = target.transform.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-    }
 
     // 충돌 처리 함수
     private void OnCollisionEnter2D(Collision2D collision)
