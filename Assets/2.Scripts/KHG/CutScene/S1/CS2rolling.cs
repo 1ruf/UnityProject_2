@@ -13,6 +13,8 @@ public class CS2rolling : MonoBehaviour
     [SerializeField] private GameObject _phoneIdleImg;
     [SerializeField] private GameObject _phoneCallingImg;
 
+    [SerializeField] private Image _blocker;
+
     private string userName;
     private int progress;
     private TMP_Text _mainText;
@@ -30,6 +32,7 @@ public class CS2rolling : MonoBehaviour
     }
     private void OnEnable()
     {
+        _blocker.DOFade(0, 0.5f);
         userName = SaveManager.Instance.GetData((int)Datas.Username);
         Progressing();
     }
@@ -88,7 +91,7 @@ public class CS2rolling : MonoBehaviour
         StartCoroutine(DoText(_mainText, "그럼 잘 부탁드립니다.", 1.2f));
         yield return new WaitForSeconds(2f);
         GameStart();
-    }
+    } //case 3
     private IEnumerator DeProgress1()   //case 0
     {
         StartCoroutine(DoText(_mainText, "...전화를 끊었다.", 1.5f));
@@ -211,6 +214,8 @@ public class CS2rolling : MonoBehaviour
 
     private void GameStart()
     {
+        _blocker.DOFade(1, 0.5f);
+        //delay
         SaveManager.Instance.SetData((int)Datas.Cutscene1, true);
     }
 }
