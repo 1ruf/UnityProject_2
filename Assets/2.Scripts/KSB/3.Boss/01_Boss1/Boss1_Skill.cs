@@ -5,72 +5,76 @@ using UnityEngine;
 
 public class Boss1Skill : Boss_AttackSkill
 {
-
-    [Header("Skill 1 Settings")]
-    [SerializeField] float spawnDuration;
+    [Header("스킬 1 설정")]
+    [SerializeField] private float spawnDuration;
     [SerializeField] private float spawnInterval = 0.7f;
-    [SerializeField] private GameObject Minimob;
+    [SerializeField] private GameObject minimob;
     [SerializeField] private float radius;
 
-    [Header("Skill 2 Settings")]
+    [Header("스킬 2 설정")]
     [SerializeField] private float skill1RadiusMax = 5f;
     private float skill1RadiusCurrent = 0f;
 
-
-    [Header("Skill 3 Settings")]
-    [SerializeField] private float _rotationSpeed; // 1600
-    [SerializeField] private float shootInterval; // 0.4 0.3
-    [SerializeField] GameObject ShootSign; // 0.4 0.3
-
-
+    [Header("스킬 3 설정")]
+    [SerializeField] private float rotationSpeed; // 1600
+    [SerializeField] private float shootInterval; // 0.4, 0.3
+    [SerializeField] private GameObject shootSign; // 0.4, 0.3
 
     [SerializeField] private bool changePos;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject[] shootPosObject;
     [SerializeField] private float shootDuration = 6f;
 
-
-    [Header("General Settings")]
+    [Header("일반 설정")]
     [SerializeField] private LayerMask targetLayer;
     private float currentTime = 0;
     private Transform[] bulletPositions;
-    private GameObject _currentPos;
-    private GameObject MinimobCase;
+    private GameObject currentPos;
+    private GameObject minimobCase;
+
+    public Rigidbody2D rigid;
+    public Boss_Detecting detecting;
+    public Boss_Animator aniCompo;
 
     private void Start()
     {
-        _currentPos = shootPosObject[0];
+        currentPos = shootPosObject[0];
     }
+
     private void Awake()
     {
-        MinimobCase = GameObject.Find("MinimobCase");
+        minimobCase = GameObject.Find("MinimobCase");
+        rigid = GetComponentInParent<Rigidbody2D>();
+        detecting = GetComponentInChildren<Boss_Detecting>();
+        aniCompo = GetComponentInChildren<Boss_Animator>();
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            print("Change");
+            print("변경");
             changePos = !changePos;
         }
     }
 
-    // ==================== Initialization ====================
+    // ==================== 초기화 ====================
     private void InitializeShootPositions()
     {
-        bulletPositions = _currentPos.GetComponentsInChildren<Transform>()
-                        .Where(t => t != _currentPos.transform)
-                        .ToArray();
+        bulletPositions = currentPos.GetComponentsInChildren<Transform>()
+                                    .Where(t => t != currentPos.transform)
+                                    .ToArray();
 
         if (bulletPositions.Length == 0)
         {
-            Debug.LogWarning("자식 없음");
+            Debug.LogWarning("자식 객체가 없습니다.");
         }
     }
 
-    // ==================== Skill Methods ====================
+    // ==================== 스킬 메소드 ====================
     public override void Boss_Skill1()
     {
-        Debug.Log("100");
+        Debug.Log("스킬 1 발동");
         StartCoroutine(SpawnMin(spawnInterval, spawnDuration));
     }
 
@@ -89,14 +93,15 @@ public class Boss1Skill : Boss_AttackSkill
         StartCoroutine(Attack1());
     }
 
-    // ==================== Skill1 ====================
+    // ==================== 스킬1 ====================
     private IEnumerator IncreaseRadius()
     {
-        Debug.Log("5");
-        _boss.AniCompo.Boss_PlayAnimaton(Boss_AnimationType.Attack3);
+        Debug.Log("반지름 증가 시작");
+        aniCompo.Boss_PlayAnimaton(Boss_AnimationType.Attack3);
 
         while (skill1RadiusCurrent < skill1RadiusMax)
         {
+            transform.position = Vector2.MoveTowards(transform.position, detecting.target.transform.position, 0.5f);
             skill1RadiusCurrent += Time.deltaTime * 1.2f;
             yield return null;
         }
@@ -113,9 +118,8 @@ public class Boss1Skill : Boss_AttackSkill
         if (targetCollider != null)
         {
             GameObject target = targetCollider.gameObject;
-
+            // 타겟의 체력 감소 처리
         }
-
     }
 
     private void ResetRadius()
@@ -123,41 +127,37 @@ public class Boss1Skill : Boss_AttackSkill
         skill1RadiusCurrent = 0;
     }
 
-    // ==================== Skill2 ====================
+    // ==================== 스킬2 ====================
     private IEnumerator ShootBullets()
     {
-        ShootSign.SetActive(true);
-        _boss.AniCompo.Play("Boss_Down");
+        shootSign.SetActive(true);
+        aniCompo.Play("Boss_Down");
         yield return new WaitForSeconds(0.8f);
+
         int value = UnityEngine.Random.Range(0, 2);
-        if (value == 1)
-        {
-            changePos = true;
-        }
-        else
-        {
-            changePos = false;
-        }
-        _boss.RbCompo.velocity = Vector2.zero;
+        changePos = (value == 1);
+
+        rigid.velocity = Vector2.zero;
         GetCurrentPosSetting();
+
         float startTime = Time.time;
         while (Time.time - startTime < shootDuration)
         {
-            _boss.RbCompo.velocity = Vector2.zero;
-            RotateShoot(_rotationSpeed);
+            rigid.velocity = Vector2.zero;
+            RotateShoot(rotationSpeed);
             SpawnBullets();
             yield return new WaitForSeconds(shootInterval);
         }
-        _currentPos.SetActive(false);
-        ShootSign.SetActive(false);
+
+        currentPos.SetActive(false);
+        shootSign.SetActive(false);
         _boss.CanAttack = true;
         _boss.TransitionState(_boss.StateCompo.Boss_GetState(Boss_StateType.Idle));
-
     }
 
     private void RotateShoot(float speed)
     {
-        _currentPos.transform.Rotate(0, 0, speed * Time.deltaTime);
+        currentPos.transform.Rotate(0, 0, speed * Time.deltaTime);
     }
 
     private void SpawnBullets()
@@ -165,34 +165,32 @@ public class Boss1Skill : Boss_AttackSkill
         foreach (Transform bulletPos in bulletPositions)
         {
             Instantiate(bulletPrefab, bulletPos.position, bulletPos.rotation);
-
         }
     }
 
-    // ==================== Pos결정 ====================
+    // ==================== 위치 설정 ====================
     private int GetCurrentPosSetting()
     {
-
         Func<int> returnBasedOnAddpos = () => changePos ? 1 : 0;
         int count = returnBasedOnAddpos();
 
         if (count == 0)
         {
-            _rotationSpeed = 1600;
+            rotationSpeed = 1600;
             shootInterval = 0.25f;
         }
         else
         {
-            _rotationSpeed = 800;
+            rotationSpeed = 800;
             shootInterval = 0.25f;
         }
-        _currentPos.SetActive(false);
-        _currentPos = shootPosObject[count];
+
+        currentPos.SetActive(false);
+        currentPos = shootPosObject[count];
         InitializeShootPositions();
-        _currentPos.SetActive(true);
+        currentPos.SetActive(true);
         return count;
     }
-
 
     private void OnDrawGizmos()
     {
@@ -205,18 +203,18 @@ public class Boss1Skill : Boss_AttackSkill
         Gizmos.DrawWireSphere(_boss.transform.position, radius);
     }
 
-    //==================== Minion Spawn ====================
+    // ==================== 미니언 생성 ====================
     private IEnumerator SpawnMin(float interval, float spawnDuration)
     {
-        _boss.AniCompo.Boss_PlayAnimaton(Boss_AnimationType.Spawn);
+        aniCompo.Boss_PlayAnimaton(Boss_AnimationType.Spawn);
         WaitForSeconds wait = new WaitForSeconds(interval);
         currentTime = 0;
 
         while (currentTime <= spawnDuration)
         {
             Vector2 randomPosition = (Vector2)transform.position + UnityEngine.Random.insideUnitCircle * radius;
-            Instantiate(Minimob, randomPosition, _boss.transform.rotation,MinimobCase.transform);
-            print("S");
+            Instantiate(minimob, randomPosition, _boss.transform.rotation, minimobCase.transform);
+            print("미니언 생성");
 
             yield return wait;
             currentTime += interval;
@@ -226,18 +224,17 @@ public class Boss1Skill : Boss_AttackSkill
         currentTime = 0;
     }
 
-    // ==================== Attack1 ====================
+    // ==================== 공격1 ====================
     private IEnumerator Attack1()
     {
-        Debug.Log("hi");
+        Debug.Log("공격1 발동");
         if (!_boss._sprite.flipX)
-            _boss.AniCompo.Boss_PlayAnimaton(Boss_AnimationType.Attack1_L);
+            aniCompo.Boss_PlayAnimaton(Boss_AnimationType.Attack1_L);
         else
         {
-            _boss._sprite.flipX = false; 
-            _boss.AniCompo.Boss_PlayAnimaton(Boss_AnimationType.Attack1_R);
+            _boss._sprite.flipX = false;
+            aniCompo.Boss_PlayAnimaton(Boss_AnimationType.Attack1_R);
         }
-
 
         yield return new WaitForSeconds(1.05f);
         _boss.CanAttack = true;

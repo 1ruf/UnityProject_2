@@ -21,7 +21,7 @@ public class Minimob_RunState : BossState
         {
             _minimob.TransitionState(_minimob.StateCompo.Boss_GetState(Boss_StateType.Attack));
         }
-        if (_minimob.health <= 0)
+        if (_minimob.Health <= 0)
         {
             _minimob.TransitionState(_minimob.StateCompo.Boss_GetState(Boss_StateType.Death));
         }

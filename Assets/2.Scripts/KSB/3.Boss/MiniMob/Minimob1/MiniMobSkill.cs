@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class MiniMobSkill1 :Boss_AttackSkill
 {
+    [Header("기본 설정")]
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform pos;
 
-
+    [Header("Setting")]
+    public Rigidbody2D _rigid;
+    public Boss_Detecting _Detecting;
+    public Boss_Animator _AniCompo;
+    private void Awake()
+    {
+        _rigid = GetComponentInParent<Rigidbody2D>();
+        _Detecting = GetComponentInChildren<Boss_Detecting>();
+        _AniCompo = GetComponentInChildren<Boss_Animator>();
+    }
     public override void Minimob_Skill1()
     {
         StartCoroutine(Shoot());
@@ -26,10 +36,10 @@ public class MiniMobSkill1 :Boss_AttackSkill
     IEnumerator Shoot()
     {
       
-        while(_minimob.Detecting.target!=null&&!_minimob.Detecting.melee_Attack)
+        while(_Detecting.target!=null&&!_Detecting.melee_Attack)
         {
-            _minimob.AniCompo.Boss_PlayAnimaton(Boss_AnimationType.Idle);
-            GameObject target = _minimob.Detecting.target;
+            _AniCompo.Boss_PlayAnimaton(Boss_AnimationType.Idle);
+            GameObject target = _Detecting.target;
             Vector3 direction = target.transform.position - transform.position;
 
 
@@ -53,7 +63,7 @@ public class MiniMobSkill1 :Boss_AttackSkill
     IEnumerator Shock()
     {
         print("D");
-        _minimob.AniCompo.Boss_PlayAnimaton(Boss_AnimationType.Attack2);
+        _AniCompo.Boss_PlayAnimaton(Boss_AnimationType.Attack2);
 
         yield return new WaitForSeconds(1.01f);
         _minimob.TransitionState(_minimob.StateCompo.Boss_GetState(Boss_StateType.Death));
