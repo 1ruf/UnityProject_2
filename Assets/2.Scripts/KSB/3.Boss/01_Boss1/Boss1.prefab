@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3748506107014961605}
   - component: {fileID: 4585860724815562039}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 1770732552529812813}
   - component: {fileID: 2508840114074553393}
   - component: {fileID: 1912250028647543725}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: state
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1620225939588465928}
   - component: {fileID: 5596283399807028530}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8509966066057493288}
   - component: {fileID: 3805448390421685594}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 5047824561501571221}
   - component: {fileID: 94546601121904756}
   - component: {fileID: 6015215799207814076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: point
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -474,7 +474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8787649641138904188}
   - component: {fileID: 4314097570120383042}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6460496249221771486}
   - component: {fileID: 1526833166468290720}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6730058627386405482}
   - component: {fileID: 3176124351238561349}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SkillBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -685,12 +685,12 @@ MonoBehaviour:
   _minimob: {fileID: 0}
   spawnDuration: 5
   spawnInterval: 2.5
-  Minimob: {fileID: 4477789425410054828, guid: e089ad6b666bf97478ee117f26ed7a5d, type: 3}
+  minimob: {fileID: 0}
   radius: 4.66
   skill1RadiusMax: 5
-  _rotationSpeed: 950
+  rotationSpeed: 0
   shootInterval: 0.4
-  ShootSign: {fileID: 7120247966836210226}
+  shootSign: {fileID: 0}
   changePos: 0
   bulletPrefab: {fileID: 1067536815597623165, guid: 207e4e12e7e71744f80652bf73c50ab5, type: 3}
   shootPosObject:
@@ -700,9 +700,9 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 8
-  _rigid: {fileID: 0}
-  _Detecting: {fileID: 0}
-  _AniCompo: {fileID: 0}
+  rigid: {fileID: 0}
+  detecting: {fileID: 0}
+  aniCompo: {fileID: 0}
 --- !u!1 &4533686576748891923
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,7 +713,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3711171433061818576}
   - component: {fileID: 1271811178361757495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -799,7 +799,7 @@ GameObject:
   - component: {fileID: 2241512079474597815}
   - component: {fileID: 8929309972503260403}
   - component: {fileID: 913658091669092404}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -837,13 +837,13 @@ MonoBehaviour:
   RbCompo: {fileID: 0}
   AniCompo: {fileID: 0}
   StateCompo: {fileID: 0}
-  boss_Skill: {fileID: 0}
+  BossSkill: {fileID: 0}
   Detecting: {fileID: 0}
   _sprite: {fileID: 0}
   distanceThreshold: 2
   point: {fileID: 6015215799207814076}
   CanAttack: 1
-  StartingHealth: 300
+  startingHealth: 0
   damage: 0
   attackState: {fileID: 0}
   currentState: {fileID: 0}
@@ -896,9 +896,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8830991578087099816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Boss1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -931,7 +931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6472494583385878101}
   - component: {fileID: 6728599618189532474}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1016,7 +1016,7 @@ GameObject:
   - component: {fileID: 5044702499932977220}
   - component: {fileID: 934215210096908525}
   - component: {fileID: 8669759820681936457}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1113,7 +1113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8547870035876623580}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shootPos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1151,7 +1151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8368969304989092111}
   - component: {fileID: 7145203361562186596}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1234,7 +1234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 434528877608609289}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shootPos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1272,7 +1272,7 @@ GameObject:
   - component: {fileID: 6292392471721790248}
   - component: {fileID: 4350167196124731692}
   - component: {fileID: 685241598087587081}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1391,7 +1391,7 @@ GameObject:
   - component: {fileID: 6892102560544761039}
   - component: {fileID: 1813094831839192520}
   - component: {fileID: 4746357237675807978}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1545,7 +1545,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9106852029790898039}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MinimobCase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1577,7 +1577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7849264613504581315}
   - component: {fileID: 2187894918576151964}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1661,7 +1661,7 @@ GameObject:
   m_Component:
   - component: {fileID: 161802773948440685}
   - component: {fileID: 84515582991163194}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1745,7 +1745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5023206349248644694}
   - component: {fileID: 6232542562718955941}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1829,7 +1829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3970304255606042996}
   - component: {fileID: 8541157797408557403}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

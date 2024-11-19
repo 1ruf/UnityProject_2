@@ -5,15 +5,16 @@ public class IdleState : State
 
     protected override void EnterState()
     {
+        print("¶óÀÌµé");
         _agent.AnimCompo.PlayAnimaton(AnimatonType.idle);
         _agent.RbCompo.velocity = Vector2.zero;
     }
 
-    protected override void HandleMovement(Vector2 vector)
+    public override void StateFixedUpdate()
     {
-        if (vector.magnitude > 0)
-        {
+        print(_agent.InputCompo.InputVector.magnitude);
+        if (_agent.InputCompo.InputVector.magnitude > 0)
             _agent.TransitionState(_agent.StateCompo.GetState(StateType.Move));
-        }
+
     }
 }

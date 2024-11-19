@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1806908280200250864}
   - component: {fileID: 1520945717674234874}
   - component: {fileID: 7701933876884811620}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 238260379076677294}
   - component: {fileID: 1360867673178122925}
   - component: {fileID: 3918897981977595823}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: boby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,8 +176,7 @@ MonoBehaviour:
   distanceThreshold: 0.2
   point: {fileID: 0}
   CanAttack: 1
-  SkillCount: 0
-  health: 0
+  startingHealth: 0
   damage: 0
   attackState: {fileID: 0}
   currentState: {fileID: 0}
@@ -227,9 +226,6 @@ MonoBehaviour:
   bullet: {fileID: 1067536815597623165, guid: 3c1f414d15562f74e957223e833d904f, type: 3}
   pos: {fileID: 400913549954011623}
   AttackSign: {fileID: 5710735694165706067}
-  _rigid: {fileID: 0}
-  _Detecting: {fileID: 0}
-  _AniCompo: {fileID: 0}
 --- !u!1 &760148199456807036
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +241,7 @@ GameObject:
   - component: {fileID: 7233672721313889330}
   - component: {fileID: 9136780239342400897}
   - component: {fileID: 8145318652386228055}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: state
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +352,7 @@ GameObject:
   - component: {fileID: 7235510445885270944}
   - component: {fileID: 161708882226361460}
   - component: {fileID: 861217465097699789}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +472,7 @@ GameObject:
   - component: {fileID: 5465499646223213544}
   - component: {fileID: 3303984658397946142}
   - component: {fileID: 2497774965380149638}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +562,7 @@ GameObject:
   - component: {fileID: 9134661923976506403}
   - component: {fileID: 1887636646215838479}
   - component: {fileID: 728527509233359996}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: attackSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -684,9 +680,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2504502019336710757}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Minmob2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -716,7 +712,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400913549954011623}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pos
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -749,7 +745,7 @@ GameObject:
   - component: {fileID: 8432093988534969774}
   - component: {fileID: 5858360954009514369}
   - component: {fileID: 9119866586628367422}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -846,7 +842,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7551858294792394635}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SkillBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

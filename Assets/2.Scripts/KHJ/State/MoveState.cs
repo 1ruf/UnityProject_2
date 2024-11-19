@@ -3,9 +3,10 @@ using UnityEngine;
 public class MoveState : State
 {
 
-    [SerializeField] private MovementData _movementData;
     protected override void EnterState()
     {
+        print("¹«ºê");
+
         _agent.AnimCompo.PlayAnimaton(AnimatonType.walk);
     }
 

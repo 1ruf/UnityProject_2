@@ -9,7 +9,7 @@ public class AttackState : State
     {
         _agent.AnimCompo.PlayAnimaton(AnimatonType.attack);
         _agent.AnimCompo.OnAnimationAction.AddListener(PerfromAttack);
-        _agent.AnimCompo.OnAnimationEnd.AddListener(TransitionState);
+        TransitionState();
     }
 
     private void TransitionState()
