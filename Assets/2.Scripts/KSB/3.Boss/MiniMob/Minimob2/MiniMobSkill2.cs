@@ -11,7 +11,7 @@ public class MiniMobSkill2 : Boss_AttackSkill
     [Header("Setting")]
     private Rigidbody2D _rigid;               // 물리 연산
     private Boss_Detecting _Detecting;        // 타겟 탐지
-    private Boss_Animator _AniCompo;          // 애니메이션 제어
+    private Boss_Animator _AniCompo;      // 애니메이션 제어
 
     private void Awake()
     {
