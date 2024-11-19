@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/1.Scenes/KHG/MenuScene.unity
+    guid: 165145dbab8d7c74abe4f12681e43d8a
+  - enabled: 1
     path: Assets/1.Scenes/GameScene/GameScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
@@ -26,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/1.Scenes/KHG/CutScenes/Cinema1.unity
     guid: 662e2fd340881ec44a8b59a428dc63e2
+  - enabled: 1
+    path: Assets/1.Scenes/KHG/Stages/Tutorial.unity
+    guid: 449d4ef9be94352468d0a90d428e8fae
   m_configObjects: {}
