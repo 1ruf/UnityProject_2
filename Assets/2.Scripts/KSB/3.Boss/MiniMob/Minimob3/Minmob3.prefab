@@ -447,8 +447,7 @@ MonoBehaviour:
   distanceThreshold: 0.2
   point: {fileID: 0}
   CanAttack: 1
-  SkillCount: 0
-  health: 0
+  startingHealth: 100
   damage: 0
   attackState: {fileID: 0}
   currentState: {fileID: 0}

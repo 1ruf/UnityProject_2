@@ -176,8 +176,7 @@ MonoBehaviour:
   distanceThreshold: 0.2
   point: {fileID: 0}
   CanAttack: 1
-  SkillCount: 0
-  health: 0
+  startingHealth: 100
   damage: 0
   attackState: {fileID: 0}
   currentState: {fileID: 0}
@@ -227,9 +226,6 @@ MonoBehaviour:
   bullet: {fileID: 1067536815597623165, guid: 3c1f414d15562f74e957223e833d904f, type: 3}
   pos: {fileID: 400913549954011623}
   AttackSign: {fileID: 5710735694165706067}
-  _rigid: {fileID: 0}
-  _Detecting: {fileID: 0}
-  _AniCompo: {fileID: 0}
 --- !u!1 &760148199456807036
 GameObject:
   m_ObjectHideFlags: 0
