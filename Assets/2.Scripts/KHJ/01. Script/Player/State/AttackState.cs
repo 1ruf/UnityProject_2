@@ -3,28 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AttackState : State
+public class AttackState : PlayerState
 {
     protected override void EnterState()
     {
-        _npc.AnimCompo.PlayAnimaton(AnimationType.attack);
-        _npc.AnimCompo.OnAnimationAction.AddListener(PerfromAttack);
-        TransitionState();
+        _player.AnimCompo.PlayAnimaton(AnimationType.attack);
+        _player.AnimCompo.OnAnimationAction += PerfromAttack;
+        _player.AnimCompo.OnAnimationEnd += TransitionState;
     }
 
     private void TransitionState()
     {
-        _npc.TransitionState(_npc.StateCompo.GetState(StateType.Idle));
+        _player.TransitionState(_player.StateCompo.GetState(StateType.Idle));
+        ExitState();
     }
 
     private void PerfromAttack()
     {
-
+        print("АјАн");
     }
 
     protected override void ExitState()
     {
-        _npc.AnimCompo.ResetEvent();
+        _player.AnimCompo.OnAnimationAction -= PerfromAttack;
+        _player.AnimCompo.OnAnimationEnd -= TransitionState;
     }
 
 }

@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class Enemy : Npc
 {
-    public override bool CanAttack { get; protected set; }
+    public EnemyStateFectory StateCompo { get; protected set; }
+    public EnemyAnimation AnimCompo { get; protected set; }
+
+    public Transform Target { get; private set; }
+
+    private void Awake()
+    {
+        StateCompo = GetComponentInChildren<EnemyStateFectory>();
+        AnimCompo = GetComponent<EnemyAnimation>();
+        RbCompo = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+
+    }
+
+    public void Start()
+    {
+        StateCompo.InitializeState(this);
+        TransitionState(StateCompo.GetState(StateType.Idle));
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            Transform target = collision.transform;
+            Target = collision.transform;
 
-            float d = Vector2.Distance(target.position, transform.position);
+            float d = Vector2.Distance(Target.position, transform.position);
 
             if (d < 10)
             {
@@ -27,7 +45,11 @@ public class Enemy : Npc
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        CanAttack = false;
+        if (collision.transform == Target)
+        {
+            Target = null;
+            CanAttack = false;
+        }
     }
 }
 

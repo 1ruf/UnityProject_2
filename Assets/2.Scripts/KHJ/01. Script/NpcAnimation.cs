@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,8 @@ public class NpcAnimation : MonoBehaviour
 {
     protected Animator _animator;
 
-    public UnityEvent OnAnimationEnd;
-    public UnityEvent OnAnimationAction;
+    public event Action OnAnimationEnd;
+    public event Action OnAnimationAction;
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -26,7 +27,6 @@ public class NpcAnimation : MonoBehaviour
 
     protected virtual void Play(string animName)
     {
-        _animator.Play(animName);
     }
 
     public virtual void Stop()
@@ -41,14 +41,10 @@ public class NpcAnimation : MonoBehaviour
 
     public virtual void InvokeAnimationEnd()
     {
-        OnAnimationEnd?.Invoke();
+        OnAnimationAction?.Invoke();
     }
 
-    public virtual void ResetEvent()
-    {
-        OnAnimationAction.RemoveAllListeners();
-        OnAnimationEnd.RemoveAllListeners();
-    }
+    
 }
 public enum AnimationType
 {

@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class EnemyAnimation : NpcAnimation
 {
-    private void Awake()
-    {
-        _animator = GetComponent<Animator>();
-    }
+    
 
     public override void PlayAnimaton(AnimationType animtype)
     {

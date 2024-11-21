@@ -19,12 +19,7 @@ public class StateFectory : MonoBehaviour
             _ => throw new System.Exception("aa")
         };
 
-    public virtual void InitializeState(Npc npc)
-    {
-        State[] states = GetComponents<State>();
-        foreach (State state in states)
-            state.InitializeState(npc);
-    }
+    
 }
 
 

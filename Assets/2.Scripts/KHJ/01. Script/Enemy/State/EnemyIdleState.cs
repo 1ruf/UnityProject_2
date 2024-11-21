@@ -6,15 +6,16 @@ public class EnemyIdleState : EnemyState
 {
     protected override void EnterState()
     {
-        _npc.AnimCompo.PlayAnimaton(AnimationType.idle);
-        
+        _enemy.RbCompo.velocity = Vector2.zero;
+        _enemy.AnimCompo.PlayAnimaton(AnimationType.idle);
+        print("ถ๓ภฬต้");
     }
 
     public override void StateFixedUpdate()
     {
-        /*if (_npc)
+        if (_enemy.Target)
         {
-            _npc.TransitionState(_npc.StateCompo.GetState(StateType.Attack));
-        }*/
+            _enemy.TransitionState(_enemy.StateCompo.GetState(StateType.Move));
+        }
     }
 }

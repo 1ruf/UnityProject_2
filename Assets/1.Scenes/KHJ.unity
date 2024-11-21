@@ -678,10 +678,10 @@ GameObject:
   - component: {fileID: 539546820}
   - component: {fileID: 539546822}
   - component: {fileID: 539546821}
-  - component: {fileID: 539546823}
   - component: {fileID: 539546824}
   - component: {fileID: 539546825}
   - component: {fileID: 539546827}
+  - component: {fileID: 539546828}
   m_Layer: 3
   m_Name: State
   m_TagString: Untagged
@@ -728,23 +728,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252cb9ed346380d47b3a36ec75d8b562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &539546823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 539546819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cacd391a07602249af9a863f8bfc39f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Idle: {fileID: 539546822}
-  Move: {fileID: 539546821}
-  Attack: {fileID: 539546824}
-  Death: {fileID: 0}
-  Hit: {fileID: 0}
 --- !u!114 &539546824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -823,6 +806,26 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: 0, y: -1, z: 0}
+--- !u!114 &539546828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539546819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160dfa6d9acb0b34989cedc11f492459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Idle: {fileID: 539546822}
+  Move: {fileID: 539546821}
+  Attack: {fileID: 539546824}
+  Death: {fileID: 0}
+  Hit: {fileID: 0}
+  Change: {fileID: 539546825}
+  Skill: {fileID: 0}
+  _player: {fileID: 814333853}
 --- !u!1 &610276889
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,8 +835,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 610276890}
-  - component: {fileID: 610276891}
-  - component: {fileID: 610276892}
   m_Layer: 3
   m_Name: Skill
   m_TagString: Untagged
@@ -856,30 +857,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 814333850}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &610276891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610276889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cdabb077670fa6448a353fe2861d206, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &610276892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610276889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3a9a97bf32b0944784c8af41a025ad2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &610375996
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,7 +936,7 @@ Animator:
   m_GameObject: {fileID: 610375996}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 500fec38e564d2b4cbe5e4c52dcdc97e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 67cb4755086b53b48b077723709e03c2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1034,9 +1011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46edd3a0405fe1c47950b8ad2d82a37b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <InputCompo>k__BackingField: {fileID: 0}
   FlipCompo: {fileID: 610376003}
-  RbCompo: {fileID: 0}
 --- !u!50 &610376008
 Rigidbody2D:
   serializedVersion: 4
@@ -1698,9 +1673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adfb51ae50429546bc76ec2eb9e8589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <InputCompo>k__BackingField: {fileID: 11400000, guid: da7fc9a44d0d64b46b56d42f0ab20a13, type: 2}
   FlipCompo: {fileID: 814333858}
-  RbCompo: {fileID: 0}
   <InputCompo>k__BackingField: {fileID: 11400000, guid: da7fc9a44d0d64b46b56d42f0ab20a13, type: 2}
 --- !u!95 &814333855
 Animator:

@@ -7,15 +7,15 @@ public class CharacterChanged : MonoBehaviour
 
     [SerializeField] private Transform _clone;
 
-    public void ChangeCharacter(Npc npc, Enemy enemy)
+    public void ChangeCharacter(Player player, Enemy enemy)
     {
-        CreateCharcter(npc); // 플레이어 더미 남기는 메서드
-        npc.gameObject.tag = "Enemy";
-        npc.AnimCompo.Stop();
+        CreateCharcter(player); // 플레이어 더미 남기는 메서드
+        player.gameObject.tag = "Enemy";
+        player.AnimCompo.Stop();
         //npc.GetComponent<SpriteRenderer>().sprite = enemy.Visual_Sprite;
-        npc.transform.position = enemy.transform.position;
-        npc.transform.localScale = enemy.transform.localScale;
-        npc.RbCompo.velocity = Vector2.zero;
+        player.transform.position = enemy.transform.position;
+        player.transform.localScale = enemy.transform.localScale;
+        player.RbCompo.velocity = Vector2.zero;
         enemy.gameObject.SetActive(false);
     } // 플레이어 더미를 만들어 남겨두고, 적으로 변신함 (적은 비활성화) 
 

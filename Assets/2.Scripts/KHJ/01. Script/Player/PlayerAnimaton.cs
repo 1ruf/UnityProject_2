@@ -5,10 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerAnimaton : NpcAnimation
 {
-    private void Awake()
-    {
-        _animator = GetComponent<Animator>();
-    }
+    
 
     public override void PlayAnimaton(AnimationType animtype)
     {

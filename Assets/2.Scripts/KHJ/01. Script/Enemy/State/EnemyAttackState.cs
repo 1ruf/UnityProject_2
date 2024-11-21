@@ -2,22 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttackState : State
+public class EnemyAttackState : EnemyState
 {
+
 
 
     protected override void EnterState()
     {
-        print("에너미 어택 스테이트");
-        _npc.AnimCompo.PlayAnimaton(AnimationType.attack);
-        _npc.AnimCompo.OnAnimationAction.AddListener(PerfromAttack);
-        _npc.AnimCompo.OnAnimationEnd.AddListener(TransitionState);
+        print("공격상태요 님아 제발");
+        _enemy.RbCompo.velocity = Vector2.zero;
+        _enemy.AnimCompo.PlayAnimaton(AnimationType.attack);
+        _enemy.AnimCompo.OnAnimationAction += TransitionState;
+        _enemy.AnimCompo.OnAnimationEnd += PerfromAttack;
+        
     }
     
 
     private void TransitionState()
     { // 공격 상태 끝
-        _npc.TransitionState(_npc.StateCompo.GetState(StateType.Idle));
+        print("공격끝이요 님아 제발");
+        _enemy.TransitionState(_enemy.StateCompo.GetState(StateType.Idle));
     }
 
     private void PerfromAttack()

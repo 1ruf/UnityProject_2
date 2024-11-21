@@ -16,4 +16,11 @@ public class EnemyStateFectory : StateFectory
             StateType.Death => Death,
             _ => throw new System.Exception("aa")
         };
+
+    public virtual void InitializeState(Enemy enemy)
+    {
+        State[] states = GetComponents<EnemyState>();
+        foreach (EnemyState state in states)
+            state.InitializeState(enemy);
+    }
 }

@@ -1,18 +1,18 @@
 using UnityEngine;
 
-public class IdleState : State
+public class IdleState : PlayerState
 {
-
+    
     protected override void EnterState()
     {
-        _npc.AnimCompo.PlayAnimaton(AnimationType.idle);
-        _npc.RbCompo.velocity = Vector2.zero;
+        _player.AnimCompo.PlayAnimaton(AnimationType.idle);
+        _player.RbCompo.velocity = Vector2.zero;
     }
 
     public override void StateFixedUpdate()
     {
-        if (_npc.InputCompo.InputVector.magnitude > 0)
-            _npc.TransitionState(_npc.StateCompo.GetState(StateType.Move));
+        if (_player.InputCompo.InputVector.magnitude > 0)
+            _player.TransitionState(_player.StateCompo.GetState(StateType.Move));
 
     }
 }

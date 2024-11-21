@@ -4,23 +4,44 @@ using UnityEngine;
 
 public class PlayerState : State
 {
+
+    
+    protected Player _player;
+    public void InitializeState(Player player)
+    {
+        _player = player;
+    }
+
+
+    protected virtual void HandleLeftMousePressed()
+    {
+        _player.TransitionState(_player.StateCompo.GetState(StateType.Attack));
+    }
+
+    protected virtual void HandleTabKey()
+    {
+        _player.TransitionState(_player.StateCompo.GetState(StateType.Change));
+    }
+
+    protected virtual void HandleFKey()
+    {
+        _player.TransitionState(_player.StateCompo.GetState(StateType.Skill));
+    }
+
     public override void Enter()
     {
         EnterState();
-        if (_npc.InputCompo == null) return;
-        _npc.InputCompo.OnLeftMouse += HandleLeftMousePressed;
-        _npc.InputCompo.OnMove += HandleMovement;
-        _npc.InputCompo.OnTabKey += HandleTabKey;
-        _npc.InputCompo.OnFKey += HandleFKey;
+        _player.InputCompo.OnLeftMouse += HandleLeftMousePressed;
+        _player.InputCompo.OnMove += HandleMovement;
+        _player.InputCompo.OnTabKey += HandleTabKey;
+        _player.InputCompo.OnFKey += HandleFKey;
     }
     public override void Exit()
     {
         ExitState();
-
-        if (_npc.InputCompo == null) return;
-        _npc.InputCompo.OnLeftMouse -= HandleLeftMousePressed;
-        _npc.InputCompo.OnMove -= HandleMovement;
-        _npc.InputCompo.OnTabKey -= HandleTabKey;
-        _npc.InputCompo.OnFKey -= HandleFKey;
+        _player.InputCompo.OnLeftMouse -= HandleLeftMousePressed;
+        _player.InputCompo.OnMove -= HandleMovement;
+        _player.InputCompo.OnTabKey -= HandleTabKey;
+        _player.InputCompo.OnFKey -= HandleFKey;
     }
 }
