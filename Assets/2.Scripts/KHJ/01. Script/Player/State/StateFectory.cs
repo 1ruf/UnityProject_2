@@ -4,21 +4,22 @@ using UnityEngine;
 public class StateFectory : MonoBehaviour
 {
 
-    [SerializeField] private State Idle, Move, Attack, Change, Skill;
+    [SerializeField] protected State Idle, Move, Attack, Death, Hit;
 
 
-    public State GetState(StateType stateType)
+
+    public virtual State GetState(StateType stateType)
         => stateType switch
         {
             StateType.Idle => Idle,
             StateType.Move => Move,
             StateType.Attack => Attack,
-            StateType.Change => Change,
-            StateType.Skill => Skill,
+            StateType.Hit => Hit,
+            StateType.Death => Death,
             _ => throw new System.Exception("aa")
         };
 
-    public void InitializeState(Npc npc)
+    public virtual void InitializeState(Npc npc)
     {
         State[] states = GetComponents<State>();
         foreach (State state in states)
@@ -34,5 +35,7 @@ public enum StateType
     Move,
     Attack,
     Change,
-    Skill
+    Skill,
+    Hit,
+    Death,
 }

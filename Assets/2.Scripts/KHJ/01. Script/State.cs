@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class State : MonoBehaviour
 {
-    protected Npc _npc;
+    protected virtual Npc _npc { get; set; }
 
     
 
@@ -48,7 +48,7 @@ public abstract class State : MonoBehaviour
 
     protected virtual void EnterState()
     {
-
+        
     }
 
     protected virtual void ExitState()
@@ -57,20 +57,12 @@ public abstract class State : MonoBehaviour
     }
 
 
-    public void Enter()
+    public virtual void Enter()
     {
-        _npc.InputCompo.OnLeftMouse += HandleLeftMousePressed;
-        _npc.InputCompo.OnMove += HandleMovement;
-        _npc.InputCompo.OnTabKey += HandleTabKey;
-        _npc.InputCompo.OnFKey += HandleFKey;
         EnterState();
     }
-    public void Exit()
+    public virtual void Exit()
     {
-        _npc.InputCompo.OnLeftMouse -= HandleLeftMousePressed;
-        _npc.InputCompo.OnMove -= HandleMovement;
-        _npc.InputCompo.OnTabKey -= HandleTabKey;
-        _npc.InputCompo.OnFKey -= HandleFKey;
         ExitState();
     }
 

@@ -50,3 +50,13 @@ public class NpcAnimation : MonoBehaviour
         OnAnimationEnd.RemoveAllListeners();
     }
 }
+public enum AnimationType
+{
+    idle,
+    move,
+    attack,
+    death,
+    hit,
+}
+
+

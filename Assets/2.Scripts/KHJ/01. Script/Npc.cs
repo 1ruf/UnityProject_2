@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Npc : MonoBehaviour
 {
-    public State _currentState { get; protected set; }
-    public State _previousState { get; protected set; }
+    public State CurrentState { get; protected set; }
+    public State PreviousState { get; protected set; }
     [field: SerializeField] public virtual InputReader InputCompo { get; protected set; }
 
+    public virtual bool CanAttack { get; protected set; }
 
-    public PlayerFlip FlipCompo;
+
+    public Flip FlipCompo;
 
     public NpcAnimation AnimCompo { get; protected set; }
     public Rigidbody2D RbCompo;
@@ -21,7 +23,7 @@ public class Npc : MonoBehaviour
     {
         StateCompo = GetComponentInChildren<StateFectory>();
         RbCompo = GetComponent<Rigidbody2D>();
-        AnimCompo = GetComponent<PlayerAnimaton>();
+        AnimCompo = GetComponent<NpcAnimation>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _playerData = GetComponent<PlayerData>();
     }
@@ -30,30 +32,30 @@ public class Npc : MonoBehaviour
     {
         StateCompo.InitializeState(this);
         TransitionState(StateCompo.GetState(StateType.Idle));
+
     }
 
     private void FixedUpdate()
     {
-        _currentState.StateFixedUpdate();
+        CurrentState.StateFixedUpdate();
     }
 
     private void Update()
     {
-        _currentState.StateUpdate();
-        FlipCompo.Flip(this);
+        CurrentState.StateUpdate();
+        FlipCompo.FlipNpc(this);
     }
 
     internal void TransitionState(State desireState)
     {
         if (desireState == null) return;
 
-        if (_currentState != null)
+        if (CurrentState != null)
         {
-            _currentState.Exit();
-            _previousState = _currentState;
+            CurrentState.Exit();
+            PreviousState = CurrentState;
         }
-        _currentState = desireState;
-        _currentState.Enter();
-
+        CurrentState = desireState;
+        CurrentState.Enter();
     }
 }

@@ -5,9 +5,7 @@ public class MoveState : State
 
     protected override void EnterState()
     {
-        print("¹«ºê");
-
-        _npc.AnimCompo.PlayAnimaton(AnimationType.walk);
+        _npc.AnimCompo.PlayAnimaton(AnimationType.move);
     }
 
     
