@@ -43,9 +43,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: sign
     uniqueID: 693137453
     locked: 0
@@ -54,4 +51,19 @@ TagManager:
     locked: 0
   - name: background
     uniqueID: 290136801
+    locked: 0
+  - name: ground
+    uniqueID: 1074463819
+    locked: 0
+  - name: wall
+    uniqueID: 1015942273
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: entity
+    uniqueID: 2370745987
+    locked: 0
+  - name: item
+    uniqueID: 984956495
     locked: 0

@@ -8,7 +8,6 @@ public class Minimob_AttackState : BossState
     {
 
         StartCoroutine(AttacPattern());
-        base.StateFixedUpdate();
     }
 
     public override void StateUpdate()

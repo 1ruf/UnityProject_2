@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5546536502948401122}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6737713032543450977}
   - component: {fileID: 1128996545187724717}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SkillBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 7011641816785029519}
   - component: {fileID: 7683333406968590415}
   - component: {fileID: 2180942893375210807}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: state
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 6923361881741840561}
   - component: {fileID: 5628548366731349239}
   - component: {fileID: 8297187045665369066}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,9 +331,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2128377607379560550}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Minmob
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 2440670471056761028}
   - component: {fileID: 6697117250220481671}
   - component: {fileID: 2812632566792058831}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 5580849118296691417}
   - component: {fileID: 4582970763804898381}
   - component: {fileID: 385473088445671492}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +584,7 @@ GameObject:
   - component: {fileID: 1635500047954804232}
   - component: {fileID: 5544770506375797145}
   - component: {fileID: 3843624920686385918}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: boby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +629,7 @@ MonoBehaviour:
   distanceThreshold: 0.2
   point: {fileID: 0}
   CanAttack: 1
-  startingHealth: 100
+  startingHealth: 0
   damage: 0
   attackState: {fileID: 0}
   currentState: {fileID: 0}
@@ -674,7 +674,7 @@ GameObject:
   - component: {fileID: 2914658641762467231}
   - component: {fileID: 6906474011154737444}
   - component: {fileID: 2821500290932242911}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
