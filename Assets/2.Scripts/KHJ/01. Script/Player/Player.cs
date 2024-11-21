@@ -5,14 +5,27 @@ using UnityEngine;
 
 public class Player : Npc
 {
-    [field : SerializeField] public override InputReader InputCompo { get; protected set; }
+    [field : SerializeField] public InputReader InputCompo { get; protected set; }
+
+    public PlayerStateFectory StateCompo { get; set; }
+    public PlayerAnimaton AnimCompo { get; protected set; }
+    protected PlayerData _playerData;
+
+    private void Awake()
+    {
+        StateCompo = GetComponentInChildren<PlayerStateFectory>();
+        AnimCompo = GetComponent<PlayerAnimaton>();
+        _playerData = GetComponent<PlayerData>();
+        RbCompo = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        TransitionState(StateCompo.GetState(StateType.Idle));
+    }
 
 
-
-
-    
-
-    
 
     public void CharacterChangeed(/*enemySO enemyData*/) 
     {

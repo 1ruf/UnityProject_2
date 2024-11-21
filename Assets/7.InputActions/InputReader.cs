@@ -36,7 +36,6 @@ public class InputReader : ScriptableObject, IPlayerActions
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        Debug.Log("제발 키 입력 했잖아 형");
         OnMove?.Invoke(context.ReadValue<Vector2>());
         InputVector = context.ReadValue<Vector2>();
     }

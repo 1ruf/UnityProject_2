@@ -1,19 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyState : MonoBehaviour
+public abstract class State : MonoBehaviour
 {
-    protected Enemy _enemy;
+    
 
+    
 
-
-    public void InitializeState(Enemy enemy)
+    protected virtual void HandleMovement(Vector2 vector)
     {
-        _enemy = enemy;
+        
+    }
+
+    protected virtual void HandleJumpPressed()
+    {
+
     }
 
     
+
     public virtual void StateFixedUpdate()
     {
 
@@ -26,7 +30,7 @@ public class EnemyState : MonoBehaviour
 
     protected virtual void EnterState()
     {
-
+        
     }
 
     protected virtual void ExitState()
@@ -35,12 +39,13 @@ public class EnemyState : MonoBehaviour
     }
 
 
-    public void Enter()
+    public virtual void Enter()
     {
         EnterState();
     }
-    public void Exit()
+    public virtual void Exit()
     {
         ExitState();
     }
+
 }

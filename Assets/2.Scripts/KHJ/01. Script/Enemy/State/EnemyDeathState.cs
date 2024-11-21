@@ -2,15 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMoveState : EnemyState
+public class EnemyDeathState : State
 {
     protected override void EnterState()
     {
-
-    }
-
-    public override void StateFixedUpdate()
-    {
-
+        print("데스 스테이트");
     }
 }

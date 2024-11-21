@@ -5,10 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerAnimaton : NpcAnimation
 {
-    private void Awake()
-    {
-        _animator = GetComponent<Animator>();
-    }
+    
 
     public override void PlayAnimaton(AnimationType animtype)
     {
@@ -17,8 +14,8 @@ public class PlayerAnimaton : NpcAnimation
             case AnimationType.idle:
                 Play("Idle");
                 break;
-            case AnimationType.walk:
-                Play("Walk");
+            case AnimationType.move:
+                Play("Move");
                 break;
             case AnimationType.attack:
                 Play("Attack");
@@ -27,14 +24,6 @@ public class PlayerAnimaton : NpcAnimation
                 break;
         }
     }
-}
-
-
-public enum AnimationType
-{
-    idle,
-    walk,
-    attack,
 }
 
 
