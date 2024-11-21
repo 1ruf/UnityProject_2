@@ -87,21 +87,29 @@ public class MoveArrowClicked : MonoBehaviour /////////////////코드를 에전에 짠�
     }
     private IEnumerator EnterStage()
     {
-        if (SaveManager.Instance.CheckData((int)Datas.Cutscene1))
-        {
-            canClick = false;
-            buttonUI.SetActive(false);
-            CamSet(nowSector);//함수에 nowSector 보내면서 호출
-            mainCam.GetComponent<Camera>().DOOrthoSize(0.3f, 1.5f).SetEase(Ease.InBack); //DoTWeen 카메라 줌 인
-            yield return new WaitForSeconds(0.5f);
-            StartCoroutine(GlitchChange());
-            yield return new WaitForSeconds(1.5f);
-            SceneManager.LoadScene("Stage" + (nowSector + 1).ToString());
-        }
-        else
-        {
-            //SceneManager.LoadScene(Datas.Cutscene1.ToString()); //컷씬 있는거 감지해서 있으면 호출하고시픈디..
-        }
+        canClick = false;
+        buttonUI.SetActive(false);
+        CamSet(nowSector);//함수에 nowSector 보내면서 호출
+        mainCam.GetComponent<Camera>().DOOrthoSize(0.3f, 1.5f).SetEase(Ease.InBack); //DoTWeen 카메라 줌 인
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(GlitchChange());
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("Stage" + (nowSector + 1).ToString());
+        //if (SaveManager.Instance.CheckData((int)Datas.Cutscene1))
+        //{
+        //    canClick = false;
+        //    buttonUI.SetActive(false);
+        //    CamSet(nowSector);//함수에 nowSector 보내면서 호출
+        //    mainCam.GetComponent<Camera>().DOOrthoSize(0.3f, 1.5f).SetEase(Ease.InBack); //DoTWeen 카메라 줌 인
+        //    yield return new WaitForSeconds(0.5f);
+        //    StartCoroutine(GlitchChange());
+        //    yield return new WaitForSeconds(1.5f);
+        //    SceneManager.LoadScene("Stage" + (nowSector + 1).ToString());
+        //}
+        //else
+        //{
+        //    //SceneManager.LoadScene(Datas.Cutscene1.ToString()); //컷씬 있는거 감지해서 있으면 호출하고시픈디..
+        //}
     }
 
     public void RightClick()

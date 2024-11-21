@@ -40,7 +40,7 @@ public class StartButton : MonoBehaviour
 
     private void SetBtn()
     {
-        if (SaveManager.Instance.CheckData(30))
+        if (SaveManager.Instance.CheckData((int)Datas.Stage2))
             continueBtn.interactable = true;
         else
             continueBtn.interactable = false;
@@ -67,7 +67,7 @@ public class StartButton : MonoBehaviour
     public void NewGameBtnClicked()
     {
         gameObject.SetActive(false);
-        if (SaveManager.Instance.CheckData(30)) //30번째줄에 저장값이 true이면
+        if (SaveManager.Instance.CheckData((int)Datas.Stage2))
         {
             WarnPopup(warnMessage[0],warnMessage[1]);
         }
@@ -78,6 +78,7 @@ public class StartButton : MonoBehaviour
     }
     private void GameStart()
     {
+        SaveManager.Instance.SetData((int)Datas.Stage1, true);
         _nameInputUI.SetActive(false);
         _bgmManager.SetVolume(_bgmManager._audio,0f,1f); // 오디오, 목표값,시간, 킬것인가 끌것인가
         mainCam.DOOrthoSize(5f, 2f).OnComplete(()=>
