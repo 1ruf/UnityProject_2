@@ -12,31 +12,29 @@ public class SoundUI : MonoBehaviour
     {
         _audioMan = AudioManager_SB.Instance;
     }
-    private void Start()
-    {
-      
-        if (_audioMan == null)
-        {
-            print("¾øÀ½");
-        }
-    }
+
     private void Update()
     {
-        SetVolume();
+        SetBGMVolume();
+        SetSFXVolume();
     }
-  
-    public void BGMMuteButton()
+    private void SetBGMVolume()
+    {
+        _audioMan.bgmSource.volume = bgmSlider.value;
+
+    }
+
+    private void SetSFXVolume()
+    {
+        _audioMan.sfxSource.volume = sfxSlider.value;
+    }
+    public void BGMMute()
     {
         _audioMan.BGMToggle();
     }
 
-    public void SFXMuteButton()
+    public void SFXMute()
     {
         _audioMan.SFXToggle();
-    }
-    private void SetVolume()
-    {
-        _audioMan.BGM_Volume(bgmSlider.value);
-        _audioMan.SFX_Volume(sfxSlider.value);
     }
 }

@@ -1,106 +1,80 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager_SB : MonoBehaviour
 {
+    public static AudioManager_SB Instance { get; private set; }
+
     public AudioClip[] bgmSounds, sfxSounds;
     public AudioSource bgmSource, sfxSource;
-    private static AudioManager_SB _instance;
 
-    public static AudioManager_SB Instance
+    [Header("AudioMixer")]
+    [SerializeField] private AudioMixer _bgm;
+
+    private void Awake()
     {
-        get
+        if (Instance != null && Instance != this)
         {
-            if (_instance == null)
-            {
-               
-                GameObject audioManager = new GameObject("AudioManager_SB");
-                _instance = audioManager.AddComponent<AudioManager_SB>();
-                DontDestroyOnLoad(audioManager);  
-            }
-            return _instance;
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
     private void Start()
     {
-        PlayBgm(BGMSoundtype.noraml1);
-    }
-    public void PlayBgm(BGMSoundtype sound)
-    {
-        AudioClip targetClip;
-
-        switch (sound)
-        {
-            case BGMSoundtype.noraml1:
-                targetClip = bgmSounds[0];
-                break;
-            case BGMSoundtype.noraml2:
-                targetClip = bgmSounds[1];
-                break;
-            case BGMSoundtype.Death:
-                targetClip = bgmSounds[2];
-                break;
-            case BGMSoundtype.decisive:
-                targetClip = bgmSounds[3];
-                break;
-            default:
-                targetClip = bgmSounds[0];
-                break;
-
-        }
-
-        bgmSource.clip = targetClip;
-        bgmSource.loop = true;
+        ChangeBGM(BGMSoundtype.noraml1);
         bgmSource.Play();
-    }
-
-    public void PlaySfx(SFXSoundtype sound)
-    {
-        AudioClip targetClip;
-
-        switch (sound)
-        {
-            case SFXSoundtype.idle:
-                targetClip = bgmSounds[0];
-                break;
-            case SFXSoundtype.move:
-                targetClip = sfxSounds[1];
-                break;
-            case SFXSoundtype.death:
-                targetClip = sfxSounds[2];
-                break;
-            default:
-                targetClip = sfxSounds[0];
-                break;
-
-
-        }
-
-        sfxSource.clip = targetClip;
+        sfxSource.clip = sfxSounds[0];
         sfxSource.Play();
     }
 
     public void BGM_Volume(float value)
     {
-        if (bgmSource == null)
-            print("1");
-        bgmSource.volume = value;
+        if (_bgm == null)
+            print("없음");
+        else
+            _bgm.SetFloat("BGM", Mathf.Log10(value) * 20);
     }
 
     public void SFX_Volume(float value)
     {
-        sfxSource.volume = value;
+        if (_bgm == null)
+            print("없음");
+        _bgm.SetFloat("SFX", Mathf.Log10(value) * 20);
     }
 
-    public void BGMToggle()//button
+    public void BGMToggle()
     {
-       bgmSource.mute = bgmSource.mute;//mute 음소거/버튼
+        bgmSource.mute = !bgmSource.mute;
     }
 
-    public void SFXToggle()//button
+    public void SFXToggle()
     {
-        sfxSource.mute = !sfxSource.mute;//mute 음소거/버튼
+        sfxSource.mute = !sfxSource.mute;
+    }
 
+    public void ChangeBGM(BGMSoundtype sound)
+    {
+        switch (sound)
+        {
+            case BGMSoundtype.noraml1:
+                bgmSource.clip = bgmSounds[0];
+                break;
+            case BGMSoundtype.noraml2:
+                bgmSource.clip = bgmSounds[1];
+                break;
+            case BGMSoundtype.Death:
+                bgmSource.clip = bgmSounds[2];
+                break;
+            case BGMSoundtype.decisive:
+                bgmSource.clip = bgmSounds[3];
+                break;
+        }
+        bgmSource.Play();
     }
 }
 
@@ -117,5 +91,4 @@ public enum SFXSoundtype
     idle,
     move,
     death,
-
 }
