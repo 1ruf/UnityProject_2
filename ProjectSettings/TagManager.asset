@@ -67,3 +67,6 @@ TagManager:
   - name: item
     uniqueID: 984956495
     locked: 0
+  - name: roof
+    uniqueID: 943861671
+    locked: 0

@@ -82,14 +82,7 @@ public class StartButton : MonoBehaviour
         _bgmManager.SetVolume(_bgmManager._audio,0f,1f); // 오디오, 목표값,시간, 킬것인가 끌것인가
         mainCam.DOOrthoSize(5f, 2f).OnComplete(()=>
         {
-            if (SaveManager.Instance.CheckData((int)Datas.Cutscene1))
-            {
-                SceneManager.LoadScene("Stage1");
-            }
-            else
-            {
-                SceneManager.LoadScene("Cinema1");
-            }
+            SceneManager.LoadScene("StageSelectScene");
         });
     }
     public void BackBtnClicked()
