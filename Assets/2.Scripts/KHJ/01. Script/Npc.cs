@@ -7,7 +7,7 @@ public class Npc : MonoBehaviour
     public State CurrentState { get; protected set; }
     public State PreviousState { get; protected set; }
 
-    public bool CanAttack { get; protected set; }
+    [SerializeField] public bool CanAttack;
 
 
     public Flip FlipCompo;
