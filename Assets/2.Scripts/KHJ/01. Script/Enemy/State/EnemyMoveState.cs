@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class EnemyMoveState : EnemyState
 {
-    [SerializeField] private float _moveSpeed = 10;
+    [SerializeField] private float _moveSpeed = 4;
 
     protected override void EnterState()
     {
         _enemy.AnimCompo.PlayAnimaton(AnimationType.move);
-        print("무브 스테이트");
+        print("무브");
 
     }
 
     public override void StateFixedUpdate()
     {
-        print(1);
+        if (_enemy.Target == null)
+        {
+            _enemy.TransitionState(_enemy.StateCompo.GetState(StateType.Idle));
+            return;
+        }
         Vector2 direction = (_enemy.Target.position - _enemy.transform.position).normalized;
 
         _enemy.RbCompo.velocity = direction * _moveSpeed;

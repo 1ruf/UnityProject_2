@@ -619,6 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4369145e57cce24a8e54c1522426397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveSpeed: 10
 --- !u!114 &490878754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -873,7 +874,7 @@ GameObject:
   - component: {fileID: 610376007}
   - component: {fileID: 610376008}
   m_Layer: 0
-  m_Name: DarkMec1
+  m_Name: Coloseek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -889,7 +890,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5, y: 2.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 490878751}
@@ -936,7 +937,7 @@ Animator:
   m_GameObject: {fileID: 610375996}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 67cb4755086b53b48b077723709e03c2, type: 2}
+  m_Controller: {fileID: 9100000, guid: c2106e4af14ed7b45ab8051da46de032, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -988,7 +989,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -768176225, guid: dbeaadf9bd86f8a49ba195739a016e73, type: 3}
+  m_Sprite: {fileID: -616296222, guid: ab69a9f42a98e964db8c2bc59c35baed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1011,7 +1012,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46edd3a0405fe1c47950b8ad2d82a37b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanAttack: 0
   FlipCompo: {fileID: 610376003}
+  Target: {fileID: 0}
 --- !u!50 &610376008
 Rigidbody2D:
   serializedVersion: 4
@@ -1127,7 +1130,7 @@ Transform:
   m_GameObject: {fileID: 617747081}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.93, y: 0.7, z: -10}
+  m_LocalPosition: {x: 11.11, y: 22.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1278,7 +1281,7 @@ Transform:
   m_GameObject: {fileID: 718201708}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.93, y: 0.7, z: -10}
+  m_LocalPosition: {x: 11.11, y: 22.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1514,7 +1517,7 @@ GameObject:
   - component: {fileID: 814333858}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Player1
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1560,7 +1563,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0b4a2cb44043e8a4db7c03f9399c61f3, type: 3}
+  m_Sprite: {fileID: 887541587, guid: dbeaadf9bd86f8a49ba195739a016e73, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1580,8 +1583,8 @@ Transform:
   m_GameObject: {fileID: 814333847}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.93, y: 0.7, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 11.11, y: 22.7, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 539546820}
@@ -1621,18 +1624,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02534391, y: -0.07349719}
+  m_Offset: {x: -0.036587656, y: -0.49153525}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 1.6, y: 1.95}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.23968437, y: 0.6603924}
+  m_Size: {x: 1.2718772, y: 1.001016}
   m_EdgeRadius: 0
 --- !u!50 &814333852
 Rigidbody2D:
@@ -1673,6 +1676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adfb51ae50429546bc76ec2eb9e8589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanAttack: 0
   FlipCompo: {fileID: 814333858}
   <InputCompo>k__BackingField: {fileID: 11400000, guid: da7fc9a44d0d64b46b56d42f0ab20a13, type: 2}
 --- !u!95 &814333855
@@ -1685,7 +1689,7 @@ Animator:
   m_GameObject: {fileID: 814333847}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2b2a46f4224729744a28702e625451c9, type: 2}
+  m_Controller: {fileID: 278135586443791361, guid: ba6f45ee2c1d52e4a8a0a5bcdd2cdb1c, type: 3}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1805,7 +1809,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 3.75
 --- !u!1 &1098625035
 GameObject:
   m_ObjectHideFlags: 0
