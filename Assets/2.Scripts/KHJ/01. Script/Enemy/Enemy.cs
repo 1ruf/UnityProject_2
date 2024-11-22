@@ -7,7 +7,7 @@ public class Enemy : Npc
     public EnemyStateFectory StateCompo { get; protected set; }
     public EnemyAnimation AnimCompo { get; protected set; }
 
-    public Transform Target { get; private set; }
+    [SerializeField] public Transform Target;
 
     private void Awake()
     {
@@ -24,28 +24,28 @@ public class Enemy : Npc
         TransitionState(StateCompo.GetState(StateType.Idle));
     }
 
+    private void Update()
+    {
+        if (Target == null) return;
+        float d = Vector2.Distance(transform.position, Target.position);
+
+        if (d < 3)
+            CanAttack = true;
+        else
+            CanAttack = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             Target = collision.transform;
-
-            float d = Vector2.Distance(Target.position, transform.position);
-
-            if (d < 10)
-            {
-                CanAttack = true;
-            }
-            else
-            {
-                CanAttack = false;
-            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform == Target)
+        if (Target == collision.transform)
         {
             Target = null;
             CanAttack = false;

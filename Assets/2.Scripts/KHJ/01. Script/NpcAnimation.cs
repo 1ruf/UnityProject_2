@@ -8,8 +8,8 @@ public class NpcAnimation : MonoBehaviour
 {
     protected Animator _animator;
 
-    public event Action OnAnimationEnd;
-    public event Action OnAnimationAction;
+    public UnityEvent OnAnimationEnd;
+    public UnityEvent OnAnimationAction;
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -25,26 +25,18 @@ public class NpcAnimation : MonoBehaviour
 
 
 
-    protected virtual void Play(string animName)
+    protected void Play(string animName)
     {
+        _animator.Play(animName);
     }
 
-    public virtual void Stop()
+    public void Stop()
     {
         _animator.enabled = false;
     }
 
-    public virtual void InvokeAnimationAction()
-    {
-        OnAnimationAction?.Invoke();
-    }
-
-    public virtual void InvokeAnimationEnd()
-    {
-        OnAnimationAction?.Invoke();
-    }
-
     
+
 }
 public enum AnimationType
 {

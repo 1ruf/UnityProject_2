@@ -6,14 +6,20 @@ public class EnemyIdleState : EnemyState
 {
     protected override void EnterState()
     {
+        print("라이들");
+
         _enemy.RbCompo.velocity = Vector2.zero;
         _enemy.AnimCompo.PlayAnimaton(AnimationType.idle);
-        print("라이들");
     }
 
     public override void StateFixedUpdate()
     {
-        if (_enemy.Target)
+        
+        if (_enemy.Target && _enemy.CanAttack)
+        {
+            _enemy.TransitionState(_enemy.StateCompo.GetState(StateType.Move));
+        }
+        else if (_enemy.Target)
         {
             _enemy.TransitionState(_enemy.StateCompo.GetState(StateType.Move));
         }
