@@ -12,12 +12,12 @@ public class HideFloor : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
 
-    void Start()
+    private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
+    private void Update()
     {
         Collider2D collision = Physics2D.OverlapBox(_detectionArea.position, _detectionArea.localScale, 0f, _playerLayer);
 

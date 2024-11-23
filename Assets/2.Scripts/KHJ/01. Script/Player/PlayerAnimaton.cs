@@ -24,6 +24,8 @@ public class PlayerAnimaton : NpcAnimation
                 break;
         }
     }
+
+
 }
 
 
