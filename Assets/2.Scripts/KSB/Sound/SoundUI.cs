@@ -1,40 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class SoundUI : MonoBehaviour
 {
+    [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider sfxSlider;
-    private AudioManager_SB _audioMan;
-    private void Awake()
+
+
+    void Start()
     {
-        _audioMan = AudioManager_SB.Instance;
+        bgmSlider.onValueChanged.AddListener(SetBGMVolume);
+        sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+
+        if (SaveManager.Instance.GetData<int>((int)Datas.FirstEnter) == 0)
+        {
+            bgmSlider.value = 0.75f;
+            sfxSlider.value = 0.75f;
+            SaveManager.Instance.SetData((int)Datas.FirstEnter, true);
+        }
+        else
+        {
+            bgmSlider.value = SaveManager.Instance.GetData<float>((int)Datas.Setting_BGM);
+            sfxSlider.value = SaveManager.Instance.GetData<float>((int)Datas.Setting_SFX);
+        }
     }
 
-    private void Update()
+    public void SetBGMVolume(float volume)
     {
-        SetBGMVolume();
-        SetSFXVolume();
-    }
-    private void SetBGMVolume()
-    {
-        _audioMan.bgmSource.volume = bgmSlider.value;
-
+        // AudioMixer의 볼륨을 조정
+        audioMixer.SetFloat("BGMVolume", Mathf.Log10(volume) * 20); 
+        SaveManager.Instance.SetDataString((int)Datas.Setting_BGM,volume.ToString());
     }
 
-    private void SetSFXVolume()
+    public void SetSFXVolume(float volume)
     {
-        _audioMan.sfxSource.volume = sfxSlider.value;
-    }
-    public void BGMMute()
-    {
-        _audioMan.BGMToggle();
-    }
-
-    public void SFXMute()
-    {
-        _audioMan.SFXToggle();
+        // AudioMixer의 볼륨을 조정
+        audioMixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
+        SaveManager.Instance.SetDataString((int)Datas.Setting_SFX, volume.ToString());
     }
 }

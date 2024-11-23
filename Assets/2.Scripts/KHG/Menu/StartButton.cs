@@ -12,18 +12,17 @@ public class StartButton : MonoBehaviour
     [Header("warn message")]
     [SerializeField] private GameObject w_UI;
     [SerializeField] private TMP_Text w_title;
-    [SerializeField] private TMP_Text w_message;
+    [SerializeField] private TMP_Text w_message;    
     [Header("button")]
     [SerializeField] private Button continueBtn;
     [SerializeField] private GameObject mainMenuUI;
     [SerializeField] private List<TMP_Text> BtnTxt = new List<TMP_Text>();
     [Header("etc.")]
-    [SerializeField] private GameObject _nameInputUI;
+    [SerializeField] private GameObject _nameInputUI, _settingUI;
     [SerializeField] private TMP_Text _input;
     [SerializeField] private Camera mainCam;
     [SerializeField] private string[] warnMessage;
     [SerializeField] private MenuBGMManager _bgmManager;
-    [SerializeField] private TMP_Text _warningTxt;
 
     private void Awake()
     {
@@ -88,6 +87,7 @@ public class StartButton : MonoBehaviour
     }
     public void BackBtnClicked()
     {
+        _settingUI.SetActive(false);
         mainMenuUI.SetActive(true);
         gameObject.transform.parent.gameObject.SetActive(false);
     }
@@ -117,30 +117,12 @@ public class StartButton : MonoBehaviour
 
     public void Submit()
     {
-        if (_input.text.Length <= 6)
-        {
-            SaveManager.Instance.SetDataString(1, _input.text);
-            GameStart();
-        }
-        else
-        {
-            _warningTxt.text = "이름은 5글자를 넘을수 없습니다.";
-        }
+        SaveManager.Instance.SetDataString((int)Datas.Username, _input.text);
+        GameStart();
     }
     public void StartCancle()
     {
         _nameInputUI.SetActive(false);
         gameObject.SetActive(true);
-    }
-    public void CheckInput()
-    {
-        if (_input.text.Length <= 5)
-        {
-            _warningTxt.text = "";
-        }
-        else
-        {
-            _warningTxt.text = "이름은 5글자를 넘을수 없습니다.";
-        }
     }
 }

@@ -66,6 +66,7 @@ public class MenuStart : MonoBehaviour
         BGMPlay();
         transform.Find("Buttons").gameObject.SetActive(false);
         AddText("\naccessing...");
+        SaveManager.Instance.SetData((int)Datas.FirstEnter, true);
         yield return new WaitForSeconds(1f);
         AddText("\nconnected.");
         MenuOpen();

@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ElevatorManager : MonoBehaviour
 {
-    [SerializeField] private Interactable _interact;
     private bool _powered;
 
 
@@ -16,23 +16,16 @@ public class ElevatorManager : MonoBehaviour
     {
         if (_powered == true)
         {
-            nextStage(1);
+            nextStage();
         }
     }
     public void ElevatorConnect()
     {
-        nextStage(2);
+        nextStage();
     }
-    private void nextStage(int elevator)
+    private void nextStage()
     {
-        //2번째 엘리베이터에서 스폰 && 씬 넘어가는 컷씬 실행
-        if (elevator == 1)
-        {
-            //엘리베이터 1(동력 무제한)
-        }
-        else if (elevator == 2)
-        {
-            //엘리베이터 2(동력 제한)
-        }
+        SaveManager.Instance.SetData((int)Datas.Stage2, true);
+        SceneManager.LoadScene("Stage2");
     }
 }
