@@ -116,23 +116,26 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
             return false;
         }
     }
-    public string GetData(int lineNum)
+    public T GetData<T>(int lineNum)
     {
         try
         {
             string[] lines = File.ReadAllLines(filePath);
-            return lines[lineNum];
+            return (T)Convert.ChangeType(lines[lineNum], typeof(T));
         }
         catch (IOException error)
         {
             Debug.LogError("에러: " + error.Message);
-            return "maybe it's an error. sorry";
+            return (T)Convert.ChangeType("ERROR", typeof(T));
         }
     }
 }
 public enum Datas
 {
     Username =  0,
+    FirstEnter = 1,
+    Setting_BGM = 5,
+    Setting_SFX = 6,
     Cutscene1 = 10,
     Cutscene2 = 11,
     Cutscene3 = 12,

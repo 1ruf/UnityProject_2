@@ -31,6 +31,10 @@ public class MenuStart : MonoBehaviour
         StartCoroutine(PleaseStandBy());
         StartCoroutine(this.StartingProcess());
     }
+    private void OnEnable()
+    {
+        SaveManager.Instance.SetData((int)Datas.FirstEnter, true); //처음 접속했는지 확인여부
+    }
     private void Update()
     {
         

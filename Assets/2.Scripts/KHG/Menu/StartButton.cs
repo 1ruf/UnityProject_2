@@ -12,13 +12,13 @@ public class StartButton : MonoBehaviour
     [Header("warn message")]
     [SerializeField] private GameObject w_UI;
     [SerializeField] private TMP_Text w_title;
-    [SerializeField] private TMP_Text w_message;
+    [SerializeField] private TMP_Text w_message;    
     [Header("button")]
     [SerializeField] private Button continueBtn;
     [SerializeField] private GameObject mainMenuUI;
     [SerializeField] private List<TMP_Text> BtnTxt = new List<TMP_Text>();
     [Header("etc.")]
-    [SerializeField] private GameObject _nameInputUI;
+    [SerializeField] private GameObject _nameInputUI, _settingUI;
     [SerializeField] private TMP_Text _input;
     [SerializeField] private Camera mainCam;
     [SerializeField] private string[] warnMessage;
@@ -88,6 +88,7 @@ public class StartButton : MonoBehaviour
     }
     public void BackBtnClicked()
     {
+        _settingUI.SetActive(false);
         mainMenuUI.SetActive(true);
         gameObject.transform.parent.gameObject.SetActive(false);
     }
