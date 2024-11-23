@@ -31,10 +31,6 @@ public class MenuStart : MonoBehaviour
         StartCoroutine(PleaseStandBy());
         StartCoroutine(this.StartingProcess());
     }
-    private void OnEnable()
-    {
-        SaveManager.Instance.SetData((int)Datas.FirstEnter, true); //처음 접속했는지 확인여부
-    }
     private void Update()
     {
         
@@ -70,6 +66,7 @@ public class MenuStart : MonoBehaviour
         BGMPlay();
         transform.Find("Buttons").gameObject.SetActive(false);
         AddText("\naccessing...");
+        SaveManager.Instance.SetData((int)Datas.FirstEnter, true);
         yield return new WaitForSeconds(1f);
         AddText("\nconnected.");
         MenuOpen();

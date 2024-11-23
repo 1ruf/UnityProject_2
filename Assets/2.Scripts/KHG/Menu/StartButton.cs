@@ -23,7 +23,6 @@ public class StartButton : MonoBehaviour
     [SerializeField] private Camera mainCam;
     [SerializeField] private string[] warnMessage;
     [SerializeField] private MenuBGMManager _bgmManager;
-    [SerializeField] private TMP_Text _warningTxt;
 
     private void Awake()
     {
@@ -118,30 +117,12 @@ public class StartButton : MonoBehaviour
 
     public void Submit()
     {
-        if (_input.text.Length <= 6)
-        {
-            SaveManager.Instance.SetDataString(1, _input.text);
-            GameStart();
-        }
-        else
-        {
-            _warningTxt.text = "이름은 5글자를 넘을수 없습니다.";
-        }
+        SaveManager.Instance.SetDataString((int)Datas.Username, _input.text);
+        GameStart();
     }
     public void StartCancle()
     {
         _nameInputUI.SetActive(false);
         gameObject.SetActive(true);
-    }
-    public void CheckInput()
-    {
-        if (_input.text.Length <= 5)
-        {
-            _warningTxt.text = "";
-        }
-        else
-        {
-            _warningTxt.text = "이름은 5글자를 넘을수 없습니다.";
-        }
     }
 }

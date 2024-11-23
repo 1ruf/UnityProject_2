@@ -10,15 +10,17 @@ public class SoundUI : MonoBehaviour
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider sfxSlider;
 
+
     void Start()
     {
         bgmSlider.onValueChanged.AddListener(SetBGMVolume);
         sfxSlider.onValueChanged.AddListener(SetSFXVolume);
 
-        if (SaveManager.Instance.GetData<string>((int)Datas.FirstEnter) == "0")
+        if (SaveManager.Instance.GetData<int>((int)Datas.FirstEnter) == 0)
         {
             bgmSlider.value = 0.75f;
             sfxSlider.value = 0.75f;
+            SaveManager.Instance.SetData((int)Datas.FirstEnter, true);
         }
         else
         {

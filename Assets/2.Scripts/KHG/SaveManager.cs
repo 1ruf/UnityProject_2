@@ -45,7 +45,7 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SetDatas(25, 50, "이 구역은 내가 점령한다 하하하하하");
+            ResetAllData();
         }
     }
     public void SetDatas(int startLine, int endLine, string value) //시작값 끝값 받아와서 그 부분만 수정하기
@@ -61,6 +61,7 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
     public void ResetAllData()
     {
         string startData = "";
+        startData += "[데이터 접근 거부됨]\n";
         for (int i = 1; i < 100; i++)
         {
             startData += "0\n";
@@ -74,11 +75,11 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
             string[] existingText = File.ReadAllLines(filePath);
             if (value == true) //값이 true 면 1(true)저장
             {
-                existingText[path - 1] = "1"; //위치에 값을 1(true)로 변경
+                existingText[path] = "1"; //위치에 값을 1(true)로 변경
             }
             else               //값이 false 면 0(false)저장
             {
-                existingText[path - 1] = "0"; //위치에 값을 1(true)로 변경
+                existingText[path] = "0"; //위치에 값을 1(true)로 변경
             }
             File.WriteAllLines(filePath, existingText); //파일 다시쓰기
             //(existingText[path - 1].Trim().ToLower() == "0") //이 전(전체)에서 같은 데이터가 있는지 확인
@@ -93,7 +94,7 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
         try
         {
             string[] existingText = File.ReadAllLines(filePath);
-            existingText[path - 1] = value;
+            existingText[path] = value;
             File.WriteAllLines(filePath, existingText); //파일 다시쓰기
             //(existingText[path - 1].Trim().ToLower() == "0") //이 전(전체)에서 같은 데이터가 있는지 확인
         }
@@ -107,7 +108,7 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
         try
         {
             string[] lines = File.ReadAllLines(filePath);
-            bool value = (lines[lineNum - 1].Trim().ToLower() == "1") ? true : false; //1(true) 이면 true 반환, 아니면 false 반환
+            bool value = (lines[lineNum].Trim().ToLower() == "1") ? true : false; //1(true) 이면 true 반환, 아니면 false 반환
             return value;
         }
         catch (IOException error)
@@ -132,7 +133,7 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
 }
 public enum Datas
 {
-    Username =  0,
+    Username = 0,
     FirstEnter = 1,
     Setting_BGM = 5,
     Setting_SFX = 6,

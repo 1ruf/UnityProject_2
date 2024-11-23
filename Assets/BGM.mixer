@@ -29,7 +29,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -7358464605408337145}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 2
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -50,7 +50,9 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: e5f505aea89ba4f43be48f90e4cf2182
-    name: MyExposedParam
+    name: BGMVolume
+  - guid: 4eaac7054a4c995409f93a02a210c025
+    name: SFXVolume
   m_AudioMixerGroupViews:
   - guids:
     - 53dae581079512542afc7b63cea82aed
@@ -76,7 +78,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 8
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -124,7 +126,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 3507316483065250550}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 1
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
