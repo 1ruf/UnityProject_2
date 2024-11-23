@@ -4,20 +4,11 @@ using UnityEngine;
 
 public class FinishLine : MonoBehaviour
 {
-    private int[] a = { 1,2,3,4,5,6,7 };
-    private void OnEnable()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        test();
-    }
-    private void test()
-    {
-        try
+        if (collision.CompareTag("Player"))
         {
-            print(a[10]);
-        }
-        catch
-        {
-            print("배열 범위 벗어남");
+
         }
     }
 }
