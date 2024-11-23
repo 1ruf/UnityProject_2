@@ -14,6 +14,7 @@ public class Interactable : MonoBehaviour
     private Collider[] _overlapResults = new Collider[10]; // OverlapSphere 결과 저장
     private bool _isInRange = false; // 상호작용 범위 내 있는지 확인
 
+
     private void Update()
     {
         CheckForInteractable();
@@ -23,11 +24,10 @@ public class Interactable : MonoBehaviour
     // OverlapSphere를 사용해 상호작용 가능한 오브젝트 탐지
     private void CheckForInteractable()
     {
-        int count = Physics.OverlapSphereNonAlloc(transform.position, interactionRadius, _overlapResults, interactableLayer);
+        Collider2D plr = Physics2D.OverlapCircle(transform.position, interactionRadius,interactableLayer);
 
-        if (count > 0)
+        if (plr != null)
         {
-            print("감지됨");
             if (!_isInRange)
             {
                 _isInRange = true;
@@ -83,8 +83,6 @@ public class Interactable : MonoBehaviour
     // 상호작용 메서드
     private void Pressed()
     {
-        Debug.Log("Pressed E Key - Interact Triggered!");
-        // 상호작용 로직 추가
     }
 
     // 디버깅용: 감지 범위 표시
