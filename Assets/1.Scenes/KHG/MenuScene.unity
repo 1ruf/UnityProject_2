@@ -629,7 +629,7 @@ AudioSource:
   m_GameObject: {fileID: 153292639}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6353469626183349992, guid: 90d0e400a5bd8474ca4093565bb4bb44, type: 2}
   m_audioClip: {fileID: 8300000, guid: bd4ee7efba2fa5c49b0d13deadb438ac, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1108,7 +1108,7 @@ AudioSource:
   m_GameObject: {fileID: 384656946}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2204457645631266019, guid: 90d0e400a5bd8474ca4093565bb4bb44, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.7
@@ -1225,7 +1225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &403600215
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3622,7 +3622,7 @@ AudioSource:
   m_GameObject: {fileID: 1311083351}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6353469626183349992, guid: 90d0e400a5bd8474ca4093565bb4bb44, type: 2}
   m_audioClip: {fileID: 8300000, guid: 2780889c00a0b474190e6ee9b228989f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -6492,7 +6492,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -6523,7 +6523,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 0.7
-  m_CharacterLimit: 0
+  m_CharacterLimit: 8
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
