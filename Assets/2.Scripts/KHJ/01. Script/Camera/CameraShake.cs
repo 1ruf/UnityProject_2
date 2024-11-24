@@ -9,7 +9,7 @@ public class CameraShake : MonoBehaviour
 
     Vector2 originPos;
     CinemachineVirtualCamera cinemachineVirtualCamera;
-    [SerializeField] private Player _agent;
+    [SerializeField] private Entity _entity;
 
 
     private void Awake()

@@ -131,21 +131,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.8333333
-    functionName: InvokeEnemyAnimationAction
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.8333333
-    functionName: InvokeEnemyAnimationAction
+    functionName: InvokeAnimationAction
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.6666666
-    functionName: InvokeEnemyAnimationEnd
+    functionName: InvokeAnimationEnd
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
