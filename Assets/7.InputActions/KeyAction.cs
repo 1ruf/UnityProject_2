@@ -37,15 +37,6 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Space"",
-                    ""type"": ""Value"",
-                    ""id"": ""37c005c0-77a9-48b5-8eab-f89dbae89f2e"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""83e95ef2-a1e2-414d-affc-b3d6e522eebe"",
@@ -74,17 +65,6 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""c566faa0-870c-48a4-b6bf-4dab814e4a08"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Space"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""2D Vector"",
                     ""id"": ""8b79f645-42ad-4c5d-8845-c58a86d4d80a"",
@@ -181,7 +161,6 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
-        m_Player_Space = m_Player.FindAction("Space", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_ChangeSkill = m_Player.FindAction("ChangeSkill", throwIfNotFound: true);
         m_Player_CharacterSkill = m_Player.FindAction("CharacterSkill", throwIfNotFound: true);
@@ -247,7 +226,6 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Movement;
-    private readonly InputAction m_Player_Space;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_ChangeSkill;
     private readonly InputAction m_Player_CharacterSkill;
@@ -256,7 +234,6 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
         private @KeyAction m_Wrapper;
         public PlayerActions(@KeyAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
-        public InputAction @Space => m_Wrapper.m_Player_Space;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @ChangeSkill => m_Wrapper.m_Player_ChangeSkill;
         public InputAction @CharacterSkill => m_Wrapper.m_Player_CharacterSkill;
@@ -272,9 +249,6 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
-            @Space.started += instance.OnSpace;
-            @Space.performed += instance.OnSpace;
-            @Space.canceled += instance.OnSpace;
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
@@ -291,9 +265,6 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
-            @Space.started -= instance.OnSpace;
-            @Space.performed -= instance.OnSpace;
-            @Space.canceled -= instance.OnSpace;
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
@@ -323,7 +294,6 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnSpace(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnChangeSkill(InputAction.CallbackContext context);
         void OnCharacterSkill(InputAction.CallbackContext context);

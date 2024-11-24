@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Space",
-                    "type": "Value",
-                    "id": "37c005c0-77a9-48b5-8eab-f89dbae89f2e",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Attack",
                     "type": "Button",
                     "id": "83e95ef2-a1e2-414d-affc-b3d6e522eebe",
@@ -52,17 +43,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "c566faa0-870c-48a4-b6bf-4dab814e4a08",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Space",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "2D Vector",
                     "id": "8b79f645-42ad-4c5d-8845-c58a86d4d80a",

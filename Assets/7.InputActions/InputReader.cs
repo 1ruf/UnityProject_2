@@ -7,13 +7,10 @@ using static KeyAction;
 
 public class InputReader : ScriptableObject, IPlayerActions
 {
-    public event Action<Vector2> OnMove;       //이동 이벤트
-    public event System.Action OnJumpPressed;         //점프 이벤트
-    public event System.Action OnLeftMouse;
-    public event System.Action OnTabKey;
-    public event System.Action OnFKey;
-    public Vector2 MousePos { get; private set; } 
-    public Vector2 InputVector { get; private set; }
+    public event Action <Vector2> OnMove;       //이동 이벤트
+    public event Action OnLeftMouse;
+    public event Action OnTabKey;
+    public event Action OnFKey;
 
     private KeyAction _playerInputAction;
 
@@ -27,17 +24,9 @@ public class InputReader : ScriptableObject, IPlayerActions
         _playerInputAction.Player.Enable(); //활성화
     }
 
-    public void OnSpace(InputAction.CallbackContext context)
-    {
-
-        if (context.performed)
-            OnJumpPressed?.Invoke();
-    }
-
     public void OnMovement(InputAction.CallbackContext context)
     {
         OnMove?.Invoke(context.ReadValue<Vector2>());
-        InputVector = context.ReadValue<Vector2>();
     }
 
     public void OnAttack(InputAction.CallbackContext context) // 좌클릭
@@ -45,7 +34,6 @@ public class InputReader : ScriptableObject, IPlayerActions
         
         if (context.performed)
         {
-            MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             OnLeftMouse?.Invoke();
         }
     }
@@ -54,7 +42,6 @@ public class InputReader : ScriptableObject, IPlayerActions
     {
         if (context.performed)
         {
-            MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             OnTabKey?.Invoke();
         }
     }
@@ -63,7 +50,6 @@ public class InputReader : ScriptableObject, IPlayerActions
     {
         if (context.performed)
         {
-            MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             OnFKey?.Invoke();
         }
     }
