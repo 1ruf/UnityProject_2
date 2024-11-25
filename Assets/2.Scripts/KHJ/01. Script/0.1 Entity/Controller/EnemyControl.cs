@@ -8,7 +8,7 @@ public class EnemyControl : MonoBehaviour
     private Transform target;
 
     float _attackWaitTime = 0.3f;
-    float _attackCoolTime = 1.5f;
+    float _attackCoolTime = 2f;
 
     private bool _canAttack = true;
     private bool _waitAttack = false;
@@ -20,6 +20,8 @@ public class EnemyControl : MonoBehaviour
 
     private void Update()
     {
+        
+
         Collider2D[] findTarget = Physics2D.OverlapBoxAll(transform.position, transform.localScale * 4, 0);
 
         foreach (Collider2D item in findTarget)
@@ -30,7 +32,12 @@ public class EnemyControl : MonoBehaviour
                 break;
             }
         }
-        if (!target || _waitAttack) return;
+        if (!target || _waitAttack)
+        {
+            target = null;
+            _entity.SetMoveDire(Vector2.zero);
+            return;
+        }
 
         float d = Vector2.Distance(_entity.transform.position, target.position);
         if (d < 1.5f)
