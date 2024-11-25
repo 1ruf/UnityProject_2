@@ -29,16 +29,19 @@ public class InputReader : ScriptableObject, IPlayerActions
         OnMove?.Invoke(context.ReadValue<Vector2>());
     }
 
-    public void OnAttack(InputAction.CallbackContext context) // 좌클릭
+
+
+    
+
+    public void OnCharacterSkill(InputAction.CallbackContext context) // F 키
     {
-        
         if (context.performed)
         {
-            OnLeftMouse?.Invoke();
+            OnFKey?.Invoke();
         }
     }
 
-    public void OnChangeSkill(InputAction.CallbackContext context) // Tab 키
+    public void OnChangeSkill(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -46,11 +49,11 @@ public class InputReader : ScriptableObject, IPlayerActions
         }
     }
 
-    public void OnCharacterSkill(InputAction.CallbackContext context) // F 키
+    public void OnAttack(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            OnFKey?.Invoke();
+            OnLeftMouse?.Invoke();
         }
     }
 }

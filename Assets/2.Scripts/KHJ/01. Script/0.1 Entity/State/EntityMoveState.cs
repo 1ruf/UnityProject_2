@@ -8,7 +8,7 @@ public class EntityMoveState : EntityState
 
     protected override void EnterState()
     {
-        _entity.AnimCompo.PlayAnimaton(AnimationType.move);
+        _entity.AnimCompo.PlayAnimaton(AnimationType.run);
     }
 
     public override void StateFixedUpdate()

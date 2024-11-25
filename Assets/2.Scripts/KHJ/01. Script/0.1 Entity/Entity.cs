@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -40,7 +37,7 @@ public class Entity : MonoBehaviour
 
     private void OnEnable()
     {
-        SetMoveDire(Vector2.zero);
+        //SetMoveDire(Vector2.zero);
     }
     private void OnDisable()
     {
@@ -49,7 +46,6 @@ public class Entity : MonoBehaviour
 
     private void FixedUpdate()
     {
-        FlipManager.Instance.FlipNpc(this);
         CurrentState.StateFixedUpdate();
     }
 
@@ -57,17 +53,18 @@ public class Entity : MonoBehaviour
     public void SetMoveDire(Vector2 moveDire)
     {
         MoveDire = moveDire;
+        if (moveDire == Vector2.zero) return;
+        AnimCompo.SetMoveParameters(moveDire);
     }
 
     public void Attack()
-    {
-        if (!StateCompo.StateCheck(CurrentState)) return;
-        TransitionState(StateCompo.GetState(StateType.Attack));
-    }
+        => TransitionState(StateCompo.GetState(StateType.Attack));
+
 
     public void TakeDamage(float damage)
     {
-        print(123);
+        if (transform.tag == "Player") Bar.Instance.BarValueChange(BarSliderType.Hp, _currentHp, _maxHp);
+
         _currentHp = Mathf.Clamp(_currentHp -= damage, 0, _maxHp);
         if (_currentHp > 0)
             TransitionState(StateCompo.GetState(StateType.Hit));

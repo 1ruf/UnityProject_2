@@ -134,7 +134,7 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""838e5bb4-f797-41d5-832e-efffa705def6"",
-                    ""path"": ""<Keyboard>/tab"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

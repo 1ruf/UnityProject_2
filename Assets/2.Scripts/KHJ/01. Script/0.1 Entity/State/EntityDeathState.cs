@@ -6,21 +6,21 @@ public class EntityDeathState : EntityState
 {
     protected override void EnterState()
     {
-        _entity.gameObject.layer = LayerMask.NameToLayer("Default");
         _entity.RbCompo.velocity = Vector2.zero;
         _entity.AnimCompo.PlayAnimaton(AnimationType.death);
-        _entity.AnimCompo.OnAnimationAction.AddListener(Death);
+
+        if (_entity.gameObject.CompareTag("Player"))
+        {
+            PlayerController.Instance.enabled = false;
+            GameOver();
+        }
+        _entity._enemycontol.enabled = false;
+        _entity.gameObject.tag = "Untagged";
     }
 
 
-
-    private void Death()
+    private void GameOver() // 게임 오버 따로 만들고 여기서 호출 
     {
-        print("죽음 이벤트 실행하세요");
-    }
 
-    protected override void ExitState()
-    {
-        _entity.AnimCompo.ResetEvent();
     }
 }
