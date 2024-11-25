@@ -30,7 +30,7 @@ public class ElevatorManager : MonoBehaviour
     }
     private IEnumerator nextStage()
     {
-        print("다음 스테이지");
+        SaveManager.Instance.SetData((int)Datas.Char_orc1, true);
         _blocker.DOFade(1, 1f);
         yield return new WaitForSeconds(1.2f);
         //엘리베이터 씬 오픈
