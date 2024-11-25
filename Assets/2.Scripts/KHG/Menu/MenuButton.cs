@@ -27,13 +27,6 @@ public class MenuButton : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
         mainTitle.gameObject.SetActive(true);
     }
-    private void Update()
-    {
-        if (Keyboard.current.tKey.wasPressedThisFrame)
-        {
-            SaveManager.Instance.SetData(30, true);
-        }
-    }
     public void StartBtnClicked()
     {
         startMenuUI.SetActive(true);
