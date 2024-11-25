@@ -40,7 +40,7 @@ public class EnemyControl : MonoBehaviour
         }
 
         float d = Vector2.Distance(_entity.transform.position, target.position);
-        if (d < 1.5f)
+        if (d < 1.2f)
         {
             _entity.SetMoveDire(Vector2.zero);
             if (_canAttack && _entity.StateCompo.StateCheck(_entity.CurrentState))

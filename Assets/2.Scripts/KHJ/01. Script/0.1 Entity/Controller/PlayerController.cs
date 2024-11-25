@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
         _cinemachineCamera.Follow = _currentEntity.transform;
         _currentEntity.transform.tag = "Player";
         Bar.Instance.BarValueChange(BarSliderType.Energy, _currentGauge, _maxGauge);
+        _currentEntity.AnimCompo.Animator.speed = 3f;
         _currentEntity.SetHPUI();
     }
     private void HandleLeftMousePressed()
@@ -112,13 +113,14 @@ public class PlayerController : MonoBehaviour
         newEntity.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.8f, 0.17f);
         _currentEntity.TakeDamage(int.MaxValue);
 
-
+        _currentEntity.AnimCompo.Animator.speed = 1f;
         _cinemachineCamera.Follow = newEntity.transform;
 
         newEntity.GetComponent<EnemyControl>().enabled = false;
         newEntity.SetMoveDire(Vector2.zero);
         newEntity.SetMoveDire(_inputVector);
         newEntity.TakeDamage(-10);
+        newEntity.AnimCompo.Animator.speed = 3f;
 
         _currentEntity = newEntity;
     }
