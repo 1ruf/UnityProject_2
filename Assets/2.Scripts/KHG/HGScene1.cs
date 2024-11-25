@@ -9,7 +9,7 @@ public class HGScene1 : MonoBehaviour
 {
     [SerializeField] private Volume _volume;
     private DigitalGlitchVolume _digitalGt;
-    private AnalogGlitchVolume _analogGt;
+    private AnalogGlitchVolume _analogGt;   
     private void OnEnable()
     {
         StartCoroutine(FadeOut());
@@ -38,22 +38,37 @@ public class HGScene1 : MonoBehaviour
         }
     }
 
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            print("back눌림");
+            DamagedScreen(0.2f);
+        }
+    }
+
+
     private IEnumerator Damaged(float amount)
     {
+        print("damaged");
         AnalogGlitchVolume _analogGlitch;
         if (_volume.profile.TryGet<AnalogGlitchVolume>(out _analogGlitch))
         {
+            print("if문 통과");
             _analogGt = _analogGlitch;
             float value = amount;
+            _analogGlitch.colorDrift.value = value;
             while (true)
             {
+                print("도는중");
+                value -= 0.01f;
+                _analogGlitch.colorDrift.value = value;
                 if (_analogGlitch.colorDrift.value <= 0)
                 {
                     break;
                 }
-                value -= 0.01f;
-                _analogGlitch.colorDrift.value = value;
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.01f);
             }
         }
     }
@@ -62,15 +77,6 @@ public class HGScene1 : MonoBehaviour
     {
         
     }
-
-
-
-
-
-
-
-
-
 
 
 
