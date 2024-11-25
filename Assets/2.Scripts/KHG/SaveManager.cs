@@ -143,5 +143,10 @@ public enum Datas
     Stage1 =    30,
     Stage2 =    31,
     Stage3 =    32,
-    Stage4 =    33
+    Stage4 =    33,
+    Char_orc1=   40,
+    Char_orc2=   41,
+    Char_orc3=   42,
+    Char_lucy=  43,
+    Char_Skel=  44
 }
