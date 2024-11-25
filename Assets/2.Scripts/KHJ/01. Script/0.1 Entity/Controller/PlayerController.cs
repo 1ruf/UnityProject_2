@@ -100,6 +100,7 @@ public class PlayerController : MonoBehaviour
     private void Harking(Entity newEntity)
     {
         _currentGauge -= _usedGauge;
+        Bar.Instance.BarValueChange(BarSliderType.Energy, _currentGauge, _maxGauge);
 
         newEntity.tag = "Player";
         _currentEntity.tag = "Untagged";

@@ -63,6 +63,8 @@ public class Entity : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (transform.tag == "Player") Bar.Instance.BarValueChange(BarSliderType.Hp, _currentHp, _maxHp);
+
         _currentHp = Mathf.Clamp(_currentHp -= damage, 0, _maxHp);
         if (_currentHp > 0)
             TransitionState(StateCompo.GetState(StateType.Hit));

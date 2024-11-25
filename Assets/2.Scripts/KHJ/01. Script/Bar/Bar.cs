@@ -65,10 +65,10 @@ public class Bar : MonoBehaviour
         switch (slider)
         {
             case BarSliderType.Energy:
-                _energySlider.fillAmount += value / maxCharge;
+                _energySlider.fillAmount = value / maxCharge;
                 break;
             case BarSliderType.Hp:
-                _hpSlider.fillAmount += value / maxCharge;
+                _hpSlider.fillAmount = value / maxCharge;
                 break;
         }
         print("값추가된");
