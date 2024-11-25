@@ -19,7 +19,7 @@ public class Entity : MonoBehaviour
     [SerializeField] private float _maxHp;
     [SerializeField] private float _currentHp;
     public Vector2 MoveDire { get; private set; }
-
+    
     private void Awake()
     {
         _currentHp = _maxHp;
@@ -40,7 +40,7 @@ public class Entity : MonoBehaviour
 
     private void OnEnable()
     {
-        SetMoveDire(Vector2.zero);
+        //SetMoveDire(Vector2.zero);
     }
     private void OnDisable()
     {
@@ -49,7 +49,8 @@ public class Entity : MonoBehaviour
 
     private void FixedUpdate()
     {
-        FlipManager.Instance.FlipNpc(this);
+        print(CurrentState);
+        //FlipManager.Instance.FlipNpc(this);
         CurrentState.StateFixedUpdate();
     }
 
@@ -57,17 +58,17 @@ public class Entity : MonoBehaviour
     public void SetMoveDire(Vector2 moveDire)
     {
         MoveDire = moveDire;
+        if (moveDire == Vector2.zero) return;
+        AnimCompo.SetMoveParameters(moveDire);
     }
 
     public void Attack()
     {
-        if (!StateCompo.StateCheck(CurrentState)) return;
         TransitionState(StateCompo.GetState(StateType.Attack));
     }
 
     public void TakeDamage(float damage)
     {
-        print(123);
         _currentHp = Mathf.Clamp(_currentHp -= damage, 0, _maxHp);
         if (_currentHp > 0)
             TransitionState(StateCompo.GetState(StateType.Hit));

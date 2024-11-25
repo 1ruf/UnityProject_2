@@ -6,21 +6,10 @@ public class EntityDeathState : EntityState
 {
     protected override void EnterState()
     {
+        _entity._enemycontol.enabled = false;
+        //if (_entity.gameObject.CompareTag("Player")) PlayerController.Instance.enabled = false;
         _entity.gameObject.layer = LayerMask.NameToLayer("Default");
         _entity.RbCompo.velocity = Vector2.zero;
         _entity.AnimCompo.PlayAnimaton(AnimationType.death);
-        _entity.AnimCompo.OnAnimationAction.AddListener(Death);
-    }
-
-
-
-    private void Death()
-    {
-        print("죽음 이벤트 실행하세요");
-    }
-
-    protected override void ExitState()
-    {
-        _entity.AnimCompo.ResetEvent();
     }
 }

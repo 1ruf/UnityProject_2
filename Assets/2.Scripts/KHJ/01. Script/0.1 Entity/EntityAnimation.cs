@@ -14,6 +14,13 @@ public class EntityAnimation : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
     }
+
+    private void Update()
+    {
+        //_animator.SetFloat("", );
+    }
+
+
     protected void Play(string animName)
     {
         _animator.Play(animName);
@@ -32,11 +39,11 @@ public class EntityAnimation : MonoBehaviour
             case AnimationType.idle:
                 Play("Idle");
                 break;
-            case AnimationType.move:
-                Play("Walk");
+            case AnimationType.run:
+                Play("Run");
                 break;
             case AnimationType.attack:
-                Play("RangeAttack");
+                Play("Attack");
                 break;
             case AnimationType.hit:
                 Play("Hit");
@@ -64,11 +71,17 @@ public class EntityAnimation : MonoBehaviour
         OnAnimationAction.RemoveAllListeners();
         OnAnimationEnd.RemoveAllListeners();
     }
+
+    internal void SetMoveParameters(Vector2 moveDire)
+    {
+        _animator.SetFloat("MoveX", moveDire.x);
+        _animator.SetFloat("MoveY", moveDire.y);
+    }
 }
 public enum AnimationType
 {
     idle,
-    move,
+    run,
     attack,
     death,
     hit,
