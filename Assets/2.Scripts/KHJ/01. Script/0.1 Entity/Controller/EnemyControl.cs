@@ -7,7 +7,7 @@ public class EnemyControl : MonoBehaviour
     private Entity _entity;
     private Transform target;
 
-    float _attackWaitTime = 0.3f;
+    float _attackWaitTime = 0.6f;
     float _attackCoolTime = 2f;
 
     private bool _canAttack = true;
@@ -54,6 +54,11 @@ public class EnemyControl : MonoBehaviour
         }
     }
 
+    public void ResetAttackCoolTime()
+    {
+        StopCoroutine(AttackCoolCorotine());
+        StartCoroutine(AttackCoolCorotine());
+    }
 
     IEnumerator AttackCoolCorotine()
     {
@@ -74,7 +79,7 @@ public class EnemyControl : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position, transform.localScale * 4); // 네모(사각형) 그리기
+        Gizmos.DrawWireCube(transform.position, transform.localScale * 4);
     }
 
 

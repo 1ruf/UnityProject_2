@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
         _currentEntity.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.8f, 0.17f);
         _cinemachineCamera.Follow = _currentEntity.transform;
         _currentEntity.transform.tag = "Player";
+        Bar.Instance.BarValueChange(BarSliderType.Energy, _currentGauge, _maxGauge);
+        _currentEntity.SetHPUI();
     }
     private void HandleLeftMousePressed()
     {
@@ -64,6 +66,9 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(CoolTimeCorotine(_canHarking ,_harKingCoolTime));
 
         Vector2 mousePos = GameManager.Instance.GetMousePos();
+
+        if (Vector2.Distance(_currentEntity.transform.position, mousePos) > 6) return;
+
         RaycastHit2D[] ray2d = Physics2D.RaycastAll(mousePos, mousePos, 0);
         if (ray2d == null) return;
 
@@ -113,6 +118,7 @@ public class PlayerController : MonoBehaviour
         newEntity.GetComponent<EnemyControl>().enabled = false;
         newEntity.SetMoveDire(Vector2.zero);
         newEntity.SetMoveDire(_inputVector);
+        newEntity.TakeDamage(-10);
 
         _currentEntity = newEntity;
     }
@@ -121,6 +127,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         _currentGauge = Mathf.Clamp(_currentGauge+1, 0, _maxGauge);
+        Bar.Instance.BarValueChange(BarSliderType.Energy, _currentGauge, _maxGauge);
         StartCoroutine(ReproductionGauge());
     }
 
