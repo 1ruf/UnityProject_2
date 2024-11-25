@@ -3,26 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.InputSystem;
 using System;
 
 public class Bar : MonoBehaviour
 {
-    [SerializeField] private Transform _bar;
+    static public Bar Instance;
+
+    [SerializeField] private Transform _energyBar, _hpbar;
     [SerializeField] private Image _subHandle;
     [SerializeField] private float energyChargeSpeed;
-    private Image _slider;
+    private Image _energySlider, _hpSlider;
     private bool _charging;
     private int _changeTime;
-    public int _maxCharge { get; private set; } = 100;
 
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(this);
+    }
 
     private void Start()
     {
-        _slider = _bar.GetComponent<Image>();
+        _energySlider = _energyBar.GetComponent<Image>();
+        _hpSlider = _hpbar.GetComponent<Image>();
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            BarValueChange(BarSliderType.Energy,-5f, 100);
+        }
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            BarValueChange(BarSliderType.Hp, -5f, 100);
+        }
     }
 
     private void CheckCharge()
@@ -38,21 +54,30 @@ public class Bar : MonoBehaviour
     {
         while (true)
         { 
-            if (_slider.fillAmount >= 1) break;                
+            if (_energySlider.fillAmount >= 1) break;                
             yield return new WaitForSeconds(0.05f);
-            _slider.fillAmount += (0.01f * energyChargeSpeed);                 
+            _energySlider.fillAmount += (0.01f * energyChargeSpeed);                 
         }
         _charging = false;
     }
-    private void BarScrollChange(float value)
+    private void BarScrollChange(BarSliderType slider, float value, float maxCharge)
     {
-        _slider.fillAmount += value / _maxCharge;
+        switch (slider)
+        {
+            case BarSliderType.Energy:
+                _energySlider.fillAmount = value / maxCharge;
+                break;
+            case BarSliderType.Hp:
+                _hpSlider.fillAmount = value / maxCharge;
+                break;
+        }
+        print("값추가된");
         CheckCharge();
     }
 
-    public void BarValueChange(float value)
+    public void BarValueChange(BarSliderType slider, float value, float maxCharge) //호출해야되는거
     {
-        BarScrollChange(value);
+        BarScrollChange(slider,value, maxCharge);
         _changeTime = 1;
         StartCoroutine(CheckValueChange());
     }
@@ -66,7 +91,12 @@ public class Bar : MonoBehaviour
         }
         if (_changeTime == 10)
         {
-            _subHandle.DOFillAmount(_slider.fillAmount,0.5f);
+            _subHandle.DOFillAmount(_energySlider.fillAmount,0.5f);
         }
     }
+}
+public enum BarSliderType
+{
+    Hp,
+    Energy
 }

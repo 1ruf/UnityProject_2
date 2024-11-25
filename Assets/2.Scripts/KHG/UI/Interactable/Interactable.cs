@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 
@@ -14,6 +15,7 @@ public class Interactable : MonoBehaviour
     private Collider[] _overlapResults = new Collider[10]; // OverlapSphere 결과 저장
     private bool _isInRange = false; // 상호작용 범위 내 있는지 확인
 
+    public UnityEvent OnInteracted;
 
     private void Update()
     {
@@ -83,6 +85,7 @@ public class Interactable : MonoBehaviour
     // 상호작용 메서드
     private void Pressed()
     {
+        OnInteracted?.Invoke();
     }
 
     // 디버깅용: 감지 범위 표시

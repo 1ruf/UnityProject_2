@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class ElevatorManager : MonoBehaviour
 {
-    [SerializeField] private Interactable _interact;
+    [SerializeField] private Datas _nextMap;
+    [SerializeField] private Image _blocker;
+
     private bool _powered;
 
 
@@ -16,23 +21,25 @@ public class ElevatorManager : MonoBehaviour
     {
         if (_powered == true)
         {
-            nextStage(1);
+            StartCoroutine(nextStage());
         }
     }
     public void ElevatorConnect()
     {
-        nextStage(2);
+        StartCoroutine(nextStage());    
     }
-    private void nextStage(int elevator)
+    private IEnumerator nextStage()
     {
-        //2번째 엘리베이터에서 스폰 && 씬 넘어가는 컷씬 실행
-        if (elevator == 1)
-        {
-            //엘리베이터 1(동력 무제한)
-        }
-        else if (elevator == 2)
-        {
-            //엘리베이터 2(동력 제한)
-        }
+        print("다음 스테이지");
+        _blocker.DOFade(1, 1f);
+        yield return new WaitForSeconds(1.2f);
+        //엘리베이터 씬 오픈
+        yield return new WaitForSeconds(0.8f);
+        _blocker.DOFade(0, 1f);
+        yield return new WaitForSeconds(4f);
+        _blocker.DOFade(1, 1f);
+        yield return new WaitForSeconds(1f);
+        SaveManager.Instance.SetData((int)_nextMap, true);
+        SceneManager.LoadScene(_nextMap.ToString());
     }
 }

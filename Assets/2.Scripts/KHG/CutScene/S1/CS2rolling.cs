@@ -33,7 +33,7 @@ public class CS2rolling : MonoBehaviour
     private void OnEnable()
     {
         _blocker.DOFade(0, 0.5f);
-        userName = SaveManager.Instance.GetData((int)Datas.Username);
+        userName = SaveManager.Instance.GetData<string>((int)Datas.Username);
         Progressing();
     }
 
