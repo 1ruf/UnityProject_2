@@ -38,19 +38,21 @@ public class InputReader : ScriptableObject, IPlayerActions
         }
     }
 
-    public void OnChangeSkill(InputAction.CallbackContext context) // Tab Ű
-    {
-        if (context.performed)
-        {
-            OnTabKey?.Invoke();
-        }
-    }
+    
 
     public void OnCharacterSkill(InputAction.CallbackContext context) // F Ű
     {
         if (context.performed)
         {
             OnFKey?.Invoke();
+        }
+    }
+
+    public void OnChangeSkill(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            OnTabKey?.Invoke();
         }
     }
 }
