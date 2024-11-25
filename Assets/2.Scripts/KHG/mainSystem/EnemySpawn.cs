@@ -1,29 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class EnemySpawn : MonoBehaviour
 {
-    [SerializeField] private List<Transform> _spawnPoint;
+    [SerializeField] private Vector2 _maxSpawnPoint;
     [SerializeField] private List<GameObject> _enemy;
 
     [SerializeField] private Transform _enemyParent;
 
-    private void OnEnable()
-    {
-        SpawnEnemy();
-    }
     public void SpawnEnemy()
     {
-        foreach (Transform ts in _spawnPoint)
+        foreach (GameObject enemy in _enemy)
         {
-            int enemyType = Random.Range(0,_enemy.Count);
-            Spawn(ts, _enemy[enemyType]);
+            float SP_X = Random.Range(transform.position.x-_maxSpawnPoint.x, transform.position.x+_maxSpawnPoint.x);
+            float SP_Y = Random.Range(transform.position.y- _maxSpawnPoint.y, transform.position.y+_maxSpawnPoint.y);
+            Vector2 SP = new Vector3(SP_X, SP_Y);
+            Spawn(SP, enemy);
         }
-    }
-    private void Spawn(Transform spawnpoin, GameObject target)
+    }   
+    private void Spawn(Vector2 spawnpoint, GameObject target)
     {
         GameObject clone = Instantiate(target, _enemyParent);
-        clone.transform.position = spawnpoin.position;
+        clone.transform.position = spawnpoint;
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireCube(transform.position, _maxSpawnPoint);
     }
 }
