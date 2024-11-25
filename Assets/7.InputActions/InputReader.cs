@@ -29,14 +29,7 @@ public class InputReader : ScriptableObject, IPlayerActions
         OnMove?.Invoke(context.ReadValue<Vector2>());
     }
 
-    public void OnAttack(InputAction.CallbackContext context) // ÁÂÅ¬¸¯
-    {
-        
-        if (context.performed)
-        {
-            OnLeftMouse?.Invoke();
-        }
-    }
+
 
     
 
@@ -53,6 +46,14 @@ public class InputReader : ScriptableObject, IPlayerActions
         if (context.performed)
         {
             OnTabKey?.Invoke();
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            OnLeftMouse?.Invoke();
         }
     }
 }
