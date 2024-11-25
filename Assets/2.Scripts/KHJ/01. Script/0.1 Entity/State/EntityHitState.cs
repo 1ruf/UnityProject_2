@@ -20,6 +20,7 @@ public class EntityHitState : EntityState
 
     private void Hit()
     {
+        _entity.EnemyContol.ResetAttackCoolTime();
     }
 
     protected override void ExitState()
