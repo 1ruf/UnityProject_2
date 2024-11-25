@@ -25,8 +25,14 @@ public class BasicAttack : MonoBehaviour
             if (item.CompareTag(targetTag))
             {
                 target = item.transform;
-                target.GetComponent<Entity>().TakeDamage(damage);
+                break;
             }
         }
+
+        if (!target) return;
+
+        target.GetComponent<Entity>().TakeDamage(damage);
+
     }
+
 }

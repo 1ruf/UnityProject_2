@@ -6,13 +6,13 @@ using UnityEngine.Events;
 
 public class EntityAnimation : MonoBehaviour
 {
-    public Animator Animator { get; private set; }
+    protected Animator _animator;
 
     public UnityEvent OnAnimationEnd;
     public UnityEvent OnAnimationAction;
     private void Awake()
     {
-        Animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -23,12 +23,12 @@ public class EntityAnimation : MonoBehaviour
 
     protected void Play(string animName)
     {
-        Animator.Play(animName);
+        _animator.Play(animName);
     }
 
     public void Stop()
     {
-        Animator.enabled = false;
+        _animator.enabled = false;
     }
 
 
@@ -74,8 +74,8 @@ public class EntityAnimation : MonoBehaviour
 
     internal void SetMoveParameters(Vector2 moveDire)
     {
-        Animator.SetFloat("MoveX", moveDire.x);
-        Animator.SetFloat("MoveY", moveDire.y);
+        _animator.SetFloat("MoveX", moveDire.x);
+        _animator.SetFloat("MoveY", moveDire.y);
     }
 }
 public enum AnimationType

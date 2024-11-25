@@ -6,11 +6,6 @@ public class EntityHitState : EntityState
 {
     protected override void EnterState()
     {
-        if (_entity.CompareTag("Player"))
-        {
-            _entity.AnimCompo.Animator.speed = 3f;
-        }
-
         _entity.RbCompo.velocity = Vector2.zero;
         _entity.AnimCompo.PlayAnimaton(AnimationType.hit);
         _entity.AnimCompo.OnAnimationAction.AddListener(Hit);
@@ -20,7 +15,6 @@ public class EntityHitState : EntityState
 
     private void TransitionState()
     {
-        _entity.AnimCompo.Animator.speed = 1f;
         _entity.TransitionState(_entity.StateCompo.GetState(StateType.Idle));
     }
 
