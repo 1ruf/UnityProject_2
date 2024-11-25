@@ -22,7 +22,6 @@ public class BasicAttack : MonoBehaviour
 
         foreach (Collider2D item in findTarget)
         {
-                print(item.transform);
             if (item.CompareTag(targetTag))
             {
                 target = item.transform;

@@ -20,7 +20,6 @@ public class EntityHitState : EntityState
 
     private void Hit()
     {
-        print("¸Â¾Ò´Ù");
     }
 
     protected override void ExitState()

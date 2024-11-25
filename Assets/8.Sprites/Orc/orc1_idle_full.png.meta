@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a9e841f4bc5849046babdd4070d86af0
+guid: 3127d1b7099ffee4198f7c8bf5bf93bc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -89,7 +89,7 @@ TextureImporter:
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
@@ -123,13 +123,265 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RoBot_241030.v2-Sheet (1)-Sheet-Sheet_0
+      name: orc1_idle_full_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b5ce6ed26baec4458a00747ca1f18f0
+      internalID: -1073424571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc1_idle_full_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81b21d60dd877a8458f79b97ef833cc1
+      internalID: 323872426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc1_idle_full_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58ab953ad16bf6d4faa9dc44d000f11e
+      internalID: -263085398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc1_idle_full_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00599d591434e64409699dd61382a2d6
+      internalID: 575660040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc1_idle_full_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a081e22bf662eb241a048de90cd29e85
+      internalID: 760940488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc1_idle_full_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ae58f3c66695b3449ce8fe959243729
+      internalID: 1479096304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc1_idle_full_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b3e8139fc450594ea4b37e872be3322
+      internalID: 1093390182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc1_idle_full_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a59a72a890cba3147a04bfe17141cfc8
+      internalID: 1816197263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc1_idle_full_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13819f4b98c52f54f9f3b4860c29a300
+      internalID: -327274113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc1_idle_full_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41b56b28e4abfe346912e409771e54fc
+      internalID: 1726725171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc1_idle_full_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff136a8cb5c91814cb1e04232b41dec1
+      internalID: -763901290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc1_idle_full_11
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f2f50205af62564c99df61285b59ee6
+      internalID: 2103410182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc1_idle_full_12
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 35
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +389,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee6de2f74024d7446ab5fff9a4ba4f32
-      internalID: -1633263680
+      spriteID: 0b55db0a67528464991ae7c5960dffac
+      internalID: -1460383614
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoBot_241030.v2-Sheet (1)-Sheet-Sheet_1
+      name: orc1_idle_full_13
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
-        width: 48
-        height: 35
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +410,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dca86b68b5985b24d8c94309640ef6a1
-      internalID: 41206629
+      spriteID: b82497d5d427abc45a2dd9c62f14d049
+      internalID: -971812863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoBot_241030.v2-Sheet (1)-Sheet-Sheet_2
+      name: orc1_idle_full_14
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 0
-        width: 48
-        height: 35
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,41 +431,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf417086b47b81d43b26e71b938a45e1
-      internalID: -1139459727
+      spriteID: d6327dd4a33892940aa8e72582e9fbb6
+      internalID: 241617379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoBot_241030.v2-Sheet (1)-Sheet-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4cf522c0f86ea1f4293f9eca49cb6430
-      internalID: 414979789
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RoBot_241030.v2-Sheet (1)-Sheet-Sheet_4
+      name: orc1_idle_full_15
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 48
-        height: 35
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,176 +452,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 720deeb9422ac8f47aa04774ebf42472
-      internalID: -1400184093
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RoBot_241030.v2-Sheet (1)-Sheet-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 0
-        width: 48
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fab8654a0f8d5fc4ca98c69e9507740b
-      internalID: -904721995
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RoBot_241030.v2-Sheet (1)-Sheet-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 48
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a4df23657cb116046875551873254d48
-      internalID: 2064764694
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RoBot_241030.v2-Sheet (1)-Sheet-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 0
-        width: 48
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b1cac3cd71f9fa43aae3b0847cfbc0f
-      internalID: 1602084700
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RoBot_241030.v2-Sheet (1)-Sheet-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 48
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 109b5aa189e5ee044a8c93bda1ed3d6c
-      internalID: 902106116
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RoBot_241030.v2-Sheet (1)-Sheet-Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 0
-        width: 48
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ffe938b271df8ef4db71854e80e0709f
-      internalID: -1216239133
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RoBot_241030.v2-Sheet (1)-Sheet-Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 0
-        width: 48
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b4c1ec16ee195ab4f9997c3da7e96ce9
-      internalID: 856147412
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RoBot_241030.v2-Sheet (1)-Sheet-Sheet_11
-      rect:
-        serializedVersion: 2
-        x: 528
-        y: 0
-        width: 48
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 491a8889b205c624980afc3b63d04cb7
-      internalID: 1378576164
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RoBot_241030.v2-Sheet (1)-Sheet-Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 0
-        width: 48
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d9f1a3877ff1c749b89d6dfef6a86ef
-      internalID: -405023234
+      spriteID: 3ce906e2fd5615848afac74b40563500
+      internalID: 1011900468
       vertices: []
       indices: 
       edges: []
@@ -406,19 +469,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RoBot_241030.v2-Sheet (1)-Sheet-Sheet_0: -1633263680
-      RoBot_241030.v2-Sheet (1)-Sheet-Sheet_1: 41206629
-      RoBot_241030.v2-Sheet (1)-Sheet-Sheet_10: 856147412
-      RoBot_241030.v2-Sheet (1)-Sheet-Sheet_11: 1378576164
-      RoBot_241030.v2-Sheet (1)-Sheet-Sheet_12: -405023234
-      RoBot_241030.v2-Sheet (1)-Sheet-Sheet_2: -1139459727
-      RoBot_241030.v2-Sheet (1)-Sheet-Sheet_3: 414979789
-      RoBot_241030.v2-Sheet (1)-Sheet-Sheet_4: -1400184093
-      RoBot_241030.v2-Sheet (1)-Sheet-Sheet_5: -904721995
-      RoBot_241030.v2-Sheet (1)-Sheet-Sheet_6: 2064764694
-      RoBot_241030.v2-Sheet (1)-Sheet-Sheet_7: 1602084700
-      RoBot_241030.v2-Sheet (1)-Sheet-Sheet_8: 902106116
-      RoBot_241030.v2-Sheet (1)-Sheet-Sheet_9: -1216239133
+      orc1_idle_full_0: -1073424571
+      orc1_idle_full_1: 323872426
+      orc1_idle_full_10: -763901290
+      orc1_idle_full_11: 2103410182
+      orc1_idle_full_12: -1460383614
+      orc1_idle_full_13: -971812863
+      orc1_idle_full_14: 241617379
+      orc1_idle_full_15: 1011900468
+      orc1_idle_full_2: -263085398
+      orc1_idle_full_3: 575660040
+      orc1_idle_full_4: 760940488
+      orc1_idle_full_5: 1479096304
+      orc1_idle_full_6: 1093390182
+      orc1_idle_full_7: 1816197263
+      orc1_idle_full_8: -327274113
+      orc1_idle_full_9: 1726725171
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputReader InputCompo;
     [SerializeField] private CinemachineVirtualCamera _cinemachineCamera;
 
+    float _attackCool = 0.5f;
+    private bool _canAttack = true;
+
     private void Awake()
     {
         if (Instance)
@@ -31,8 +34,19 @@ public class PlayerController : MonoBehaviour
     }
     private void HandleLeftMousePressed()
     {
+        if (!_canAttack || !_currentEntity.StateCompo.StateCheck(_currentEntity.CurrentState)) return;
+        StartCoroutine(AttackCoolCorotine());
         _currentEntity.Attack();
     }
+
+    IEnumerator AttackCoolCorotine()
+    {
+        _canAttack = false;
+        yield return new WaitForSeconds(_attackCool);
+        _canAttack = true;
+    }
+
+    
 
     private void HandleTabKey()
     {
@@ -54,6 +68,8 @@ public class PlayerController : MonoBehaviour
         InputCompo.OnMove -= HandleMovement;
         InputCompo.OnTabKey -= HandleTabKey;
     }
+
+
     private void Harking()
     {
 
@@ -65,11 +81,12 @@ public class PlayerController : MonoBehaviour
         Entity newEntity = null;
         foreach (RaycastHit2D item in ray2d)
         {
-            if (item.transform.GetComponent<Entity>())
+            if (item.transform.GetComponent<Entity>() && item.transform.gameObject.tag == "Enemy")
             {
                 newEntity = item.transform.GetComponent<Entity>();
             }
         }
+        if (newEntity == null) return;
 
         newEntity.tag = "Player";
         _currentEntity.tag = "Untagged";
@@ -80,7 +97,6 @@ public class PlayerController : MonoBehaviour
         _cinemachineCamera.Follow = newEntity.transform;
 
         newEntity.GetComponent<EnemyControl>().enabled = false;
-        _currentEntity.GetComponent<EnemyControl>().enabled = true;
 
         ChangeCurrentEntity(newEntity);
     }
