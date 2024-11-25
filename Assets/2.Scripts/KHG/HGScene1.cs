@@ -37,4 +37,68 @@ public class HGScene1 : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator Damaged(float amount)
+    {
+        AnalogGlitchVolume _analogGlitch;
+        if (_volume.profile.TryGet<AnalogGlitchVolume>(out _analogGlitch))
+        {
+            _analogGt = _analogGlitch;
+            float value = amount;
+            while (true)
+            {
+                if (_analogGlitch.colorDrift.value <= 0)
+                {
+                    break;
+                }
+                value -= 0.01f;
+                _analogGlitch.colorDrift.value = value;
+                yield return new WaitForSeconds(0.05f);
+            }
+        }
+    }
+
+    public void GameOverScreen()
+    {
+        
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    public void DamagedScreen(float amount)
+    {
+        StartCoroutine(Damaged(amount));
+    }
 }
+
+
+
+//DigitalGlitchVolume _digitalGlitch;
+//AnalogGlitchVolume _analogGlitch;
+//if (_volume.profile.TryGet<DigitalGlitchVolume>(out _digitalGlitch))
+//{
+//    _volume.profile.TryGet<AnalogGlitchVolume>(out _analogGlitch);
+//    _digitalGt = _digitalGlitch;
+//    _analogGt = _analogGlitch;
+//    float value = 1.0f;
+//    while (true)
+//    {
+//        if (_digitalGt.intensity.value <= 0)
+//        {
+//            break;
+//        }
+//        value -= 0.05f;
+//        _analogGt.scanLineJitter.value = value;
+//        _digitalGt.intensity.value = value;
+//        yield return new WaitForSeconds(0.05f);
+//    }
+//}
