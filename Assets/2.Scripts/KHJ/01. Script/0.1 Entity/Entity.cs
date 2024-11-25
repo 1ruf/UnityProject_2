@@ -49,8 +49,6 @@ public class Entity : MonoBehaviour
 
     private void FixedUpdate()
     {
-        print(CurrentState);
-        //FlipManager.Instance.FlipNpc(this);
         CurrentState.StateFixedUpdate();
     }
 
