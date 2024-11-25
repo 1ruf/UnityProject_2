@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -19,7 +16,7 @@ public class Entity : MonoBehaviour
     [SerializeField] private float _maxHp;
     [SerializeField] private float _currentHp;
     public Vector2 MoveDire { get; private set; }
-    
+
     private void Awake()
     {
         _currentHp = _maxHp;
@@ -61,9 +58,8 @@ public class Entity : MonoBehaviour
     }
 
     public void Attack()
-    {
-        TransitionState(StateCompo.GetState(StateType.Attack));
-    }
+        => TransitionState(StateCompo.GetState(StateType.Attack));
+
 
     public void TakeDamage(float damage)
     {

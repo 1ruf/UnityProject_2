@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         Enter();
         StartCoroutine(ReproductionGauge());
-        _currentEntity.GetComponent<EnemyControl>().enabled = false;
+        _currentEntity.TryGetAddComponenet<EnemyControl>().enabled = false;
         _currentEntity.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.8f, 0.17f);
         _cinemachineCamera.Follow = _currentEntity.transform;
         _currentEntity.transform.tag = "Player";
