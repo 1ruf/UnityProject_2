@@ -15,7 +15,7 @@ public class EnemySpawn : MonoBehaviour
         foreach (GameObject enemy in _enemy)
         {
             float SP_X = Random.Range(transform.position.x-_maxSpawnPoint.x, transform.position.x+_maxSpawnPoint.x);
-            float SP_Y = Random.Range(transform.position.y- _maxSpawnPoint.y, transform.position.y+_maxSpawnPoint.y);
+            float SP_Y = Random.Range(transform.position.y- _maxSpawnPoint.y/2, transform.position.y+_maxSpawnPoint.y/2);
             Vector2 SP = new Vector3(SP_X, SP_Y);
             Spawn(SP, enemy);
         }
