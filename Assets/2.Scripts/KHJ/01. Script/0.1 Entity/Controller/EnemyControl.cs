@@ -25,7 +25,7 @@ public class EnemyControl : MonoBehaviour
         
 
         Collider2D[] findTarget = Physics2D.OverlapCircleAll(_entity.transform.position , _range);
-
+        target = null;
         foreach (Collider2D item in findTarget)
         {
             if (item.CompareTag("Player"))
@@ -40,7 +40,6 @@ public class EnemyControl : MonoBehaviour
             _entity.SetMoveDire(Vector2.zero);
             return;
         }
-
         float d = Vector2.Distance(_entity.transform.position, target.position);
         if (d < 1.5f)
         {
