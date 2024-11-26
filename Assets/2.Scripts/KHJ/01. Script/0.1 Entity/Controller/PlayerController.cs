@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     static public PlayerController Instance;
 
-    [SerializeField] private Entity _currentEntity;
+    public Entity _currentEntity;
 
     [SerializeField] private InputReader InputCompo;
     [SerializeField] private CinemachineVirtualCamera _cinemachineCamera;
@@ -71,8 +71,6 @@ public class PlayerController : MonoBehaviour
 
     private void HandleTabKey()
     {
-        if (_currentGauge < _usedGauge) return;
-
         StartCoroutine(CoolTimeCorotine(_canHarking ,_harKingCoolTime));
 
         Vector2 mousePos = GameManager.Instance.GetMousePos();
@@ -85,10 +83,9 @@ public class PlayerController : MonoBehaviour
         Entity newEntity = null;
         foreach (RaycastHit2D item in ray2d)
         {
-            Entity entity = newEntity = item.transform.GetComponent<Entity>();
-            if (entity && item.transform.gameObject.tag == "Enemy")
+            if (item.transform.GetComponent<Entity>() && item.transform.gameObject.tag == "Enemy")
             {
-                if (entity._currentHp / entity.Data.maxHp >= 0.5f) return; // 체력이 50퍼 이상이면 불가능
+                newEntity = item.transform.GetComponent<Entity>();
                 Harking(newEntity);
                 break;
             }
@@ -101,15 +98,8 @@ public class PlayerController : MonoBehaviour
 
     private void Skill()
     {
-        if (_currentEntity.Data.name == "Orc1" || _currentEntity.Data.name == "Orc2" || _currentEntity.Data.name == "Orc3")
-        {
-
-            Skills.Instance.UseOrcSkill(_currentEntity);
-        }
-        else
-        {
-            Skills.Instance.UseLSkill(_currentEntity);
-        }
+        print(_currentEntity);
+        Skills.Instance.UseOrcSkill(_currentEntity);
     }
 
     public void Enter()
@@ -130,23 +120,24 @@ public class PlayerController : MonoBehaviour
 
     private void Harking(Entity newEntity)
     {
-        Skills.Instance.ReSetCoolTime();
         _currentGauge -= _usedGauge;
         Bar.Instance.BarValueChange(BarSliderType.Energy, _currentGauge, _maxGauge);
 
         newEntity.tag = "Player";
         _currentEntity.tag = "Untagged";
-        _currentEntity.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
         newEntity.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.8f, 0.17f);
         _currentEntity.TakeDamage(int.MaxValue);
 
+        //_currentEntity.AnimCompo.Animator.speed = 1f;
         _cinemachineCamera.Follow = newEntity.transform;
 
         newEntity.GetComponent<EnemyControl>().enabled = false;
         newEntity.SetMoveDire(Vector2.zero);
         newEntity.SetMoveDire(_inputVector);
-        newEntity.TakeDamage(-1);
+        newEntity.TakeDamage(-19);
+        //newEntity.TransitionState(_currentEntity.StateCompo.GetState(StateType.Idle));
         HGScene1.Instance.HackingEffect();
+        //newEntity.AnimCompo.Animator.speed = 3f;
 
         _currentEntity = newEntity;
     }
