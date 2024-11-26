@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     static public PlayerController Instance;
 
-    [SerializeField] private Entity _currentEntity;
+    [SerializeField] public Entity _currentEntity;
 
     [SerializeField] private InputReader InputCompo;
     [SerializeField] private CinemachineVirtualCamera _cinemachineCamera;

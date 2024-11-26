@@ -10,6 +10,7 @@ public class EnemySpawn : MonoBehaviour
 
     [SerializeField] private Transform _enemyParent;
 
+    public List<GameObject> cloneEnemys;
     public void SpawnEnemy()
     {
         foreach (GameObject enemy in _enemy)
@@ -22,8 +23,9 @@ public class EnemySpawn : MonoBehaviour
     }   
     private void Spawn(Vector2 spawnpoint, GameObject target)
     {
-        GameObject clone = Instantiate(target, _enemyParent);
+        GameObject clone = Instantiate(target, null);
         clone.transform.position = spawnpoint;
+        cloneEnemys.Add(clone);
     }
     private void OnDrawGizmos()
     {

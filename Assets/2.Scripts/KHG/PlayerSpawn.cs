@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerSpawn : MonoBehaviour
 {
-    [SerializeField] private GameObject Cr1, Cr2, Cr3, Cr4, Cr5;
+    [SerializeField] private GameObject orc1, orc2, orc3, lucy4, skel5;
 
     [SerializeField] private PlayerController _playerController;
 
     private void OnEnable()
     {
-        _playerController._currentEntity = SetPlayer();
+        _playerController._currentEntity = SetPlayer().GetComponent<Entity>();
     }
     private GameObject SetPlayer()
     {
@@ -18,19 +18,19 @@ public class PlayerSpawn : MonoBehaviour
         switch (SaveManager.Instance.CheckCharacter())
         {
             case Datas.Char_orc1:
-                nowPlr = Cr1;
+                nowPlr = orc1;
                 break;
             case Datas.Char_orc2:
-                nowPlr = Cr2;
+                nowPlr = orc2;
                 break;
             case Datas.Char_orc3:
-                nowPlr = Cr3;
+                nowPlr = orc3;
                 break;
             case Datas.Char_lucy:
-                nowPlr = Cr4;
+                nowPlr = lucy4;
                 break;
             case Datas.Char_Skel:
-                nowPlr = Cr5;
+                nowPlr = skel5;
                 break;
         }
         return nowPlr;

@@ -7,7 +7,6 @@ using System;
 public class HideFloor : MonoBehaviour
 {
     [SerializeField] private Transform _detectionArea;
-    [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private float _fadeDuration = 1f;
 
     private SpriteRenderer _spriteRenderer;
@@ -17,25 +16,11 @@ public class HideFloor : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Collider2D collision = Physics2D.OverlapBox(_detectionArea.position, _detectionArea.localScale, 0f, _playerLayer);
-
-        if (collision != null)
+        if (collision.CompareTag("Player"))
         {
-            if (_spriteRenderer != null)
-            {
-                _spriteRenderer.DOFade(0f, _fadeDuration).SetEase(Ease.OutQuart);
-            }
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (_detectionArea != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireCube(_detectionArea.position, _detectionArea.localScale);
+            _spriteRenderer.DOFade(0f, _fadeDuration).SetEase(Ease.OutQuart);
         }
     }
 }

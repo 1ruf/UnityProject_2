@@ -32,11 +32,27 @@ public class TrapRoom_HG : MonoBehaviour
     public void RoomClear()
     {
         _blocker.SetActive(false);
-        Destroy(transform.parent);
+        Destroy(transform.parent.gameObject);
     }
 
     private bool CheckChild()
     {
-        return (_parent.transform.childCount <= 0);
+        foreach (GameObject enemy in _spawnScr.cloneEnemys)
+        {
+            EnemyControl control = enemy.GetComponent<EnemyControl>();
+            print(control.transform.position);
+            if (control.enabled)
+            {
+                return false;
+            }
+        }
+        return true;
+
+        //for (int i = 0; i < transform.childCount; i++)
+        //{
+        //    transform.GetChild(i).TryGetComponent(out EnemyControl enemyControl);
+        //    print(enemyControl.enabled);
+        //    if (enemyControl.enabled == false) return true;
+        //}
     }
 }
