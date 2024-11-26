@@ -85,9 +85,10 @@ public class PlayerController : MonoBehaviour
         Entity newEntity = null;
         foreach (RaycastHit2D item in ray2d)
         {
-            if (item.transform.GetComponent<Entity>() && item.transform.gameObject.tag == "Enemy")
+            Entity entity = newEntity = item.transform.GetComponent<Entity>();
+            if (entity && item.transform.gameObject.tag == "Enemy")
             {
-                newEntity = item.transform.GetComponent<Entity>();
+                if (entity._currentHp / entity.Data.maxHp >= 0.5f) return; // 체력이 50퍼 이상이면 불가능
                 Harking(newEntity);
                 break;
             }
@@ -100,7 +101,6 @@ public class PlayerController : MonoBehaviour
 
     private void Skill()
     {
-        print(_currentEntity.Data.name);
         if (_currentEntity.Data.name == "Orc1" || _currentEntity.Data.name == "Orc2" || _currentEntity.Data.name == "Orc3")
         {
 
