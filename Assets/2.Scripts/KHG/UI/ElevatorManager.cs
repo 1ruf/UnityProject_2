@@ -32,12 +32,6 @@ public class ElevatorManager : MonoBehaviour
     {
         SaveManager.Instance.SetData((int)Datas.Char_orc1, true);
         _blocker.DOFade(1, 1f);
-        yield return new WaitForSeconds(1.2f);
-        //ø§∏Æ∫£¿Ã≈Õ æ¿ ø¿«¬
-        yield return new WaitForSeconds(0.8f);
-        _blocker.DOFade(0, 1f);
-        yield return new WaitForSeconds(4f);
-        _blocker.DOFade(1, 1f);
         yield return new WaitForSeconds(1f);
         SaveManager.Instance.SetData((int)_nextMap, true);
         SceneManager.LoadScene(_nextMap.ToString());
