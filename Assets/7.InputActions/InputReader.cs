@@ -33,13 +33,7 @@ public class InputReader : ScriptableObject, IPlayerActions
 
     
 
-    public void OnCharacterSkill(InputAction.CallbackContext context) // F Ű
-    {
-        if (context.performed)
-        {
-            OnFKey?.Invoke();
-        }
-    }
+
 
     public void OnChangeSkill(InputAction.CallbackContext context)
     {
@@ -54,6 +48,14 @@ public class InputReader : ScriptableObject, IPlayerActions
         if (context.performed)
         {
             OnLeftMouse?.Invoke();
+        }
+    }
+
+    public void CharacterSkill(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            OnFKey?.Invoke();
         }
     }
 }

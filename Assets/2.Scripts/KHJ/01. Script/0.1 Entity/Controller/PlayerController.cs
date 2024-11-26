@@ -95,10 +95,17 @@ public class PlayerController : MonoBehaviour
     {
         _inputVector = vector;
     }
+
+    private void Skill()
+    {
+        Skills.Instance.UseOrcSkill(_currentEntity);
+    }
+
     public void Enter()
     {
         InputCompo.OnLeftMouse += HandleLeftMousePressed;
         InputCompo.OnMove += HandleMovement;
+        InputCompo.OnFKey += Skill;
         InputCompo.OnTabKey += HandleTabKey;
     }
     public void Exit()
@@ -106,6 +113,7 @@ public class PlayerController : MonoBehaviour
         InputCompo.OnLeftMouse -= HandleLeftMousePressed;
         InputCompo.OnMove -= HandleMovement;
         InputCompo.OnTabKey -= HandleTabKey;
+        InputCompo.OnFKey -= Skill;
     }
 
 
@@ -126,6 +134,8 @@ public class PlayerController : MonoBehaviour
         newEntity.SetMoveDire(Vector2.zero);
         newEntity.SetMoveDire(_inputVector);
         newEntity.TakeDamage(-10);
+        newEntity.TransitionState(_currentEntity.StateCompo.GetState(StateType.Idle));
+        HGScene1.Instance.HackingEffect();
         //newEntity.AnimCompo.Animator.speed = 3f;
 
         _currentEntity = newEntity;
