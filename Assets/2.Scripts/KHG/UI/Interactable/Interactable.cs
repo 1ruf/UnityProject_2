@@ -18,7 +18,7 @@ public class Interactable : MonoBehaviour
 
 
 
-    private EntityData _plrData;
+    private Entity _plrData;
 
 
     private void Update()
@@ -30,7 +30,7 @@ public class Interactable : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            _plrData = collision.GetComponent<EntityData>();
+            _plrData = collision.GetComponent<Entity>();
             _isInRange = true;
             ShowInteractUI(true);
         }
@@ -81,7 +81,8 @@ public class Interactable : MonoBehaviour
 
     private void Pressed()
     {
-        SaveManager.Instance.SetCharater(PlayerTyper(_plrData.name));
+        print("캐릭터 저장됨"+ _plrData.Data.name);
+        SaveManager.Instance.SetCharater(PlayerTyper(_plrData.Data.name));
         OnInteracted?.Invoke();
     }
 
