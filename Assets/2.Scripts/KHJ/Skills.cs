@@ -22,14 +22,7 @@ public class Skills : MonoBehaviour
 
     public void UseOrcSkill(Entity Orc)
     {
-        _size = Orc.transform.localScale;
-        _color = Orc.GetComponent<SpriteRenderer>().color;
-
-        Orc.AnimCompo.Animator.speed = 2.5f;
-        Orc.Data.Damage = 16;
-        Orc.GetComponent<SpriteRenderer>().color = Color.red;
-        Orc.transform.localScale *= 1.2f;
-        StartCoroutine(EndSkill(Orc));
+        
 
     }
 

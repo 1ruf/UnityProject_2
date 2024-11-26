@@ -21,5 +21,6 @@ public class EntityDeathState : EntityState
 
     private void GameOver() // 게임 오버 따로 만들고 여기서 호출 
     {
+        HGScene1.Instance.GameOver();
     }
 }

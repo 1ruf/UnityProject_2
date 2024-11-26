@@ -133,8 +133,8 @@ public class PlayerController : MonoBehaviour
         newEntity.GetComponent<EnemyControl>().enabled = false;
         newEntity.SetMoveDire(Vector2.zero);
         newEntity.SetMoveDire(_inputVector);
-        newEntity.TakeDamage(-10);
-        newEntity.TransitionState(_currentEntity.StateCompo.GetState(StateType.Idle));
+        newEntity.TakeDamage(-19);
+        //newEntity.TransitionState(_currentEntity.StateCompo.GetState(StateType.Idle));
         HGScene1.Instance.HackingEffect();
         //newEntity.AnimCompo.Animator.speed = 3f;
 

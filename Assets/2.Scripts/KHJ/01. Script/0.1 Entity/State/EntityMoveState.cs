@@ -13,6 +13,7 @@ public class EntityMoveState : EntityState
 
     public override void StateFixedUpdate()
     {
+        //if (_entity.gameObject.CompareTag("Player")) print("플레이어 무브");
         if (_entity.MoveDire.magnitude <= 0)
             _entity.TransitionState(_entity.StateCompo.GetState(StateType.Idle));
         else
