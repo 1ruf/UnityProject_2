@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EntityMoveState : EntityState
 {
-    [SerializeField] private float _moveSpeed = 8;
 
     protected override void EnterState()
     {
@@ -17,7 +16,7 @@ public class EntityMoveState : EntityState
         if (_entity.MoveDire.magnitude <= 0)
             _entity.TransitionState(_entity.StateCompo.GetState(StateType.Idle));
         else
-            _entity.RbCompo.velocity = _entity.MoveDire * _moveSpeed;
+            _entity.RbCompo.velocity = _entity.MoveDire * _entity._speed;
 
         if (_entity._currentHp < 0)
             _entity.TransitionState(_entity.StateCompo.GetState(StateType.Death));

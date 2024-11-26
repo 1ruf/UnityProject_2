@@ -100,7 +100,16 @@ public class PlayerController : MonoBehaviour
 
     private void Skill()
     {
-        Skills.Instance.UseOrcSkill(_currentEntity);
+        print(_currentEntity.Data.name);
+        if (_currentEntity.Data.name == "Orc1" || _currentEntity.Data.name == "Orc2" || _currentEntity.Data.name == "Orc3")
+        {
+
+            Skills.Instance.UseOrcSkill(_currentEntity);
+        }
+        else
+        {
+            Skills.Instance.UseLSkill(_currentEntity);
+        }
     }
 
     public void Enter()
@@ -121,11 +130,13 @@ public class PlayerController : MonoBehaviour
 
     private void Harking(Entity newEntity)
     {
+        Skills.Instance.ReSetCoolTime();
         _currentGauge -= _usedGauge;
         Bar.Instance.BarValueChange(BarSliderType.Energy, _currentGauge, _maxGauge);
 
         newEntity.tag = "Player";
         _currentEntity.tag = "Untagged";
+        _currentEntity.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
         newEntity.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.8f, 0.17f);
         _currentEntity.TakeDamage(int.MaxValue);
 
