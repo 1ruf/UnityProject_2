@@ -255,9 +255,9 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
             @ChangeSkill.started += instance.OnChangeSkill;
             @ChangeSkill.performed += instance.OnChangeSkill;
             @ChangeSkill.canceled += instance.OnChangeSkill;
-            @CharacterSkill.started += instance.OnCharacterSkill;
-            @CharacterSkill.performed += instance.OnCharacterSkill;
-            @CharacterSkill.canceled += instance.OnCharacterSkill;
+            @CharacterSkill.started += instance.CharacterSkill;
+            @CharacterSkill.performed += instance.CharacterSkill;
+            @CharacterSkill.canceled += instance.CharacterSkill;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -271,9 +271,9 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
             @ChangeSkill.started -= instance.OnChangeSkill;
             @ChangeSkill.performed -= instance.OnChangeSkill;
             @ChangeSkill.canceled -= instance.OnChangeSkill;
-            @CharacterSkill.started -= instance.OnCharacterSkill;
-            @CharacterSkill.performed -= instance.OnCharacterSkill;
-            @CharacterSkill.canceled -= instance.OnCharacterSkill;
+            @CharacterSkill.started -= instance.CharacterSkill;
+            @CharacterSkill.performed -= instance.CharacterSkill;
+            @CharacterSkill.canceled -= instance.CharacterSkill;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -296,6 +296,6 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnChangeSkill(InputAction.CallbackContext context);
-        void OnCharacterSkill(InputAction.CallbackContext context);
+        void CharacterSkill(InputAction.CallbackContext context);
     }
 }

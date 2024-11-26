@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Skills : MonoBehaviour
 {
+    static public Skills Instance;
+
+    private void Awake()
+    {
+        if (Instance) Destroy(this);
+        else Instance = this;
+    }
+
+
     private Vector2 _size;
     private Color _color;
     private float _animSpeed;
@@ -20,7 +29,7 @@ public class Skills : MonoBehaviour
         Orc.Data.Damage = 16;
         Orc.GetComponent<SpriteRenderer>().color = Color.red;
         Orc.transform.localScale *= 1.2f;
-
+        StartCoroutine(EndSkill(Orc));
 
     }
 

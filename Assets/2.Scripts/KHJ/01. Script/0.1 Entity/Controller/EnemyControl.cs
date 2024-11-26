@@ -75,8 +75,11 @@ public class EnemyControl : MonoBehaviour
         _waitAttack = true;
         StartCoroutine(AttackCoolCorotine());
         yield return new WaitForSeconds(_attackWaitTime);
-        _waitAttack = false;
-        _entity.Attack();
+        if (_entity.EnemyContol.enabled)
+        {
+            _waitAttack = false;
+            _entity.Attack();
+        }
     }
 
     private void OnDrawGizmos()
