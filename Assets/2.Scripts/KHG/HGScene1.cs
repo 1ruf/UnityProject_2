@@ -108,7 +108,6 @@ public class HGScene1 : MonoBehaviour
 
     private IEnumerator HackingRise()
     {
-        print("HakkingRiseeeeeeeeee");
         DigitalGlitchVolume _digitalGlitch;
         if (_volume.profile.TryGet<DigitalGlitchVolume>(out _digitalGlitch))
         {

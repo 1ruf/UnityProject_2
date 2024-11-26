@@ -55,7 +55,7 @@ public class EntityAnimation : MonoBehaviour
                 break;
             case AnimationType.death:
                 Play("Death");
-                break;
+                break;                            
             default:
                 break;
         }
@@ -66,7 +66,7 @@ public class EntityAnimation : MonoBehaviour
         OnAnimationAction?.Invoke();
     }
 
-    internal void InvokeAnimationEnd() // 애니메이션 끝나면 호출
+    internal void InvokeAnimationEnd() // 애니메이션 끝나면 호출A
     {
         OnAnimationEnd?.Invoke(); // 이벤트
     }

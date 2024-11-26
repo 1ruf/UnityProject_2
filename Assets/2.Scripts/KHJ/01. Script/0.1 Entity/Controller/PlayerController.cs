@@ -71,6 +71,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandleTabKey()
     {
+        if (_currentGauge < _usedGauge) return;
+
         StartCoroutine(CoolTimeCorotine(_canHarking ,_harKingCoolTime));
 
         Vector2 mousePos = GameManager.Instance.GetMousePos();
@@ -127,16 +129,13 @@ public class PlayerController : MonoBehaviour
         newEntity.GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.8f, 0.17f);
         _currentEntity.TakeDamage(int.MaxValue);
 
-        //_currentEntity.AnimCompo.Animator.speed = 1f;
         _cinemachineCamera.Follow = newEntity.transform;
 
         newEntity.GetComponent<EnemyControl>().enabled = false;
         newEntity.SetMoveDire(Vector2.zero);
         newEntity.SetMoveDire(_inputVector);
-        newEntity.TakeDamage(-19);
-        //newEntity.TransitionState(_currentEntity.StateCompo.GetState(StateType.Idle));
+        newEntity.TakeDamage(-1);
         HGScene1.Instance.HackingEffect();
-        //newEntity.AnimCompo.Animator.speed = 3f;
 
         _currentEntity = newEntity;
     }
