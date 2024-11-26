@@ -6,15 +6,15 @@ using TMPro;
 
 public class GetName : MonoBehaviour
 {
-    TextMeshPro NameTxt;
+    TextMeshProUGUI NameTxt;
 
     private void Awake()
     {
-        NameTxt = GetComponent<TextMeshPro>();
+        NameTxt = GetComponent<TextMeshProUGUI>();
     }
-    private void Start()
+    private void OnEnable()
     {
-        NameTxt.text += SaveManager.Instance.GetData<string>(0);
+        NameTxt.text = $"ID : {SaveManager.Instance.GetData<string>((int)Datas.Username)}";
     }
 
 }
