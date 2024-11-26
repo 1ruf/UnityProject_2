@@ -43,25 +43,26 @@ public class HGScene1 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            print("back눌림");
             DamagedScreen(0.2f);
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameOver();
         }
     }
 
 
     private IEnumerator Damaged(float amount)
     {
-        print("damaged");
         AnalogGlitchVolume _analogGlitch;
         if (_volume.profile.TryGet<AnalogGlitchVolume>(out _analogGlitch))
         {
-            print("if문 통과");
             _analogGt = _analogGlitch;
             float value = amount;
+            //float vigValue = 2 * amount / 3;
             _analogGlitch.colorDrift.value = value;
             while (true)
             {
-                print("도는중");
                 value -= 0.01f;
                 _analogGlitch.colorDrift.value = value;
                 if (_analogGlitch.colorDrift.value <= 0)
@@ -73,9 +74,28 @@ public class HGScene1 : MonoBehaviour
         }
     }
 
-    public void GameOverScreen()
+    private IEnumerator GameOverScreen()
     {
-        
+        AnalogGlitchVolume _analogGlitch;
+        if (_volume.profile.TryGet<AnalogGlitchVolume>(out _analogGlitch))
+        {
+            _analogGt = _analogGlitch;
+            float value = 0.5f;
+            _analogGlitch.colorDrift.value = value;
+            while (true)
+            {
+                value += 0.01f;
+                _analogGlitch.colorDrift.value = value;
+                //_analogGlitch.verticalJump.value = value;
+                _analogGlitch.horizontalShake.value = value;
+                _analogGlitch.scanLineJitter.value = value;
+                if (_analogGlitch.colorDrift.value >= 1)
+                {
+                    break;
+                }
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
     }
 
 
@@ -83,6 +103,11 @@ public class HGScene1 : MonoBehaviour
     public void DamagedScreen(float amount)
     {
         StartCoroutine(Damaged(amount));
+    }
+
+    public void GameOver()
+    {
+        StartCoroutine(GameOverScreen());
     }
 }
 
