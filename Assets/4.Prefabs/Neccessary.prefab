@@ -308,6 +308,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4909522536271773797, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909522536271773797, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909522536271773797, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2218735427727407321}
+    - target: {fileID: 4909522536271773797, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909522536271773797, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Exit2MenuBtnClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909522536271773797, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameOverManagement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909522536271773797, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5281763404395807971, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -388,11 +416,78 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6572126669737134677, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572126669737134677, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572126669737134677, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2218735427727407321}
+    - target: {fileID: 6572126669737134677, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572126669737134677, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitBtnClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572126669737134677, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameOverManagement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572126669737134677, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408501481220168300, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408501481220168300, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408501481220168300, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2218735427727407321}
+    - target: {fileID: 8408501481220168300, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408501481220168300, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartBtnClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408501481220168300, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameOverManagement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408501481220168300, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+--- !u!114 &2218735427727407321 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4328155902195827037, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}
+  m_PrefabInstance: {fileID: 2511384343732074884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4399390240880245425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a33da190e666204092550b35f1360da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4399390240880245425 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2294580558088110901, guid: 8a06741bfa11d0041820118bc22bbce0, type: 3}

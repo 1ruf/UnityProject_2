@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bade3e61f3eade04b96af2564f1ed83a, type: 3}
-  m_Name: Orc1
+  m_Name: Orc2
   m_EditorClassIdentifier: 
-  name: Orc1
+  name: 
   sprite: {fileID: 0}
   skillImage: {fileID: 0}
   Damage: 5
