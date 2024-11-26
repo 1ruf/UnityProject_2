@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Orc1
   m_EditorClassIdentifier: 
   name: 
-  Class: 
   sprite: {fileID: 0}
-  Damage: 0
-  maxHp: 0
-  moveSpeed: 0
+  skillImage: {fileID: 0}
+  Damage: 5
+  maxHp: 30
+  moveSpeed: 8
