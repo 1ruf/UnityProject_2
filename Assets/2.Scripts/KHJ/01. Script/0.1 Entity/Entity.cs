@@ -44,6 +44,12 @@ public class Entity : MonoBehaviour
         TransitionState(StateCompo.GetState(StateType.Idle));
     }
 
+    private void Update()
+    {
+        if (_currentHp <= 0 && StateCompo.StateCheck(CurrentState))
+            TransitionState(StateCompo.GetState(StateType.Death));
+    }
+
     private void OnEnable()
     {
         //SetMoveDire(Vector2.zero);
