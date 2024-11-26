@@ -14,7 +14,7 @@ public class EntityDeathState : EntityState
             PlayerController.Instance.enabled = false;
             GameOver();
         }
-        _entity._enemycontol.enabled = false;
+        _entity.EnemyContol.enabled = false;
         _entity.gameObject.tag = "Untagged";
     }
 

@@ -6,6 +6,7 @@ public class EntityHitState : EntityState
 {
     protected override void EnterState()
     {
+
         _entity.RbCompo.velocity = Vector2.zero;
         _entity.AnimCompo.PlayAnimaton(AnimationType.hit);
         _entity.AnimCompo.OnAnimationAction.AddListener(Hit);
@@ -20,6 +21,7 @@ public class EntityHitState : EntityState
 
     private void Hit()
     {
+        _entity.EnemyContol.ResetAttackCoolTime();
     }
 
     protected override void ExitState()

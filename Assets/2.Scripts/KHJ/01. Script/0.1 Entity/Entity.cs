@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -10,12 +11,17 @@ public class Entity : MonoBehaviour
     public Rigidbody2D RbCompo { get; protected set; }
     public EntityAnimation AnimCompo { get; protected set; }
 
-    public EnemyControl _enemycontol { get; private set; }
+    public EnemyControl EnemyContol { get; private set; }
 
     protected SpriteRenderer _spriteRenderer;
     [SerializeField] private float _maxHp;
     [SerializeField] private float _currentHp;
     public Vector2 MoveDire { get; private set; }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, 6);
+    }
 
     private void Awake()
     {
@@ -24,9 +30,10 @@ public class Entity : MonoBehaviour
         AnimCompo = GetComponent<EntityAnimation>();
         RbCompo = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _enemycontol = GetComponent<EnemyControl>();
+        EnemyContol = GetComponent<EnemyControl>();
 
         StateCompo.InitializeState(this);
+        MoveDire = Vector2.zero;
     }
 
 
@@ -57,19 +64,25 @@ public class Entity : MonoBehaviour
         AnimCompo.SetMoveParameters(moveDire);
     }
 
+    internal void SetHPUI()
+    {
+        Bar.Instance.BarValueChange(BarSliderType.Hp, _currentHp, _maxHp);
+    }
+
     public void Attack()
         => TransitionState(StateCompo.GetState(StateType.Attack));
 
 
     public void TakeDamage(float damage)
     {
-        if (transform.tag == "Player") Bar.Instance.BarValueChange(BarSliderType.Hp, _currentHp, _maxHp);
 
         _currentHp = Mathf.Clamp(_currentHp -= damage, 0, _maxHp);
+        if (transform.tag == "Player") SetHPUI();
         if (_currentHp > 0)
             TransitionState(StateCompo.GetState(StateType.Hit));
         else
             TransitionState(StateCompo.GetState(StateType.Death));
+
     }
 
     public void TransitionState(EntityState desireState)

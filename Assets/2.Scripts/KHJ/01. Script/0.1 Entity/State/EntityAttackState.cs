@@ -20,8 +20,12 @@ public class EntityAttackState : EntityState
 
     private void PerfromAttack()
     {
-        BasicAttack.Instance.Attack(_entity.AttackPoint.position, _entity.AttackPoint.lossyScale, 5, _entity._enemycontol.enabled ? "Player" : "Enemy");
+        _entity.AttackPoint.position = (Vector2)_entity.transform.position + _entity.MoveDire * 5;
+        BasicAttack.Instance.Attack(_entity.AttackPoint.position, _entity.AttackPoint.lossyScale, 5, _entity.EnemyContol.enabled ? "Player" : "Enemy");
     }
+
+    
+
 
     protected override void ExitState()
     {

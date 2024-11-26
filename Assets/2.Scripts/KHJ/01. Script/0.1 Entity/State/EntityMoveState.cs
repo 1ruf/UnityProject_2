@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EntityMoveState : EntityState
 {
-    [SerializeField] private float _moveSpeed = 4;
+    [SerializeField] private float _moveSpeed = 8;
 
     protected override void EnterState()
     {
