@@ -33,7 +33,13 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
         {
             string startData = "";
             startData += "[데이터 접근 거부됨]\n";
-            for (int i = 1; i < 100; i++)
+            for (int i = 1; i < 5; i++)
+            {
+                startData += "0\n";
+            }
+            startData += "0.75\n";
+            startData += "0.75\n";
+            for (int i = 7; i < 100; i++)
             {
                 startData += "0\n";
             }
@@ -43,10 +49,14 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.R))
-        //{
-        //    ResetAllData();
-        //}
+        if (Input.GetKeyDown(KeyCode.R))//////캐릭터체크 드디어 끝났다 쉬벌
+        {
+            print(CheckCharacter());
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            SetCharater(Datas.Char_orc3); 
+        }
     }
     public void SetDatas(int startLine, int endLine, string value) //시작값 끝값 받아와서 그 부분만 수정하기
     {
@@ -141,22 +151,25 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
 
         SetData((int)character, true);
     }
-    public int CheckCharacter(Datas character)
+    public Datas CheckCharacter()
     {
-        var characterMap = new Dictionary<Datas, int>
-        {
-            { Datas.Char_orc1, 1 },
-            { Datas.Char_orc2, 2 },
-            { Datas.Char_orc3, 3 },
-            { Datas.Char_lucy, 4 },
-            { Datas.Char_Skel, 5 }
-        };
+        List<Datas> nameList = new List<Datas>();
+        nameList.Add(Datas.Char_orc1);
+        nameList.Add(Datas.Char_orc2);
+        nameList.Add(Datas.Char_orc3);
+        nameList.Add(Datas.Char_lucy);
+        nameList.Add(Datas.Char_Skel);
 
-        if (characterMap.TryGetValue(character, out int returnValue) && GetData<int>((int)character) == 1)
+
+        foreach (Datas charac in nameList)
         {
-            return returnValue;
+            string value = GetData<string>((int)charac);
+            if (value == null)
+                break;
+            else if(GetData<int>((int)charac) == 1)
+                return charac;
         }
-        return 0;
+        return default;
     }
 }
 public enum Datas
