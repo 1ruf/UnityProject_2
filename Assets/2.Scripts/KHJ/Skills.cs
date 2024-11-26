@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class Skills : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Vector2 _size;
+    private Color _color;
+    private float _animSpeed;
+    private float damage;
+
+    [SerializeField] private float duration = 3f;
+
+    public void UseOrcSkill(Entity Orc)
     {
-        
+        _size = Orc.transform.localScale;
+        _color = Orc.GetComponent<SpriteRenderer>().color;
+
+        Orc.AnimCompo.Animator.speed = 2.5f;
+        Orc.Data.Damage = 16;
+        Orc.GetComponent<SpriteRenderer>().color = Color.red;
+        Orc.transform.localScale *= 1.2f;
+
+
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator EndSkill(Entity Orc)
     {
-        
+        yield return new WaitForSeconds(duration);
+        Orc.transform.localScale = _size;
+        Orc.Data.Damage = damage;
+        Orc.AnimCompo.Animator.speed = _animSpeed;
+        Orc.GetComponent<SpriteRenderer>().color = _color;
     }
 }
