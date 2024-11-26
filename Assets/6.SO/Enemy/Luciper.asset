@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bade3e61f3eade04b96af2564f1ed83a, type: 3}
   m_Name: Luciper
   m_EditorClassIdentifier: 
-  name: 
+  name: Luciper
   sprite: {fileID: 0}
   skillImage: {fileID: 0}
-  Damage: 5
-  maxHp: 30
-  moveSpeed: 8
+  Damage: 10
+  maxHp: 50
+  moveSpeed: 7

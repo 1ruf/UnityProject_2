@@ -225,7 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c7fd4d8e24a914a8f07fe48d6ad587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 4
 --- !u!114 &6731352583590002520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,7 +441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackPoint: {fileID: 5916643180017013692}
-  Data: {fileID: 11400000, guid: 1a0231d396ffc0343ace5b74cd661e72, type: 2}
+  Data: {fileID: 11400000, guid: 871dac9fc0c0e0244b3de67aeb86b2b9, type: 2}
 --- !u!114 &5300307701940057668
 MonoBehaviour:
   m_ObjectHideFlags: 0

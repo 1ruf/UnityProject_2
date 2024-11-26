@@ -17,4 +17,4 @@ MonoBehaviour:
   skillImage: {fileID: 0}
   Damage: 5
   maxHp: 30
-  moveSpeed: 8
+  moveSpeed: 7
