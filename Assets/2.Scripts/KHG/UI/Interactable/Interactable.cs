@@ -8,45 +8,43 @@ using TMPro;
 
 public class Interactable : MonoBehaviour
 {
-    [SerializeField] private float interactionRadius = 3f; // 감지 범위
-    [SerializeField] private LayerMask interactableLayer; // 상호작용 가능한 레이어 설정
-    [SerializeField] private Image[] _InteractUI; // 상호작용 UI
-    [SerializeField] private TextMeshProUGUI[] _InteractUI_TMP; // 상호작용 UI
-    private Collider[] _overlapResults = new Collider[10]; // OverlapSphere 결과 저장
-    private bool _isInRange = false; // 상호작용 범위 내 있는지 확인
+    [SerializeField] private float interactionRadius = 3f;
+    [SerializeField] private LayerMask interactableLayer;
+    [SerializeField] private Image[] _InteractUI;
+    [SerializeField] private TextMeshProUGUI[] _InteractUI_TMP;
+    private bool _isInRange = false; 
 
     public UnityEvent OnInteracted;
 
+
+
+    private Entity _plrData;
+
+
     private void Update()
     {
-        CheckForInteractable();
         HandleInput();
     }
 
-    // OverlapSphere를 사용해 상호작용 가능한 오브젝트 탐지
-    private void CheckForInteractable()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Collider2D plr = Physics2D.OverlapCircle(transform.position, interactionRadius,interactableLayer);
-
-        if (plr != null)
+        if (collision.CompareTag("Player"))
         {
-            if (!_isInRange)
-            {
-                _isInRange = true;
-                ShowInteractUI(true); // 상호작용 UI 보이기
-            }
-        }
-        else
-        {
-            if (_isInRange)
-            {
-                _isInRange = false;
-                ShowInteractUI(false); // 상호작용 UI 숨기기
-            }
+            _plrData = collision.GetComponent<Entity>();
+            _isInRange = true;
+            ShowInteractUI(true);
         }
     }
 
-    // 상호작용 UI Fade 처리
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (((1 << collision.gameObject.layer) & interactableLayer) != 0)
+        {
+            _isInRange = false;
+            ShowInteractUI(false);
+        }
+    }
+
     private void ShowInteractUI(bool show)
     {
         if (show)
@@ -73,25 +71,37 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    // E 키 입력 처리
     private void HandleInput()
     {
         if (_isInRange && Input.GetKeyDown(KeyCode.E))
         {
-            Pressed(); // 상호작용 메서드 호출
+            Pressed();
         }
     }
 
-    // 상호작용 메서드
     private void Pressed()
     {
+        print("캐릭터 저장됨"+ _plrData.Data.name);
+        SaveManager.Instance.SetCharater(PlayerTyper(_plrData.Data.name));
         OnInteracted?.Invoke();
     }
 
-    // 디버깅용: 감지 범위 표시
-    private void OnDrawGizmosSelected()
+    private Datas PlayerTyper(string name)
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, interactionRadius);
+        switch (name)
+        {
+            case "Orc1":
+                return Datas.Char_orc1;
+            case "Orc2":
+                return Datas.Char_orc2;
+            case "Orc3":
+                return Datas.Char_orc3;
+            case "Lucy":
+                return Datas.Char_orc3;
+            case "Skel":
+                return Datas.Char_Skel;
+            default:
+                return Datas.Char_orc1;
+        }
     }
 }

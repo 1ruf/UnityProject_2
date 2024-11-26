@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bade3e61f3eade04b96af2564f1ed83a, type: 3}
   m_Name: Orc1
   m_EditorClassIdentifier: 
-  name: 
+  name: Orc1
   sprite: {fileID: 0}
   skillImage: {fileID: 0}
   Damage: 5

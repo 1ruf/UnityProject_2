@@ -11,7 +11,16 @@ public class HGScene1 : MonoBehaviour
 
     [SerializeField] private Volume _volume;
     private DigitalGlitchVolume _digitalGt;
-    private AnalogGlitchVolume _analogGt;   
+    private AnalogGlitchVolume _analogGt;
+
+
+    public static HGScene1 Instance;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(this);
+    }
     private void OnEnable()
     {
         StartCoroutine(FadeOut());
@@ -76,6 +85,49 @@ public class HGScene1 : MonoBehaviour
         }
     }
 
+    private IEnumerator HackingDown()
+    {
+        DigitalGlitchVolume _digitalGlitch;
+        if (_volume.profile.TryGet<DigitalGlitchVolume>(out _digitalGlitch))
+        {
+            _digitalGt = _digitalGlitch;
+            float value = 1;
+            while (true)
+            {
+                if (_digitalGt.intensity.value <= 0f)
+                {
+                    break;
+                }
+                value -= 0.05f;
+                _analogGt.scanLineJitter.value = value;
+                _digitalGt.intensity.value = value;
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+    }
+
+    private IEnumerator HackingRise()
+    {
+        print("HakkingRiseeeeeeeeee");
+        DigitalGlitchVolume _digitalGlitch;
+        if (_volume.profile.TryGet<DigitalGlitchVolume>(out _digitalGlitch))
+        {
+            _digitalGt = _digitalGlitch;
+            float value = 0;
+            while (true)
+            {
+                value += 0.05f;
+                _analogGt.scanLineJitter.value = value;
+                _digitalGt.intensity.value = value;
+                if (_digitalGt.intensity.value >= 1f)
+                {
+                    break;
+                }
+                yield return new WaitForSeconds(0.01f);
+            }
+            StartCoroutine(HackingDown());
+        }
+    }
     private IEnumerator GameOverScreen()
     {
         AnalogGlitchVolume _analogGlitch;
@@ -112,6 +164,10 @@ public class HGScene1 : MonoBehaviour
     public void GameOver()
     {
         StartCoroutine(GameOverScreen());
+    }
+    public void HackingEffect()
+    {
+        StartCoroutine(HackingRise());
     }
 }
 
