@@ -17,6 +17,7 @@ public class EntityIdleState : EntityState
         {
             _entity.TransitionState(_entity.StateCompo.GetState(StateType.Move));
         }
-
+        if (_entity._currentHp < 0)
+            _entity.TransitionState(_entity.StateCompo.GetState(StateType.Death));
     }
 }

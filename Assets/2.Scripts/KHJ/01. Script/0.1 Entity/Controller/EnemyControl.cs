@@ -7,11 +7,13 @@ public class EnemyControl : MonoBehaviour
     private Entity _entity;
     private Transform target;
 
-    float _attackWaitTime = 0.6f;
-    float _attackCoolTime = 2f;
+    [SerializeField] float _attackWaitTime = 0.6f;
+    [SerializeField] float _attackCoolTime = 2f;
 
     private bool _canAttack = true;
     private bool _waitAttack = false;
+
+    [SerializeField] float _range;
 
     private void Awake()
     {
@@ -22,7 +24,7 @@ public class EnemyControl : MonoBehaviour
     {
         
 
-        Collider2D[] findTarget = Physics2D.OverlapBoxAll(transform.position, transform.localScale * 4, 0);
+        Collider2D[] findTarget = Physics2D.OverlapCircleAll(_entity.transform.position , _range);
 
         foreach (Collider2D item in findTarget)
         {
@@ -40,7 +42,7 @@ public class EnemyControl : MonoBehaviour
         }
 
         float d = Vector2.Distance(_entity.transform.position, target.position);
-        if (d < 1.2f)
+        if (d < 1.5f)
         {
             _entity.SetMoveDire(Vector2.zero);
             if (_canAttack && _entity.StateCompo.StateCheck(_entity.CurrentState))
@@ -80,6 +82,7 @@ public class EnemyControl : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position, transform.localScale * 4);
+        Gizmos.DrawWireSphere(transform.position, _range);
     }
 
 
