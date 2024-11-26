@@ -17,7 +17,9 @@ public class Entity : MonoBehaviour
 
     protected SpriteRenderer _spriteRenderer;
     public float _currentHp { get; private set; }
+    public float _speed { get; private set; }
     public Vector2 MoveDire { get; private set; }
+    
 
     private void OnDrawGizmos()
     {
@@ -26,7 +28,7 @@ public class Entity : MonoBehaviour
 
     private void Awake()
     {
-
+        _speed = Data.moveSpeed;
         _currentHp = Data.maxHp;
         StateCompo = GetComponentInChildren<StateFectory>();
         AnimCompo = GetComponent<EntityAnimation>();
@@ -38,6 +40,10 @@ public class Entity : MonoBehaviour
         MoveDire = Vector2.zero;
     }
 
+    internal void SetMoveSpeed(float speed)
+    {
+        _speed = speed;
+    }
 
     public void Start()
     {

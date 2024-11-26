@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Orc1
   sprite: {fileID: 0}
   skillImage: {fileID: 0}
-  Damage: 5
+  Damage: 7.5
   maxHp: 30
-  moveSpeed: 8
+  moveSpeed: 4
