@@ -17,5 +17,8 @@ public class EntityMoveState : EntityState
             _entity.TransitionState(_entity.StateCompo.GetState(StateType.Idle));
         else
             _entity.RbCompo.velocity = _entity.MoveDire * _moveSpeed;
+
+        if (_entity._currentHp < 0)
+            _entity.TransitionState(_entity.StateCompo.GetState(StateType.Death));
     }
 }

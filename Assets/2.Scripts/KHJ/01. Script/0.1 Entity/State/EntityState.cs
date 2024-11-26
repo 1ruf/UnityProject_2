@@ -19,7 +19,6 @@ public class EntityState : MonoBehaviour
 
     public virtual void StateUpdate()
     {
-
     }
 
     protected virtual void EnterState()

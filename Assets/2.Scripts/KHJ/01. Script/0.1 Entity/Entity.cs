@@ -13,9 +13,10 @@ public class Entity : MonoBehaviour
 
     public EnemyControl EnemyContol { get; private set; }
 
+    [SerializeField] public EntityData Data;
+
     protected SpriteRenderer _spriteRenderer;
-    [SerializeField] private float _maxHp;
-    [SerializeField] private float _currentHp;
+    public float _currentHp { get; private set; }
     public Vector2 MoveDire { get; private set; }
 
     private void OnDrawGizmos()
@@ -25,7 +26,8 @@ public class Entity : MonoBehaviour
 
     private void Awake()
     {
-        _currentHp = _maxHp;
+
+        _currentHp = Data.maxHp;
         StateCompo = GetComponentInChildren<StateFectory>();
         AnimCompo = GetComponent<EntityAnimation>();
         RbCompo = GetComponent<Rigidbody2D>();
@@ -60,13 +62,13 @@ public class Entity : MonoBehaviour
     public void SetMoveDire(Vector2 moveDire)
     {
         MoveDire = moveDire;
-        if (moveDire == Vector2.zero) return;
+        if (moveDire == Vector2.zero || !StateCompo.StateCheck(CurrentState)) return;
         AnimCompo.SetMoveParameters(moveDire);
     }
 
     internal void SetHPUI()
     {
-        Bar.Instance.BarValueChange(BarSliderType.Hp, _currentHp, _maxHp);
+        Bar.Instance.BarValueChange(BarSliderType.Hp, _currentHp, Data.maxHp);
     }
 
     public void Attack()
@@ -75,14 +77,12 @@ public class Entity : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-
-        _currentHp = Mathf.Clamp(_currentHp -= damage, 0, _maxHp);
+        _currentHp = Mathf.Clamp(_currentHp -= damage, 0, Data.maxHp);
         if (transform.tag == "Player") SetHPUI();
         if (_currentHp > 0)
             TransitionState(StateCompo.GetState(StateType.Hit));
         else
             TransitionState(StateCompo.GetState(StateType.Death));
-
     }
 
     public void TransitionState(EntityState desireState)
