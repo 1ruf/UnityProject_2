@@ -12,6 +12,8 @@ public class PauseUI : MonoBehaviour
     [SerializeField] private GameObject _pauseUI, _subTitle;
     [SerializeField] private TextMeshProUGUI _exitBtnTxt;
 
+    public static bool IsGameover;
+
     private bool IsOpen;
     private int askCount;
     private void Awake()
@@ -21,7 +23,7 @@ public class PauseUI : MonoBehaviour
     }
     private void Update()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        if (Keyboard.current.escapeKey.wasPressedThisFrame && IsGameover == false)
         {
             if (IsOpen == true)
             {

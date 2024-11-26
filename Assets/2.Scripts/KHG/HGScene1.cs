@@ -7,6 +7,8 @@ using URPGlitch.Runtime.DigitalGlitch;
 
 public class HGScene1 : MonoBehaviour
 {
+    [SerializeField] private GameObject _gameOverUI;
+
     [SerializeField] private Volume _volume;
     private DigitalGlitchVolume _digitalGt;
     private AnalogGlitchVolume _analogGt;   
@@ -95,6 +97,7 @@ public class HGScene1 : MonoBehaviour
                 }
                 yield return new WaitForSeconds(0.01f);
             }
+            _gameOverUI.SetActive(true);
         }
     }
 
@@ -104,6 +107,7 @@ public class HGScene1 : MonoBehaviour
     {
         StartCoroutine(Damaged(amount));
     }
+
 
     public void GameOver()
     {
