@@ -17,7 +17,6 @@ public class EntityAnimation : MonoBehaviour
 
     private void Update()
     {
-        //_animator.SetFloat("", );
     }
 
 
@@ -44,6 +43,12 @@ public class EntityAnimation : MonoBehaviour
                 break;
             case AnimationType.attack:
                 Play("Attack");
+                break;
+            case AnimationType.attack2:
+                Play("Attack2");
+                break;
+            case AnimationType.attack3:
+                Play("Attack3");
                 break;
             case AnimationType.hit:
                 Play("Hit");
@@ -83,6 +88,8 @@ public enum AnimationType
     idle,
     run,
     attack,
+    attack2,
+    attack3,
     death,
     hit,
 }

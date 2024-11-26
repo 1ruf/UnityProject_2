@@ -43,10 +43,10 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            ResetAllData();
-        }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    ResetAllData();
+        //}
     }
     public void SetDatas(int startLine, int endLine, string value) //시작값 끝값 받아와서 그 부분만 수정하기
     {
@@ -129,6 +129,34 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
             Debug.LogError("에러: " + error.Message);
             return (T)Convert.ChangeType("ERROR", typeof(T));
         }
+    }
+
+    public void SetCharater(Datas character)
+    {
+        SetData((int)Datas.Char_orc1,false);
+        SetData((int)Datas.Char_orc2,false);
+        SetData((int)Datas.Char_orc3,false);
+        SetData((int)Datas.Char_lucy,false);
+        SetData((int)Datas.Char_Skel,false);
+
+        SetData((int)character, true);
+    }
+    public int CheckCharacter(Datas character)
+    {
+        var characterMap = new Dictionary<Datas, int>
+        {
+            { Datas.Char_orc1, 1 },
+            { Datas.Char_orc2, 2 },
+            { Datas.Char_orc3, 3 },
+            { Datas.Char_lucy, 4 },
+            { Datas.Char_Skel, 5 }
+        };
+
+        if (characterMap.TryGetValue(character, out int returnValue) && GetData<int>((int)character) == 1)
+        {
+            return returnValue;
+        }
+        return 0;
     }
 }
 public enum Datas
