@@ -49,20 +49,6 @@ public class HGScene1 : MonoBehaviour
         }
     }
 
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            DamagedScreen(0.2f);
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GameOver();
-        }
-    }
-
-
     private IEnumerator Damaged(float amount)
     {
         AnalogGlitchVolume _analogGlitch;
