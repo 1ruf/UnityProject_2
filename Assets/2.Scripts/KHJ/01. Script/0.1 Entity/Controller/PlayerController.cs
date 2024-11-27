@@ -98,8 +98,10 @@ public class PlayerController : MonoBehaviour
 
     private void Skill()
     {
-        print(_currentEntity);
-        Skills.Instance.UseOrcSkill(_currentEntity);
+        if (_currentEntity.Data.name == "Orc1" || _currentEntity.Data.name == "Orc2" || _currentEntity.Data.name == "Orc3")
+            Skills.Instance.UseOrcSkill(_currentEntity);
+        else
+            Skills.Instance.UseLSkill(_currentEntity);
     }
 
     public void Enter()
@@ -120,6 +122,7 @@ public class PlayerController : MonoBehaviour
 
     private void Harking(Entity newEntity)
     {
+        if (_currentGauge < _usedGauge) return;
         _currentGauge -= _usedGauge;
         Bar.Instance.BarValueChange(BarSliderType.Energy, _currentGauge, _maxGauge);
 
@@ -136,6 +139,7 @@ public class PlayerController : MonoBehaviour
         newEntity.SetMoveDire(_inputVector);
         newEntity.TakeDamage(-19);
         //newEntity.TransitionState(_currentEntity.StateCompo.GetState(StateType.Idle));
+        Skills.Instance.ReSetCoolTime();
         HGScene1.Instance.HackingEffect();
         //newEntity.AnimCompo.Animator.speed = 3f;
 

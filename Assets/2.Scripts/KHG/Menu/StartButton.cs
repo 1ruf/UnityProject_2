@@ -9,6 +9,7 @@ using System;
 
 public class StartButton : MonoBehaviour
 {
+    [SerializeField] private GameObject _tutorialObject;
     [Header("warn message")]
     [SerializeField] private GameObject w_UI;
     [SerializeField] private TMP_Text w_title;
@@ -26,6 +27,7 @@ public class StartButton : MonoBehaviour
 
     private void Awake()
     {
+        _tutorialObject.SetActive(false);
         w_UI.SetActive(false);
         mainMenuUI.SetActive(false);
     }
@@ -124,5 +126,13 @@ public class StartButton : MonoBehaviour
     {
         _nameInputUI.SetActive(false);
         gameObject.SetActive(true);
+    }
+    public void TutorialClicked()
+    {
+        _tutorialObject.SetActive(true);
+    }
+    public void TutorialBackClicked()
+    {
+        _tutorialObject.SetActive(false);
     }
 }
