@@ -34,7 +34,7 @@ public class ElevatorManager : MonoBehaviour
     }
     private IEnumerator nextStage()
     {
-        SaveManager.Instance.SetData((int)Datas.Char_orc1, true);
+        //SaveManager.Instance.SetData((int)Datas.Char_orc1, true);
         _blocker.DOFade(1, 1f);
         yield return new WaitForSeconds(1f);
         SaveManager.Instance.SetData((int)_nextMap, true);
