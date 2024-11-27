@@ -473,5 +473,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackWaitTime: 0.84
-  _attackCoolTime: 2
+  _attackCoolTime: 1.29
   _range: 7.34

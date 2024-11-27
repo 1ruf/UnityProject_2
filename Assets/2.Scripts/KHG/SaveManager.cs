@@ -47,17 +47,6 @@ public class SaveManager : MonoBehaviour                    //0이 false 고 1이 t
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))//////캐릭터체크 드디어 끝났다 쉬벌
-        {
-            print(CheckCharacter());
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            SetCharater(Datas.Char_orc3); 
-        }
-    }
     public void SetDatas(int startLine, int endLine, string value) //시작값 끝값 받아와서 그 부분만 수정하기
     {
         //string[] Data = File.ReadAllLines(filePath);
