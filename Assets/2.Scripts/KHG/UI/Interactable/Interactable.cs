@@ -84,7 +84,7 @@ public class Interactable : MonoBehaviour
         print("캐릭터 저장됨"+ _plrData.Data.name);
         SaveManager.Instance.SetCharater(PlayerTyper(_plrData.Data.name));
         OnInteracted?.Invoke();
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     private Datas PlayerTyper(string name)

@@ -17,20 +17,24 @@ public class ElevatorManager : MonoBehaviour
     {
         _powered = true;
     }
-    public void PowerElevatorConnect()
+    public void PowerElevatorConnect(GameObject trigger)
     {
         if (_powered == true)
         {
             StartCoroutine(nextStage());
         }
+        else
+        {
+            trigger.SetActive(true);
+        }
     }
     public void ElevatorConnect()
     {
-        StartCoroutine(nextStage());    
+        StartCoroutine(nextStage());
     }
     private IEnumerator nextStage()
     {
-        SaveManager.Instance.SetData((int)Datas.Char_orc1, true);
+        //SaveManager.Instance.SetData((int)Datas.Char_orc1, true);
         _blocker.DOFade(1, 1f);
         yield return new WaitForSeconds(1f);
         SaveManager.Instance.SetData((int)_nextMap, true);
